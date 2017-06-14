@@ -1,0 +1,144 @@
+.error-message {
+  background-color: #fff;
+  height: 100%;
+  min-height: 462px;
+  padding: 4rem 0;
+  width: 100%;
+  display: table;
+}
+
+.error-message__container {
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  max-width: 108rem;
+  margin: 0 auto;
+  position: relative;
+  text-align: center
+}
+
+.error-message__title {
+  font-weight: 600;
+  font-size: 10rem;
+  color: $black;
+  line-height: 1
+}
+
+.error-message__text {
+  font-weight: 600;
+  font-size: 3.7rem;
+  color: $black;
+  line-height: (41/37);
+}
+
+.error-message__support {
+  font-size: 1.7rem;
+  color: $black;
+  line-height: (31/17);
+}
+
+@media all and (max-width: 60em) {
+  .error-message__support {
+    display:none
+  }
+}
+
+.error-message__pre {
+  text-align: left;
+  padding: 1.6rem 3.2rem;
+  display: inline-block;
+  max-width: calc(100vw - 30px);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  color: #fff;
+}
+
+
+
+.error-message {
+    background-color: #fff;
+    height: calc(100vh - 80px);
+    display: table;
+    width: 100%
+}
+
+.error-message__container {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 108rem;
+    margin: 0 auto;
+    position: relative;
+    text-align: center
+}
+
+.error-message__title {
+    font-weight: 600;
+    font-size: 10rem;
+    color: #000;
+    line-height: 1
+}
+
+.error-message__text {
+    font-weight: 600;
+    font-size: 3.7rem;
+    color: #000;
+    line-height: 1.2162162162
+}
+
+.error-message__support {
+    font-size: 1.7rem;
+    color: #000;
+    line-height: 1.8823529412
+}
+
+.error-message__pre {
+    text-align: left;
+    padding: 1.6rem 3.2rem;
+    display: inline-block;
+    max-width: calc(100vw - 30px);
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch
+}
+
+.error-navigation--links {
+    padding-top: 4rem;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end
+}
+
+.error-navigation--link {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: #333;
+    text-decoration: none;
+    margin: 0 2rem;
+    font-weight: 400
+}
+
+.error-navigation--link i {
+    padding-right: 1rem
+}
+
+.error-navigation--link.is-active {
+    opacity: 0.4
+}
+

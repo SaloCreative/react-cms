@@ -1,0 +1,21 @@
+figure {
+  text-align: center;
+
+  img {
+    margin: 0;
+  }
+}
+
+figcaption {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: (22 / 14);
+  color: $lush-black-44;
+  padding-top: 1rem;
+}
+
+.content-row-large .is-breakout figure img,
+.content-row .is-breakout figure img {
+  width: 100%;
+}

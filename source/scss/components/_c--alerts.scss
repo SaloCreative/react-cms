@@ -1,0 +1,35 @@
+.alert {
+  width: 100%;
+  background: $lush-green;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: left;
+  position: relative;
+  &.error {
+    background: $lush-red;
+  }
+  &.warning {
+    background: $lush-amber;
+  }
+  &.info {
+    background: $lush-black-44;
+  }
+}
+
+.alert__close {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  opacity: 0.6;
+  cursor: pointer;
+  @include transition__opacity();
+  &:hover {
+    opacity: 1.0;
+  }
+}

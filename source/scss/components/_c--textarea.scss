@@ -1,0 +1,25 @@
+.form__textarea-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.form__textarea {
+  margin: 0 !important;
+  .invalid & {
+    border-bottom: 2px solid $lush-red;
+  }
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+  &::-webkit-input-placeholder {
+    color: $lush-black-20;
+  }
+  &::-moz-placeholder {
+    color: $lush-black-20;
+  }
+  &:-ms-input-placeholder {
+    color: $lush-black-20;
+  }
+}

@@ -1,0 +1,65 @@
+.account {
+  position: fixed;
+  top: 0;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, #333333 0%, #000000 100%);
+  .alerts__wrapper {
+    padding: 20px 40px 0;
+  }
+}
+
+.account__panel {
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  padding: 40px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100vh - 40px);
+}
+
+.account__title {
+  width: 140px;
+  margin: 0;
+}
+
+.account__form {
+  padding: 20px 40px;
+  &.loading {
+    position: relative;
+    &:after {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      content: '';
+    }
+  }
+}
+
+.login-button {
+  position: relative;
+  .lush-loader--inline {
+    color: #fff;
+    top: 7.5px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -7.5px;
+  }
+  .loading & {
+    input {
+      background: $lush-black-44;
+      color: $lush-black-44;
+    }
+  }
+}

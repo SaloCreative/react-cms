@@ -1,0 +1,26 @@
+.account-dropdown {
+  display: inline-block;
+  margin-left: 30px;
+  .dropdown__list {
+    top: 60px;
+  }
+}
+
+.account-dropdown__label {
+  display: flex;
+  flex-direction: row;
+}
+
+.account-dropdown__userImage {
+  height: 40px;
+  width: 40px;
+  background: $white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  img {
+    width: 100%;
+    margin: 0;
+  }
+}

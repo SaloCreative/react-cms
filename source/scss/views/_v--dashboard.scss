@@ -1,0 +1,23 @@
+.dashboard__wrapper {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  background: #fff;
+  .container {
+    display: flex;
+    justify-content: left;
+    padding-top: 100px;
+    flex-wrap: wrap;
+  }
+  a {
+    font-size: 14px;
+    cursor: pointer;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 0;
+    text-decoration: none;
+    @include transition__opacity;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}

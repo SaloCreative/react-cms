@@ -1,0 +1,182 @@
+// --------------- // Buttons Styles // --------------- //
+
+// variables
+$primary-background             : $black;
+$primary-colour                 : $white;
+$primary-border                 : $black;
+$primary-hover-background       : $lush-black-80;
+$primary-hover-colour           : $white;
+$primary-hover-border           : $lush-black-80;
+$primary-active-background      : $lush-black-44;
+$primary-active-colour          : $white;
+$primary-active-border          : $lush-black-44;
+$primary-disabled-background    : #cecece;
+$primary-disabled-colour        : $white;
+$primary-disabled-border        : #cecece;
+
+$secondary-background             : $white;
+$secondary-colour                 : $black;
+$secondary-border                 : $black;
+$secondary-hover-background       : $lush-black-80;
+$secondary-hover-colour           : $white;
+$secondary-hover-border           : $lush-black-80;
+$secondary-active-background      : $lush-black-44;
+$secondary-active-colour          : $white;
+$secondary-active-border          : $lush-black-44;
+$secondary-disabled-background    : #cecece;
+$secondary-disabled-colour        : $white;
+$secondary-disabled-border        : #cecece;
+
+$lush-green-background             : $lush-green;
+$lush-green-colour                 : $white;
+$lush-green-border                 : $lush-green;
+$lush-green-hover-background       : $lush-black-80;
+$lush-green-hover-colour           : $white;
+$lush-green-hover-border           : $lush-black-80;
+$lush-green-active-background      : $lush-black-44;
+$lush-green-active-colour          : $white;
+$lush-green-active-border          : $lush-black-44;
+$lush-green-disabled-background    : #cecece;
+$lush-green-disabled-colour        : $white;
+$lush-green-disabled-border        : #cecece;
+
+$negative-background             : $lush-red;
+$negative-colour                 : $white;
+$negative-border                 : $lush-red;
+$negative-hover-background       : $lush-black-80;
+$negative-hover-colour           : $white;
+$negative-hover-border           : $lush-black-80;
+$negative-active-background      : $lush-black-44;
+$negative-active-colour          : $white;
+$negative-active-border          : $lush-black-44;
+$negative-disabled-background    : #cecece;
+$negative-disabled-colour        : $white;
+$negative-disabled-border        : #cecece;
+
+
+//
+// button default styles
+//
+.button {
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 2rem 1.6rem 1.6rem 2rem;
+    user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    line-height: (18 / 11);
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-width: 1px;
+    border-style: solid;
+    display: inline-block;
+    text-decoration: none;
+    min-height: 56px;
+    font-weight: 400;
+
+    &[disabled],
+    &.active,
+    &:hover {
+        transition: all 0.2s;
+    }
+}
+
+.button--primary {
+    color: $primary-colour;
+    border-color: $primary-border;
+    background-color: $primary-background;
+
+    &:hover {
+        color: $primary-hover-colour;
+        border-color: $primary-hover-border;
+        background-color: $primary-hover-background;
+    }
+
+    &:active {
+        color: $primary-active-colour;
+        border-color: $primary-active-border;
+        background-color: $primary-active-background;
+    }
+
+    &[disabled] {
+        color: $primary-disabled-colour;
+        border-color: $primary-disabled-border;
+        background-color: $primary-disabled-background;
+    }
+}
+
+.button--secondary {
+    color: $secondary-colour;
+    border-color: $secondary-border;
+    background-color: $secondary-background;
+
+    &:hover {
+        color: $secondary-hover-colour;
+        border-color: $secondary-hover-border;
+        background-color: $secondary-hover-background;
+    }
+
+    &:active {
+        color: $secondary-active-colour;
+        border-color: $secondary-active-border;
+        background-color: $secondary-active-background;
+    }
+
+    &[disabled] {
+        color: $secondary-disabled-colour;
+        border-color: $secondary-disabled-border;
+        background-color: $secondary-disabled-background;
+    }
+}
+
+.button--positive {
+    color: $lush-green-colour;
+    border-color: $lush-green-border;
+    background-color: $lush-green-background;
+
+    &:hover {
+        color: $lush-green-hover-colour;
+        border-color: $lush-green-hover-border;
+        background-color: $lush-green-hover-background;
+    }
+
+    &:active {
+        color: $lush-green-active-colour;
+        border-color: $lush-green-active-border;
+        background-color: $lush-green-active-background;
+    }
+
+    &[disabled] {
+        color: $lush-green-disabled-colour;
+        border-color: $lush-green-disabled-border;
+        background-color: $lush-green-disabled-background;
+    }
+}
+
+.button--negative {
+    color: $negative-colour;
+    border-color: $negative-border;
+    background-color: $negative-background;
+
+    &:hover {
+        color: $negative-hover-colour;
+        border-color: $negative-hover-border;
+        background-color: $negative-hover-background;
+    }
+
+    &:active {
+        color: $negative-active-colour;
+        border-color: $negative-active-border;
+        background-color: $negative-active-background;
+    }
+
+    &[disabled] {
+        color: $negative-disabled-colour;
+        border-color: $negative-disabled-border;
+        background-color: $negative-disabled-background;
+    }
+}
+

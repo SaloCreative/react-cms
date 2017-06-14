@@ -1,0 +1,18 @@
+// Address
+
+%address,
+.address,
+address {
+  margin-bottom: 10px; //hack
+  
+  @include bp_min ($sm) {
+    color: blue;
+  }
+
+  font-style: normal;
+
+
+
+  .child {
+  }
+}

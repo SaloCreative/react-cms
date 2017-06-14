@@ -1,0 +1,122 @@
+// --------------- // Lists Styles // --------------- //
+
+// Generic lists styles for all devices
+
+ol,
+ul {
+    margin: 0 0 20px;
+    padding-left: 20px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin-bottom: 0;
+}
+
+%list--unordered,
+.list--unordered {
+    list-style-type: none;
+    padding: 0;
+
+    > li {
+        margin-bottom: 5px;
+        flex-basis: percentage(12 / 12);
+        max-width: percentage(12 / 12);
+        justify-content: center;
+        display: flex;
+        position: relative;
+
+        &:before {
+            padding-right: 20px;
+            content: '•';
+        }
+    }
+}
+
+%list--ordered,
+.list--ordered {
+    list-style: none;
+    padding: 0;
+    counter-reset: ordered-list-count;
+
+    > li {
+        margin-bottom: 5px;
+        flex-basis: percentage(12 / 12);
+        max-width: percentage(12 / 12);
+        justify-content: center;
+        counter-increment: ordered-list-count;
+        display: flex;
+        position: relative;
+
+        &:before {
+            padding-right: 20px;
+            content: counter(ordered-list-count) '.';
+        }
+    }
+}
+
+// Unstyled list
+%list--unstyled,
+.list--unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+// Inline list
+%list--inline,
+.list--inline {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+
+    > li {
+        padding-left: 10px;
+        display: inline-block;
+
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+// Description lists
+// =================
+dl {
+    margin-bottom: 12px;
+    margin-top: 0;
+    width: 100%;
+
+    > dt,
+    > dd {
+        line-height: (23/16);
+    }
+
+    > dt {
+        font-weight: bold;
+    }
+
+    > dd {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+}
+
+.list-style-none {
+    list-style: none;
+}
+
+// breakpoint based utilites
+// =========================
+@each $key, $val in $helper-breakpoints {
+     @media all and (min-width: $val + 0px) {
+        .#{$key}-list-style-none {
+            list-style: none;
+        }
+    }
+}

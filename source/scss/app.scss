@@ -1,0 +1,9 @@
+$use-px: false; // Defines if units should be REM or PX
+$a: true; // Defines if main blocks should render
+$b: false; // Defines if ie blocks should render
+$debug: false; // Defines if debug styles should render
+
+@import 'dependency'; // includes all corporate dependencies
+
+// Main dependencies
+// =================
