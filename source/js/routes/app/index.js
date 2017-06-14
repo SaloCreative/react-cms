@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
-import Header from '@lushdigital/manager-header';
+import Header from 'components/header';
 import Auth from 'actions/auth/auth';
 import Alerts from 'components/alerts';
+import DashboardTiles from 'components/dashboard-tiles';
 
 export default class App extends Component {
 
@@ -40,15 +41,15 @@ export default class App extends Component {
   };
 
   render() {
-
+    const navigationItems = <DashboardTiles { ...this.props } />;
     return (
       <div className='App'>
         <Helmet titleTemplate='%s | LUSH Manager' />
 
 
         { Auth.loggedIn() &&
-          <Header { ...this.props } development={ process.env.NODE_ENV === 'development' } isDashboard={ true }>
-            <h1 className='navigation__logo'>Manager</h1>
+          <Header { ...this.props } dashboard={ navigationItems } development={ process.env.NODE_ENV === 'development' }>
+            <h1 className='navigation__logo'>Salo CMS</h1>
           </Header>
         }
 

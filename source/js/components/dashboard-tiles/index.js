@@ -1,59 +1,44 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { routeCodes } from 'routes';
+import Icon from '@lushdigital/manager-icons';
 import PropTypes from 'prop-types';
 
-import Icon from '@lushdigital/manager-icons';
+import { routeCodes } from 'routes';
 
-export default class DashboardTiles extends Component {
-  render() {
-    let applicationRoutes;
-    if (this.props.development) {
-      applicationRoutes = {
-        ANALYTICS: 'http://localhost:3004',
-        CREATOR: 'http://localhost:3001',
-        PEOPLE: 'http://localhost:3003',
-        SHOP_MANAGER: 'http://localhost:3002',
-        STOCK: 'http://localhost:3005'
-      };
-    } else {
-      const prodUrl = 'lush.com';
-      const http = 'https://';
-      applicationRoutes = {
-        ANALYTICS: `${ http }analytics.${ prodUrl }`,
-        CREATOR: `${ http }creator.${ prodUrl }`,
-        PEOPLE: `${ http }people.${ prodUrl }`,
-        SHOP_MANAGER: `${ http }tills.${ prodUrl }`,
-        STOCK: `${ http }stock.${ prodUrl }`
-      };
+class DashboardTiles extends Component {
+
+    clicked(label) {
+        let text = label;
+        if (text === 'Menu') {
+            text = this.props.routes[this.props.routes.length - 1].name;
+        }
+        return this.props.setNavigationState({ menuOpen: false, managerMenuOpen: false, icon: 'menu', text});
     }
-    return (
-      <div className='container'>
-        <a href={ applicationRoutes.ANALYTICS } className='manager-navigation__link'>
-          <span className='manager-navigation__icon'><Icon icon='analytics' size='55px' fill='#000' /></span>
-          <span className='manager-navigation__link-text'>Analytics</span>
-        </a>
-        <a href={ applicationRoutes.CREATOR } className='manager-navigation__link'>
-          <span className='manager-navigation__icon'><Icon icon='creator' size='55px' fill='#000' /></span>
-          <span className='manager-navigation__link-text'>Creator</span>
-        </a>
-        <a href={ applicationRoutes.PEOPLE } className='manager-navigation__link'>
-          <span className='manager-navigation__icon'><Icon icon='profile' size='45px' fill='#000' /></span>
-          <span className='manager-navigation__link-text'>People</span>
-        </a>
-        <a href={ applicationRoutes.SHOP_MANAGER } className='manager-navigation__link'>
-          <span className='manager-navigation__icon'><Icon icon='smartphone-landscape' size='55px' fill='#000' /></span>
-          <span className='manager-navigation__link-text'>Shop Manager</span>
-        </a>
-        <a href={ applicationRoutes.STOCK } className='manager-navigation__link'>
-          <span className='manager-navigation__icon'><Icon icon='chart' size='45px' fill='#000' /></span>
-          <span className='manager-navigation__link-text'>Stock</span>
-        </a>
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <div className='container'>
+                <Link to={ routeCodes.TILLS } className='navigation-overlay__link' title='name' onClick={ () => this.clicked('Tills') }>
+                    <span className='navigation-overlay__icon'><Icon icon='smartphone-landscape' size='55px' fill='#fff' /></span>
+                    <span className='navigation-overlay__link-text'>TILLS</span>
+                </Link>
+                <Link to={ routeCodes.REPORTS } className='navigation-overlay__link' onClick={ () => this.clicked('Reports') }>
+                    <span className='navigation-overlay__icon'><Icon icon='trending-up' size='55px' fill='#fff' /></span>
+                    <span className='navigation-overlay__link-text'>REPORTS</span>
+                </Link>
+                <Link to={ routeCodes.PETTYCASH } className='navigation-overlay__link' onClick={ () => this.clicked('Petty Cash') }>
+                    <span className='navigation-overlay__icon'><Icon icon='chart' size='45px' fill='#fff' /></span>
+                    <span className='navigation-overlay__link-text'>PETTY_CASH</span>
+                </Link>
+            </div>
+        );
+    }
 }
 
-DashboardTiles.defaultProps = {
-  development: false
+DashboardTiles.propTypes = {
+    children: PropTypes.any,
+    setNavigationState: PropTypes.func,
+    navigation: PropTypes.object
 };
+
+export default DashboardTiles;
