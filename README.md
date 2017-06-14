@@ -1,4 +1,4 @@
-# React and Redux, Webpack 2 boilerplate
+# React API Driven CMS
 
 ## Table of contents
 * [Setup](#user-content-setup)
@@ -29,10 +29,6 @@ $ npm start
 Visit `http://localhost:3000/` from your browser of choice.
 Server is visible from the local network as well.
 
-
-It is using [webpack dashboard](https://github.com/FormidableLabs/webpack-dashboard), so please note the following:
-
-**OS X Terminal.app users:** Make sure that **View → Allow Mouse Reporting** is enabled, otherwise scrolling through logs and modules won't work. If your version of Terminal.app doesn't have this feature, you may want to check out an alternative such as [iTerm2](https://www.iterm2.com/).
 
 ## Build (production)
 
@@ -98,30 +94,11 @@ npm run hook-remove
 ```
 
 
-
 -----
 
 ## Changelog
 
-#### 0.1.1
-
-* Fixed running it on Windows machines
-
-#### 0.1.0
-
-* Updated `webpack` to a stable version
-
-#### 0.0.3
-
-* Added pre-push git hook
-* Added `preview` task
-
-#### 0.0.2
-
-* Added Redux Dev Tools.
-* Renamed `client` to `source`
-* Made sure `logger` and `DevTools` are loaded only in development
-
 #### 0.0.1
 
-Initial release
+* Initial setup
+* Real login
