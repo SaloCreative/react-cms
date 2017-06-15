@@ -85,7 +85,7 @@ export default class Login extends Component {
           <title>Login</title>
         </Helmet>
         <div className='account__panel'>
-          <img className='account__title' src='/assets/img/logo-black.svg' alt='Manager Beta' />
+          <img className='account__title' src='/assets/img/logo-full.png' alt='Salo Creative CMS' />
 
           <Alerts { ...this.props } />
 
