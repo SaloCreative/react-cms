@@ -45,17 +45,9 @@ function login(state = initialState, action) {
 
     case SET_USER_STATE : {
       const authToken = cookies.get('authToken');
-      const user = authToken.user;
       return {
         ...state,
-        user: {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          avatar: user.avatar,
-          location: user.location,
-          language: user.language
-        },
+        user: authToken.user,
         token: authToken.token,
         meta: {
           fetching: false
