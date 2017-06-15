@@ -67,7 +67,7 @@
   display: flex;
   align-items: center;
   a {
-    margin-left: 30px;
+    margin-left: 45px;
   }
 }
 
@@ -97,12 +97,12 @@
   display: flex !important;
   align-items: center;
   cursor: pointer;
-  svg {
+  span {
     margin-right: 12px;
   }
   &.open {
-    svg {
-      margin-right: 18px;
+    span {
+      margin-right: 13px;
     }
   }
   &.dashboard {

@@ -1,13 +1,11 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
+import FontAwesome from 'react-fontawesome';
 
 import { Link } from 'react-router';
 import { routeCodes } from 'routes';
-
-import Icon from '@lushdigital/manager-icons';
 import AccountDropdown from 'components/account-dropdown';
-
 import Navigation from 'components/navigation';
 
 export default class Header extends Component {
@@ -26,14 +24,16 @@ export default class Header extends Component {
 
                         <div className='navigation__account'>
 
-                            <div className='navigation__notification'>
-                                <Link to={ routeCodes.DASHBOARD } className='navigation__notification'>
-                                    <Icon icon='grid' size='21px' fill='#fff' />
-                                </Link>
-                            </div>
+                            <Link to={ routeCodes.DASHBOARD } className='navigation__notification'>
+                                <FontAwesome name='tasks' size='lgr' />
+                            </Link>
 
                             <Link className='navigation__notification'>
-                                <Icon icon='notification' size='21px' fill='#fff' />
+                                <FontAwesome name='envelope-o' size='lgr' />
+                            </Link>
+
+                            <Link className='navigation__notification'>
+                                <FontAwesome name='bell' size='lgr' />
                             </Link>
 
                             <AccountDropdown { ...this.props } user={ this.props.login.user } />
@@ -47,5 +47,5 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-    login: PropTypes.object.isRequired,
+    login: PropTypes.object.isRequired
 };

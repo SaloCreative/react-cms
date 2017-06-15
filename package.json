@@ -52,7 +52,6 @@
   },
   "dependencies": {
     "@aftonbladet/redux-api-middleware": "^1.1.1",
-    "@lushdigital/manager-icons": "^1.1.1",
     "babel-polyfill": "^6.23.0",
     "es6-promise": "^4.1.0",
     "history": "3.0.0",
@@ -64,6 +63,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.0.3",
     "react-intl": "^2.3.0",
     "react-portal": "^3.1.0",

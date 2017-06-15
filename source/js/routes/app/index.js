@@ -20,7 +20,7 @@ export default class App extends Component {
     const text = this.props.routes[this.props.routes.length - 1].name;
     const newText = nextProps.routes[nextProps.routes.length - 1].name;
     if (text !== newText && nextProps.navigation.menuOpen === false) {
-      this.props.setNavigationState({ menuOpen: false, managerMenuOpen: false, icon: 'menu', text: newText });
+      this.props.setNavigationState({ menuOpen: false, managerMenuOpen: false, icon: 'bars', text: newText });
     }
     // return a boolean value always to make sure other updates aren't blocked
     return true;

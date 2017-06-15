@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import Icon from '@lushdigital/manager-icons';
+import FontAwesome from 'react-fontawesome';
 
 export default class Alerts extends Component {
   render() {
@@ -14,7 +13,7 @@ export default class Alerts extends Component {
                 <div className='cell'>
                   {alert.message.en}
                   <a className='alert__close' onClick={ () => this.props.clearSystemAlert(i) } role='button' tabIndex='-1'>
-                    <Icon icon='close' fill='#fff' size='10px' />
+                    <FontAwesome name='times' />
                   </a>
                 </div>
               </div>

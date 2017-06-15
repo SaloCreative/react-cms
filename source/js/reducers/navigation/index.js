@@ -5,7 +5,7 @@ import {
 const initialState = {
   text: 'Menu',
   menuOpen: false,
-  icon: 'menu'
+  icon: 'bars'
 };
 
 // Nav reducer

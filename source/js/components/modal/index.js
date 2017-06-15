@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '@lushdigital/manager-icons';
+import FontAwesome from 'react-fontawesome';
 
 export default class Modal extends Component {
   close(e) {
@@ -20,7 +20,7 @@ export default class Modal extends Component {
           <div className='modal__header'>
             <h3>{this.props.title}</h3>
             <h3 className='modal__subheading'>{this.props.subtitle}</h3>
-            <a className='modal__close' onClick={ e => this.close(e) } role='button' tabIndex='-1'><Icon size='14px' icon='close' /></a>
+            <a className='modal__close' onClick={ e => this.close(e) } role='button' tabIndex='-1'><FontAwesome name='cross' /></a>
           </div>
           <div className='modal__body'>
             {this.props.children}
