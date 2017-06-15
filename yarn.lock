@@ -10,28 +10,9 @@
     isomorphic-fetch "^2.1.1"
     lodash.isplainobject "^3.2.0"
 
-"@lushdigital/manager-account-dropdown@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@lushdigital/manager-account-dropdown/-/manager-account-dropdown-1.0.0.tgz#8923c487ac04fee8a606527ca793efcb90ccc020"
-  dependencies:
-    "@lushdigital/manager-dropdown" "^1.0.0"
-    react "^0.14.2"
-
-"@lushdigital/manager-dropdown@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@lushdigital/manager-dropdown/-/manager-dropdown-1.0.0.tgz#ce2224ec13bc49e47e6437a555f20a6065da8cdc"
-  dependencies:
-    react "^0.14.2"
-
 "@lushdigital/manager-icons@^1.1.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@lushdigital/manager-icons/-/manager-icons-1.2.1.tgz#6837259e8ae8f466b538acf0b556240234798268"
-  dependencies:
-    react "^0.14.2"
-
-"@lushdigital/manager-loader@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@lushdigital/manager-loader/-/manager-loader-1.0.0.tgz#21f66c4d010aa3cf0687b4058329e28b64b84be4"
   dependencies:
     react "^0.14.2"
 

@@ -52,10 +52,7 @@
   },
   "dependencies": {
     "@aftonbladet/redux-api-middleware": "^1.1.1",
-    "@lushdigital/manager-account-dropdown": "^1.0.0",
-    "@lushdigital/manager-dropdown": "^1.0.0",
     "@lushdigital/manager-icons": "^1.1.1",
-    "@lushdigital/manager-loader": "^1.0.0",
     "babel-polyfill": "^6.23.0",
     "es6-promise": "^4.1.0",
     "history": "3.0.0",

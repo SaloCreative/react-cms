@@ -3,9 +3,10 @@
 import React, { Component, PropTypes } from 'react';
 
 import { Link } from 'react-router';
+import { routeCodes } from 'routes';
 
 import Icon from '@lushdigital/manager-icons';
-import AccountDropdown from '@lushdigital/manager-account-dropdown';
+import AccountDropdown from 'components/account-dropdown';
 
 import Navigation from 'components/navigation';
 
@@ -17,17 +18,19 @@ export default class Header extends Component {
                 <div className='navigation__wrapper'>
                     <nav className='navigation__menu'>
 
-                        <Navigation { ...this.props } items={ this.props.dashboard } />
+                        <Navigation { ...this.props } />
 
-                        <h1 className='navigation__logo'>Salo Creative CMS</h1>
-
-                        <div className='manager-navigation'>
-                            <Link to='/' className='manager-navigation__toggle'>
-                                <Icon icon='grid' size='21px' fill='#fff' />
-                            </Link>
-                        </div>
+                        <Link className='navigation__logo' to={ routeCodes.DASHBOARD } >
+                            <img src='/assets/img/logo.png' />
+                        </Link>
 
                         <div className='navigation__account'>
+
+                            <div className='navigation__notification'>
+                                <Link to={ routeCodes.DASHBOARD } className='navigation__notification'>
+                                    <Icon icon='grid' size='21px' fill='#fff' />
+                                </Link>
+                            </div>
 
                             <Link className='navigation__notification'>
                                 <Icon icon='notification' size='21px' fill='#fff' />
@@ -43,11 +46,6 @@ export default class Header extends Component {
     }
 }
 
-Header.defaultProps = {
-    dashboard: null
-};
-
 Header.propTypes = {
     login: PropTypes.object.isRequired,
-    dashboard: PropTypes.any
 };

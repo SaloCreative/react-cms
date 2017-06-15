@@ -19,19 +19,6 @@
   text-align: center;
   width: 100%;
   height: 80px;
-
-  h1 {
-    font-size: 14px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    line-height: 0;
-    text-decoration: none;
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 500;
-    margin: 0;
-  }
-
 }
 
 .navigation__menu a,
@@ -68,6 +55,7 @@
   font-weight: 500;
   img {
     margin: 0;
+    width: 160px;
   }
 }
 

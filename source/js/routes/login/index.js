@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
-import Loader from '@lushdigital/manager-loader';
+import Loader from 'components/loader';
 
 import * as Rule from 'actions/forms/validation/rules';
 import { validate, runValidation } from 'actions/forms/validation/validator';
