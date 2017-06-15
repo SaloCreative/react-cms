@@ -69,18 +69,15 @@
 @import 'components/c--alerts';
 @import 'components/c--modal';
 @import 'components/c--table';
-@import 'components/header/c--header';
-@import 'components/header/c--navigation';
 @import 'components/header/c--manager_navigation';
 @import 'components/header/c--account_dropdown';
 
 // --------
 // sections
 // --------
-@import 'sections/s--sub_navigation';
-@import 'sections/s--content';
+@import 'sections/s--header';
 @import 'sections/s--footer';
-@import 'sections/s--section-navigation';
+@import 'sections/s--content';
 
 // --------
 // Views
