@@ -9,13 +9,11 @@ import navigation from './navigation';
 import login from './auth/login';
 
 // Users
-import users from './user/users';
 
 export default combineReducers({
   systemAlerts,
   navigation,
   login,
-  users,
   form: formReducer,
   routing: routerReducer
 });
