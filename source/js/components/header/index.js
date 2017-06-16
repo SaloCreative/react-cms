@@ -25,15 +25,15 @@ export default class Header extends Component {
                         <div className='navigation__account'>
 
                             <Link to={ routeCodes.DASHBOARD } className='navigation__notification'>
-                                <FontAwesome name='tasks' size='lgr' />
+                                <FontAwesome name='tasks' size='lg' />
                             </Link>
 
                             <Link className='navigation__notification'>
-                                <FontAwesome name='envelope-o' size='lgr' />
+                                <FontAwesome name='envelope-o' size='lg' />
                             </Link>
 
                             <Link className='navigation__notification'>
-                                <FontAwesome name='bell' size='lgr' />
+                                <FontAwesome name='bell' size='lg' />
                             </Link>
 
                             <AccountDropdown { ...this.props } user={ this.props.login.user } />
