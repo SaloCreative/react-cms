@@ -42,7 +42,7 @@ export default class Navigation extends Component {
                             <span className='navigation-overlay__icon'><FontAwesome name='pencil' size='3x' /></span>
                             <span className='navigation-overlay__link-text'>Pages</span>
                         </Link>
-                        <Link to={ routeCodes.PRODUCTS } className='navigation-overlay__link' onClick={ () => this.clicked('Products') }>
+                        <Link to={ routeCodes.PRODUCT.INDEX } className='navigation-overlay__link' onClick={ () => this.clicked('Products') }>
                             <span className='navigation-overlay__icon'><FontAwesome name='shopping-cart' size='3x' /></span>
                             <span className='navigation-overlay__link-text'>Products</span>
                         </Link>

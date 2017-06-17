@@ -9,12 +9,22 @@ import Dashboard from 'routes/dashboard';
 import Login from 'routes/login';
 import NotFound from 'routes/notFound';
 
+// Products
+import ProductIndex from 'routes/products';
+import AddProduct from 'routes/products/add';
+import EditProduct from 'routes/products/edit';
+
 const publicPath = '/';
 
 export const routeCodes = {
-  ERROR: `${ publicPath }404-error`,
-  LOGIN: `${ publicPath }login`,
-  DASHBOARD: publicPath
+  DASHBOARD: '/',
+  LOGIN: '/login',
+  PRODUCT: {
+    INDEX: '/products',
+    ADD: '/products/add',
+    EDIT: '/products/edit'
+  },
+  ERROR: '/404-error'
 };
 
 function requireAuth(nextState, replace) {
@@ -42,6 +52,11 @@ export default class Routes extends Component {
          
           {/* Dashboard route */}
           <IndexRoute name='Dashboard' component={ Dashboard } onEnter={ requireAuth } />
+
+          {/* Product routes */}
+          <Route name='Products' path={ routeCodes.PRODUCT.INDEX } component={ ProductIndex } onEnter={ requireAuth } />
+          <Route name='Add Product' path={ routeCodes.PRODUCT.ADD } component={ AddProduct } onEnter={ requireAuth } />
+          <Route name='Edit Product' path={ routeCodes.PRODUCT.EDIT } component={ EditProduct } onEnter={ requireAuth } />
 
           {/* Misc routes */}
           <Route name='Login' path={ routeCodes.LOGIN } component={ Login } onEnter={ requireNotAuth } />
