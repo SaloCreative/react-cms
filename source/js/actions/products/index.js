@@ -1,6 +1,7 @@
 import { CALL_API, getJSON } from 'redux-api-middleware';
 import { API, HEADER, ENDPOINT } from 'api';
-import { ApiError } from 'apiErrorHandler';
+import { ApiError } from 'api/errorHandler';
+import ErrorMessages from 'reducers/alerts/messages/errorMessages';
 
 import { ProductFilter } from './filter';
 
@@ -26,8 +27,14 @@ export const getProducts = (filter = new ProductFilter) => ({
         }
       },
       {
-        type: GET_PRODUCTS_FAILED
+        type: GET_PRODUCTS_FAILED,
+        payload: (action, state, res) => {
+          getJSON(res).then(
+            (json) => new ApiError(res.status, ErrorMessages.getProductsFailed, json)
+          );
+        }
       }
+
     ]
   }
 });

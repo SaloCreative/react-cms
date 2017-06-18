@@ -9,13 +9,11 @@ export default class Alerts extends Component {
         <div className='alerts__wrapper'>
           {this.props.systemAlerts.map((alert, i) =>
             (<div className={ `alert ${ alert.type }` } key={ i }>
-              <div className='container'>
-                <div className='cell'>
-                  {alert.message.en}
-                  <a className='alert__close' onClick={ () => this.props.clearSystemAlert(i) } role='button' tabIndex='-1'>
-                    <FontAwesome name='times' />
-                  </a>
-                </div>
+              <div className='cell'>
+                {alert.message.en}
+                <a className='alert__close' onClick={ () => this.props.clearSystemAlert(i) } role='button' tabIndex='-1'>
+                  <FontAwesome name='times' />
+                </a>
               </div>
             </div>)
           )}

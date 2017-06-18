@@ -1,7 +1,6 @@
 import { browserHistory } from 'react-router';
 import { CALL_API, getJSON } from 'redux-api-middleware';
 import { API, HEADER, ENDPOINT } from 'api';
-import { ApiError } from 'apiErrorHandler';
 
 import { routeCodes } from 'routes';
 import auth from './auth';

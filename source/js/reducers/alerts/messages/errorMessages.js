@@ -5,18 +5,6 @@ const ErrorMessages = {
       en: 'Your username or password is incorrect.'
     }
   },
-  storeFetchInfoFail: {
-    type: 'error',
-    message: {
-      en: 'Could not get the requested store details at this time.'
-    }
-  },
-  tillReportFetchFail: {
-    type: 'error',
-    message: {
-      en: 'Could not get the requested till details at this time.'
-    }
-  },
   general: {
     type: 'error',
     message: {
@@ -27,6 +15,12 @@ const ErrorMessages = {
     type: 'error',
     message: {
       en: 'You do not have permission to complete this action.'
+    }
+  },
+  getProductsFailed: {
+    type: 'error',
+    message: {
+      en: 'Could not fetch the products list at this time. Please try again.'
     }
   }
 };

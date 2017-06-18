@@ -1,7 +1,7 @@
-import store from './store';
-import ErrorMessages from './reducers/alerts/messages/errorMessages';
+import store from 'store';
+import ErrorMessages from 'reducers/alerts/messages/errorMessages';
 import { browserHistory } from 'react-router';
-import { routeCodes } from './routes';
+import { routeCodes } from 'routes';
 
 /**
  * This action is called by `handleError` to show the API failure message
