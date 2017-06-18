@@ -8,12 +8,16 @@ import navigation from './navigation';
 // Auth
 import login from './auth/login';
 
+// Products
+import products from './products'
+
 // Users
 
 export default combineReducers({
   systemAlerts,
   navigation,
   login,
+  products,
   form: formReducer,
   routing: routerReducer
 });

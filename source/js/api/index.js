@@ -13,7 +13,7 @@ export const API = {
         LOGOUT: 'auth/logout',
         grants: {}
     },
-    PRODUCT: {
+    PRODUCTS: {
         PRODUCTS: 'products',
         TAGS: 'products/tags'
     }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as authActions from 'actions/auth/authActions';
 import * as alertHandling from 'actions/alerts/alerts';
 import * as navigationActions from 'actions/navigation';
+import * as productActions from 'actions/products';
 import App from 'routes/app';
 
 function mapStateToProps(state) {
@@ -10,7 +11,8 @@ function mapStateToProps(state) {
     systemAlerts: state.systemAlerts,
     navigation: state.navigation,
     users: state.users,
-    login: state.login
+    login: state.login,
+    products: state.products
   };
 }
 
@@ -20,7 +22,8 @@ function mapDispatchToProps(dispatch) {
       {},
       authActions,
       alertHandling,
-      navigationActions
+      navigationActions,
+      productActions
     ), dispatch);
 }
 

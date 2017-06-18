@@ -10,7 +10,7 @@ export const GET_PRODUCTS_FAILED = 'GET_PRODUCTS_FAILED';
 
 export const getProducts = (filter = new ProductFilter) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.INDEX) }?${ filter.getEndpointParameters() }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCTS) }?${ filter.getEndpointParameters() }`,
     method: 'GET',
     headers: HEADER(),
     types: [
