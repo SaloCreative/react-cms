@@ -72,7 +72,7 @@ export default class Login extends Component {
         email: this.state.email,
         password: this.state.password
       };
-      this.props.loginUser(credentials, this.props.location.query.return);
+      this.props.loginUser(credentials);
     } else {
       this.setState({ showErrors: true });
     }

@@ -26,8 +26,9 @@ function login(state = initialState, action) {
     case LOG_IN_ATTEMPT : {
       return {
         ...state,
-        meta: action.meta,
-        returnUrl: action.payload.returnUrl
+        meta: {
+          fetching: true
+        }
       };
     }
 
@@ -58,7 +59,9 @@ function login(state = initialState, action) {
     case LOG_IN_FAIL : {
       return {
         ...state,
-        meta: action.meta
+        meta: {
+          fetching: false
+        }
       };
     }
 

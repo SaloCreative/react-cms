@@ -32,7 +32,7 @@ export function logOutUser() {
   };
 }
 
-export const loginUser = (credentials, returnUrl) => ({
+export const loginUser = (credentials) => ({
   [CALL_API]: {
     endpoint: ENDPOINT(API.AUTH.LOGIN),
     method: 'POST',
@@ -40,14 +40,7 @@ export const loginUser = (credentials, returnUrl) => ({
     body: JSON.stringify(credentials),
     types: [
       {
-        type: LOG_IN_ATTEMPT,
-        payload: {
-          returnUrl
-        },
-        meta: {
-          fetching: true,
-          last_updated: ''
-        }
+        type: LOG_IN_ATTEMPT
       },
       {
         type: LOG_IN_SUCCESS,
@@ -55,18 +48,10 @@ export const loginUser = (credentials, returnUrl) => ({
           return getJSON(res).then((json) => {
             return json;
           });
-        },
-        meta: {
-          fetching: false,
-          last_updated: Date.now()
         }
       },
       {
-        type: LOG_IN_FAIL,
-        meta: {
-          fetching: false,
-          last_updated: ''
-        }
+        type: LOG_IN_FAIL
       }
     ]
   }
