@@ -23,6 +23,29 @@ function products(state = initialState, action) {
         }
       };
 
+    case GET_PRODUCTS_RECEIVED :
+      return {
+        ...state,
+        data: action.payload.data,
+        meta: {
+          fetching: false,
+          last_updated: Date.now(),
+          current_page: action.payload.current_page,
+          per_page: action.payload.per_page,
+          total: action.payload.total
+        }
+      };
+
+    case GET_PRODUCTS_FAILED :
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          fetching: false,
+          last_updated: ''
+        }
+      };
+
     default :
       return state;
   }
