@@ -5,7 +5,6 @@ import { ApiError } from 'apiErrorHandler';
 
 import { routeCodes } from 'routes';
 import auth from './auth';
-import { getObjectByKey } from 'actions/global/utilityFunctions';
 
 export const LOG_IN_ATTEMPT = 'LOG_IN_ATTEMPT';
 export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';

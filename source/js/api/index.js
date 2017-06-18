@@ -12,6 +12,10 @@ export const API = {
         LOGIN: 'auth/login',
         LOGOUT: 'auth/logout',
         grants: {}
+    },
+    PRODUCT: {
+        PRODUCTS: 'products',
+        TAGS: 'products/tags'
     }
 };
 
