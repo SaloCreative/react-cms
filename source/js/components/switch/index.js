@@ -12,7 +12,7 @@ export default class Switch extends Component {
   render() {
     return (
       <div className={ `switch__wrapper ${ this.props.state ? 'active' : '' }` }>
-        <div className='switch__container' onClick={ () => { this.props.switch(this.props.state); } }>
+        <div className='switch__container' onClick={ () => { this.props.switch(!this.props.state); } }>
           <span className='switch__handle' />
         </div>
         <span className='switch__label'>{ this.renderLabel() }</span>

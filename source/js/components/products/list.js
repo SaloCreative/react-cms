@@ -7,11 +7,11 @@ import Switch from 'components/switch';
 export default class ProductListItem extends Component {
 
   toggleStock(e) {
-    console.log(!e);
+    console.log(e);
   }
 
   toggleOnline(e) {
-    console.log(!e);
+    console.log(e);
   }
 
   render() {
