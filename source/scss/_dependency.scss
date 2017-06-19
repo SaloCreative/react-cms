@@ -15,6 +15,7 @@
 @import 'utilities/functions/uf--px_to_em';
 @import 'utilities/functions/uf--opacity_sim';
 @import 'utilities/functions/uf--map_read';
+@import 'utilities/functions/uf--colours';
 // mixins
 @import 'utilities/mixins/um--breakpoints';
 @import 'utilities/mixins/um--screen_reader';
@@ -70,6 +71,7 @@
 @import 'components/c--modal';
 @import 'components/c--table';
 @import 'components/c--account_dropdown';
+@import 'components/c--switch';
 
 // --------
 // sections

@@ -6,7 +6,7 @@ export default class EditProduct extends Component {
     render() {
         return (
             <div className='page__edit-product'>
-                <Helmet>
+                <Helmet>xw
                     <title>Edit Product</title>
                 </Helmet>
                 <div className='product__wrapper'>

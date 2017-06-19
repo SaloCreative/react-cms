@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
+import Switch from 'components/switch';
+
 export default class ProductListItem extends Component {
+
+  toggleStock(e) {
+    console.log(!e);
+  }
+
+  toggleOnline(e) {
+    console.log(!e);
+  }
 
   render() {
     const { product, i } = this.props;
@@ -21,10 +31,10 @@ export default class ProductListItem extends Component {
           { product.price }
         </div>
         <div className='product-list__stock column'>
-          { product.inStock }
+          <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e) } />
         </div>
         <div className='product-list__active column'>
-          { product.online }
+          <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e) } />
         </div>
         <div className='product-list__actions column'>
         </div>

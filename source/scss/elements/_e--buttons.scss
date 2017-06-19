@@ -27,18 +27,18 @@ $secondary-disabled-background    : #cecece;
 $secondary-disabled-colour        : $white;
 $secondary-disabled-border        : #cecece;
 
-$lush-green-background             : $lush-green;
-$lush-green-colour                 : $white;
-$lush-green-border                 : $lush-green;
-$lush-green-hover-background       : $lush-black-80;
-$lush-green-hover-colour           : $white;
-$lush-green-hover-border           : $lush-black-80;
-$lush-green-active-background      : $lush-black-44;
-$lush-green-active-colour          : $white;
-$lush-green-active-border          : $lush-black-44;
-$lush-green-disabled-background    : #cecece;
-$lush-green-disabled-colour        : $white;
-$lush-green-disabled-border        : #cecece;
+$salo-green-background             : $salo-green;
+$salo-green-colour                 : $white;
+$salo-green-border                 : $salo-green;
+$salo-green-hover-background       : $lush-black-80;
+$salo-green-hover-colour           : $white;
+$salo-green-hover-border           : $lush-black-80;
+$salo-green-active-background      : $lush-black-44;
+$salo-green-active-colour          : $white;
+$salo-green-active-border          : $lush-black-44;
+$salo-green-disabled-background    : #cecece;
+$salo-green-disabled-colour        : $white;
+$salo-green-disabled-border        : #cecece;
 
 $negative-background             : $lush-red;
 $negative-colour                 : $white;
@@ -133,26 +133,26 @@ $negative-disabled-border        : #cecece;
 }
 
 .button--positive {
-    color: $lush-green-colour;
-    border-color: $lush-green-border;
-    background-color: $lush-green-background;
+    color: $salo-green-colour;
+    border-color: $salo-green-border;
+    background-color: $salo-green-background;
 
     &:hover {
-        color: $lush-green-hover-colour;
-        border-color: $lush-green-hover-border;
-        background-color: $lush-green-hover-background;
+        color: $salo-green-hover-colour;
+        border-color: $salo-green-hover-border;
+        background-color: $salo-green-hover-background;
     }
 
     &:active {
-        color: $lush-green-active-colour;
-        border-color: $lush-green-active-border;
-        background-color: $lush-green-active-background;
+        color: $salo-green-active-colour;
+        border-color: $salo-green-active-border;
+        background-color: $salo-green-active-background;
     }
 
     &[disabled] {
-        color: $lush-green-disabled-colour;
-        border-color: $lush-green-disabled-border;
-        background-color: $lush-green-disabled-background;
+        color: $salo-green-disabled-colour;
+        border-color: $salo-green-disabled-border;
+        background-color: $salo-green-disabled-background;
     }
 }
 

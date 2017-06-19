@@ -27,7 +27,7 @@ export default class ProductIndex extends Component {
               <title>Products</title>
           </Helmet>
           <div className='content_table product-index'>
-            <div class='content-table__header'>
+            <div className='content-table__header'>
 
             </div>
             <Loader display={ products.meta.fetching } />
