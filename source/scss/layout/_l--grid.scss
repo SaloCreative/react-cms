@@ -2,7 +2,9 @@
 // =========
 @function width($value, $unit, $width: $page-width) {
   @return #{($width * $value) / 100 }$unit;
-};
+}
+
+;
 
 .container {
   width: 100%;
@@ -15,11 +17,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 0 1.25rem;
 }
 
 .column {
   display: flex;
+  width: 100%;
   flex-direction: column;
+  padding: 0 1.25rem;
 }
 
 .cell {
@@ -34,20 +39,10 @@
 
 // Classes
 // =======
-// @for $i from 1 through $max_column_count {
-//   .is-#{$i} {
-//     flex-basis: percentage($i / $max_column_count);
-//     max-width: percentage($i / $max_column_count);
-//   }
-// }
 
-// @each $key, $val in $i {
-//   @media all and (min-width: $val + 0px) {
-//     @for $i from 1 through $max_column_count {
-//       .#{$key}-is-#{$i} {
-//         flex-basis: percentage($i / $max_column_count);
-//         max-width: percentage($i / $max_column_count);
-//       }
-//     }
-//   }
-// }
+@for $i from 1 through $max_column_count {
+  .is-#{$i} {
+    flex-basis: percentage($i / $max_column_count);
+    max-width: percentage($i / $max_column_count);
+  }
+}

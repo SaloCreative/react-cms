@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import ProductListItem from 'components/products/list';
+import Loader from 'components/loader';
+
 export default class ProductIndex extends Component {
 
   componentWillMount() {
@@ -16,13 +19,22 @@ export default class ProductIndex extends Component {
   }
 
   render() {
+    const { products } = this.props;
     return (
-      <div className='page__product-index'>
-        <Helmet>
-            <title>Products</title>
-        </Helmet>
-        <div className='product__wrapper'>
+      <div id='product-index' className='row'>
+        <div className='product__wrapper column'>
+          <Helmet>
+              <title>Products</title>
+          </Helmet>
+          <div className='content_table product-index'>
+            <div class='content-table__header'>
 
+            </div>
+            <Loader display={ products.meta.fetching } />
+            {products.data.map((product, i) =>
+              <ProductListItem key={ i } i={ i } product={ product } />
+            )}
+          </div>
         </div>
       </div>
     );

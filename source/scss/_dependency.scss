@@ -55,7 +55,6 @@
 @import 'elements/e--code_snippets';
 @import 'elements/e--video';
 @import 'elements/e--figure';
-@import 'elements/e--report-tile';
 @import 'elements/e--fontawesome';
 
 // --------
@@ -85,3 +84,9 @@
 @import 'views/v--error';
 @import 'views/v--account';
 @import 'views/v--dashboard';
+
+// --------
+// Products
+// --------
+@import 'products/p--products';
+@import 'products/p--list-item';
