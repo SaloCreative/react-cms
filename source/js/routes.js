@@ -11,6 +11,7 @@ import NotFound from 'routes/notFound';
 
 // Products
 import ProductIndex from 'routes/products';
+import ProductDashboard from 'routes/products/dashboard';
 import AddProduct from 'routes/products/add';
 import EditProduct from 'routes/products/edit';
 
@@ -20,7 +21,8 @@ export const routeCodes = {
   DASHBOARD: '/',
   LOGIN: '/login',
   PRODUCT: {
-    INDEX: '/products',
+    DASHBOARD: '/products',
+    INDEX: '/products/list',
     ADD: '/products/add',
     EDIT: '/products/edit'
   },
@@ -54,6 +56,7 @@ export default class Routes extends Component {
           <IndexRoute name='Dashboard' component={ Dashboard } onEnter={ requireAuth } />
 
           {/* Product routes */}
+          <Route name='Products' path={ routeCodes.PRODUCT.DASHBOARD } component={ ProductDashboard } onEnter={ requireAuth } />
           <Route name='Products' path={ routeCodes.PRODUCT.INDEX } component={ ProductIndex } onEnter={ requireAuth } />
           <Route name='Add Product' path={ routeCodes.PRODUCT.ADD } component={ AddProduct } onEnter={ requireAuth } />
           <Route name='Edit Product' path={ routeCodes.PRODUCT.EDIT } component={ EditProduct } onEnter={ requireAuth } />
