@@ -1,4 +1,30 @@
 .product-list__item {
   display: flex;
   flex-direction: row;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  .column {
+    flex-direction: inherit;
+    align-items: center;
+  }
+  .product-list__title {
+    flex-direction: column;
+  }
+}
+
+.product-list__loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.6);
+  z-index: 5;
+  .lush-loader--inline {
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -21.5px;
+  }
 }

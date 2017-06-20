@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
 import Switch from 'components/switch';
+import Loader from 'components/loader';
 
 export default class ProductListItem extends Component {
 
@@ -14,10 +15,23 @@ export default class ProductListItem extends Component {
     this.props.toggleProductOnline(product, e, i);
   }
 
+  renderLoader() {
+    const { product } = this.props;
+    if (product.meta && product.meta.fetching) {
+      return (
+        <div className='product-list__loader'>
+          <Loader style='inline' display={ product.meta.fetching } />
+        </div>
+      );
+    }
+    return null;
+  }
+
   render() {
     const { product, i } = this.props;
     return (
       <div className='product-list__item column'>
+        { this.renderLoader() }
         <div className='product-list__image'>
         </div>
         <div className='product-list__title column'>
