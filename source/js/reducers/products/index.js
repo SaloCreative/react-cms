@@ -2,7 +2,8 @@ import {
   GET_PRODUCTS_FETCHING,
   GET_PRODUCTS_RECEIVED,
   GET_PRODUCTS_FAILED,
-  UPDATING_PRODUCT_FETCHING
+  UPDATING_PRODUCT_FETCHING,
+  UPDATING_PRODUCT_RECEIVED
 } from 'actions/products/types';
 
 const initialState = {
@@ -48,7 +49,7 @@ function products(state = initialState, action) {
       };
 
     case UPDATING_PRODUCT_FETCHING :
-      if (action.payload.i) {
+      if (action.payload.i || action.payload.i === 0) {
         return {
           ...state,
           data: [
@@ -60,6 +61,19 @@ function products(state = initialState, action) {
                 last_updated: ''
               }
             },
+            ...state.data.slice(action.payload.i + 1)
+          ]
+        }
+      }
+      return state;
+
+    case UPDATING_PRODUCT_RECEIVED :
+      if (action.payload.i || action.payload.i === 0) {
+        return {
+          ...state,
+          data: [
+            ...state.data.slice(0, action.payload.i),
+              action.payload.product,
             ...state.data.slice(action.payload.i + 1)
           ]
         }

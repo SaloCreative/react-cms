@@ -13,7 +13,7 @@ import {
 
 export const updateProduct = (id, body, i = null) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCTS) }/${ id }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCT_EDIT) }/${ id }`,
     method: 'PUT',
     headers: HEADER(),
     body: JSON.stringify(body),
@@ -29,7 +29,10 @@ export const updateProduct = (id, body, i = null) => ({
         type: UPDATING_PRODUCT_RECEIVED,
         payload: (action, state, res) => {
           return getJSON(res).then((json) => {
-            return json;
+            return {
+              product: json,
+              i
+            }
           });
         }
       },
