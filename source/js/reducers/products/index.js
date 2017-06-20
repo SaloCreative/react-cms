@@ -1,8 +1,9 @@
 import {
   GET_PRODUCTS_FETCHING,
   GET_PRODUCTS_RECEIVED,
-  GET_PRODUCTS_FAILED
-} from 'actions/products';
+  GET_PRODUCTS_FAILED,
+  UPDATING_PRODUCT_FETCHING
+} from 'actions/products/types';
 
 const initialState = {
   data: [],

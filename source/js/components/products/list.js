@@ -6,12 +6,12 @@ import Switch from 'components/switch';
 
 export default class ProductListItem extends Component {
 
-  toggleStock(e) {
+  toggleStock(e, id, i) {
     console.log(e);
   }
 
-  toggleOnline(e) {
-    console.log(e);
+  toggleOnline(e, product, i) {
+    this.props.toggleProductOnline(product, e, i);
   }
 
   render() {
@@ -31,10 +31,10 @@ export default class ProductListItem extends Component {
           { product.price }
         </div>
         <div className='product-list__stock column'>
-          <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e) } />
+          <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e, product, i) } />
         </div>
         <div className='product-list__active column'>
-          <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e) } />
+          <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </div>
         <div className='product-list__actions column'>
         </div>

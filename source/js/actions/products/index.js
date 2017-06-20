@@ -5,9 +5,12 @@ import ErrorMessages from 'reducers/alerts/messages/errorMessages';
 
 import { ProductFilter } from './filter';
 
-export const GET_PRODUCTS_FETCHING = 'GET_PRODUCTS_FETCHING';
-export const GET_PRODUCTS_RECEIVED = 'GET_PRODUCTS_RECEIVED';
-export const GET_PRODUCTS_FAILED = 'GET_PRODUCTS_FAILED';
+import {
+  GET_PRODUCTS_FETCHING,
+  GET_PRODUCTS_RECEIVED,
+  GET_PRODUCTS_FAILED
+} from './types';
+
 
 export const getProducts = (filter = new ProductFilter) => ({
   [CALL_API]: {

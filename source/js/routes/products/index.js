@@ -32,7 +32,7 @@ export default class ProductIndex extends Component {
             </div>
             <Loader display={ products.meta.fetching } />
             {products.data.map((product, i) =>
-              <ProductListItem key={ i } i={ i } product={ product } />
+              <ProductListItem { ...this.props } key={ i } i={ i } product={ product } />
             )}
           </div>
         </div>
