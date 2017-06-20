@@ -11,18 +11,18 @@ import {
   UPDATING_PRODUCT_FAILED
 } from './types';
 
-export const updateProduct = (product, i = null) => ({
+export const updateProduct = (id, body, i = null) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCTS) }/${ product.id }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCTS) }/${ id }`,
     method: 'PUT',
     headers: HEADER(),
-    body: JSON.stringify(product),
+    body: JSON.stringify(body),
     types: [
       {
         type: UPDATING_PRODUCT_FETCHING,
         payload: {
           i,
-          product
+          body
         }
       },
       {
@@ -48,7 +48,24 @@ export const updateProduct = (product, i = null) => ({
 
 export function toggleProductOnline(product, e, i) {
   return function (dispatch) {
-    product.online = e;
-    dispatch(updateProduct(product, i));
+    let fields = {
+      slug: product.slug,
+      sku: product.sku,
+      title: product.title,
+      online: e
+    };
+    dispatch(updateProduct(product.id, fields, i));
+  };
+}
+
+export function toggleProductStock(product, e, i) {
+  return function (dispatch) {
+    let fields = {
+      slug: product.slug,
+      sku: product.sku,
+      title: product.title,
+      inStock: e
+    };
+    dispatch(updateProduct(product.id, fields, i));
   };
 }

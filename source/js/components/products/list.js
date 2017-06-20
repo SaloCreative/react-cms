@@ -6,8 +6,8 @@ import Switch from 'components/switch';
 
 export default class ProductListItem extends Component {
 
-  toggleStock(e, id, i) {
-    console.log(e);
+  toggleStock(e, product, i) {
+    this.props.toggleProductStock(product, e, i);
   }
 
   toggleOnline(e, product, i) {

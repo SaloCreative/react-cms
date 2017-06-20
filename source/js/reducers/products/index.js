@@ -47,6 +47,25 @@ function products(state = initialState, action) {
         }
       };
 
+    case UPDATING_PRODUCT_FETCHING :
+      if (action.payload.i) {
+        return {
+          ...state,
+          data: [
+            ...state.data.slice(0, action.payload.i),
+            { ...state.data[action.payload.i],
+              meta: {
+                ...state.data[action.payload.i].meta,
+                fetching: true,
+                last_updated: ''
+              }
+            },
+            ...state.data.slice(action.payload.i + 1)
+          ]
+        }
+      }
+      return state;
+
     default :
       return state;
   }
