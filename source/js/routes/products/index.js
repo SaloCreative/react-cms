@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import ProductListItem from 'components/products/list';
 import Loader from 'components/loader';
 import { DataTable, DataTableHeader } from 'components/structural/dataTable';
+import SaloFormInput from 'components/forms/text'
 
 export default class ProductIndex extends Component {
 
@@ -26,6 +27,7 @@ export default class ProductIndex extends Component {
           <label>Search products</label>
           <input type="search" />
         </div>
+        <SaloFormInput />
         <div className='search__category'>
           <select>
             <option value="">Select a category</option>
