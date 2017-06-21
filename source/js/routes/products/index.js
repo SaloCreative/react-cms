@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import ProductListItem from 'components/products/list';
 import Loader from 'components/loader';
+import { DataTable, DataTableHeader } from 'components/structural/dataTable';
 
 export default class ProductIndex extends Component {
 
@@ -18,6 +19,30 @@ export default class ProductIndex extends Component {
 
   }
 
+  renderTableHeader() {
+    return (
+      <DataTableHeader>
+        <div className='search__text'>
+          <label>Search products</label>
+          <input type="search" />
+        </div>
+        <div className='search__category'>
+          <select>
+            <option value="">Select a category</option>
+          </select>
+        </div>
+        <div className='search__order-by'>
+          <select>
+            <option value="created_at-DESC">Newest product</option>
+            <option value="created_at-ASC">Oldest product</option>
+            <option value="price-DESC">Highest price</option>
+            <option value="price-ASC">Lowest price</option>
+          </select>
+        </div>
+      </DataTableHeader>
+    );
+  }
+
   render() {
     const { products } = this.props;
     return (
@@ -26,15 +51,11 @@ export default class ProductIndex extends Component {
           <Helmet>
               <title>Products</title>
           </Helmet>
-          <div className='content_table product-index'>
-            <div className='content-table__header'>
-
-            </div>
-            <Loader display={ products.meta.fetching } />
+          <DataTable tableClass='product-index' tableHeader={ this.renderTableHeader() } loading={ products.meta.fetching }>
             {products.data.map((product, i) =>
               <ProductListItem { ...this.props } key={ i } i={ i } product={ product } />
             )}
-          </div>
+          </DataTable>
         </div>
       </div>
     );
