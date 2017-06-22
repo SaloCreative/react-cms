@@ -11,6 +11,7 @@ import * as Rule from 'actions/forms/validation/rules';
 import { validate, runValidation } from 'actions/forms/validation/validator';
 
 import FormInput from 'components/forms/formInput';
+import SaloFormInput from 'components/forms/input'
 import Alerts from 'components/alerts';
 import { routeCodes } from 'routes';
 
@@ -91,22 +92,26 @@ export default class Login extends Component {
 
           <form ref='loginForm' className={ `account__form ${ this.props.login.meta.fetching ? 'loading' : '' }` } onSubmit={ this.handleSubmit.bind(this) } noValidate>
 
-            <FormInput
-              type='email' name='email' placeholder='Enter email ...'
+            <SaloFormInput
+              type='email' name='email'
+              label='Email'
               value={ this.state.email }
               onFieldChanged={ this.onChange('email') }
               validation={ this.errorFor('email') }
             />
 
-            <FormInput
-              type='password' name='password' placeholder='Enter password ...'
+            <SaloFormInput
+              type='password' name='password'
+              label='Password'
               value={ this.state.password }
               onFieldChanged={ this.onChange('password') }
               validation={ this.errorFor('password') }
             />
-            <div className='login-button inversed-loader'>
-              <input type='submit' value='Login' />
-              <Loader style='inline' display={ this.props.login.meta.fetching } />
+            <div className='form-group'>
+              <div className='login-button inversed-loader'>
+                <input type='submit' value='Login' />
+                <Loader style='inline' display={ this.props.login.meta.fetching } />
+              </div>
             </div>
           </form>
 

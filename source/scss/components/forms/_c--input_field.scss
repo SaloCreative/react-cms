@@ -1,11 +1,12 @@
 .form-group {
   position: relative;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
+  padding-top: 20px;
 }
 
 input {
   font-size: 16px;
-  padding: 7.5px 5px;
+  padding: 7.5px 0;
   display: block;
   width: 100%;
   border: none;
@@ -19,18 +20,18 @@ input:focus {
 /* LABEL ======================================= */
 label {
   color: $grey;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 5px;
-  top: 5px;
+  left: 0;
+  top: 20px;
   transition: 0.2s ease all;
 }
 
 /* active state */
 input:focus ~ label, input.has-value ~ label {
-  top: -20px;
+  top: 0;
   font-size: 14px;
   color: $salo-blue;
 }

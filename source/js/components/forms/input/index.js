@@ -16,7 +16,7 @@ export default class SaloFormInput extends Component {
                value={ this.props.value }
                onChange={ this.props.onFieldChanged } />
         <span className='bar' />
-        <label>Name</label>
+        <label>{ this.props.label }</label>
         <span className='form__error'>{ this.props.validation }</span>
       </div>
     );
@@ -25,13 +25,13 @@ export default class SaloFormInput extends Component {
 
 SaloFormInput.defaultProps = {
   type: 'text',
-  value: ''
+  value: '',
+  name: 'form-field'
 };
 
 SaloFormInput.propTypes = {
   validation: PropTypes.string,
   onFieldChanged: PropTypes.func,
-  placeholder: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
