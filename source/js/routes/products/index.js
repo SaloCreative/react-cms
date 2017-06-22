@@ -5,7 +5,8 @@ import { Helmet } from 'react-helmet';
 import ProductListItem from 'components/products/list';
 import Loader from 'components/loader';
 import { DataTable, DataTableHeader } from 'components/structural/dataTable';
-import SaloFormInput from 'components/forms/input'
+import SaloFormInput from 'components/forms/input';
+import SaloFromSelect from 'components/forms/select';
 
 export default class ProductIndex extends Component {
 
@@ -31,17 +32,17 @@ export default class ProductIndex extends Component {
           />
         </div>
         <div className='search__category'>
-          <select>
-            <option value="">Select a category</option>
-          </select>
+          <SaloFromSelect name="product-category"
+            placeholder="Select a category"
+          />
         </div>
         <div className='search__order-by'>
-          <select>
+          <SaloFromSelect name="product-orderby">
             <option value="created_at-DESC">Newest product</option>
             <option value="created_at-ASC">Oldest product</option>
             <option value="price-DESC">Highest price</option>
             <option value="price-ASC">Lowest price</option>
-          </select>
+          </SaloFromSelect>
         </div>
       </DataTableHeader>
     );
