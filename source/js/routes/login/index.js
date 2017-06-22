@@ -108,7 +108,7 @@ export default class Login extends Component {
               validation={ this.errorFor('password') }
             />
             <div className='form-group'>
-              <div className='login-button inversed-loader'>
+              <div className='login-button'>
                 <input type='submit' value='Login' />
                 <Loader style='inline' display={ this.props.login.meta.fetching } />
               </div>

@@ -11,3 +11,18 @@
     display: block;
   }
 }
+
+// Submit
+
+input[type=submit] {
+  background: $salo-blue;
+  border: none;
+  height: 55px;
+  text-transform: uppercase;
+  color: #fff;
+  @include transition__background;
+  @include box-shadow-large;
+  &:hover {
+    background: mix($salo-blue, #000, 80%);
+  }
+}

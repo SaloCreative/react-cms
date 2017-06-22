@@ -10,7 +10,7 @@ input {
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 1px solid $grey;
+  border-bottom: 1px solid $dark-grey;
 }
 
 input:focus {
@@ -20,7 +20,7 @@ input:focus {
 /* LABEL ======================================= */
 label {
   color: $grey;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
@@ -33,7 +33,7 @@ label {
 input:focus ~ label, input.has-value ~ label {
   top: 0;
   font-size: 14px;
-  color: $salo-blue;
+  color: $dark-grey;
 }
 
 /* Invalid state */
