@@ -94,7 +94,8 @@ export default class Login extends Component {
           <form ref='loginForm' className={ `account__form ${ this.props.login.meta.fetching ? 'loading' : '' }` } onSubmit={ this.handleSubmit.bind(this) } noValidate>
 
             <SaloFormInput
-              type='email' name='email'
+              type='email'
+              name='email'
               label='Email'
               value={ this.state.email }
               onFieldChanged={ this.onChange('email') }
@@ -102,7 +103,8 @@ export default class Login extends Component {
             />
 
             <SaloFormInput
-              type='password' name='password'
+              type='password'
+              name='password'
               label='Password'
               value={ this.state.password }
               onFieldChanged={ this.onChange('password') }

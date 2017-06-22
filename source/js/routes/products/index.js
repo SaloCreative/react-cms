@@ -24,10 +24,12 @@ export default class ProductIndex extends Component {
     return (
       <DataTableHeader>
         <div className='search__text'>
-          <label>Search products</label>
-          <input type="search" />
+          <SaloFormInput
+            type='search'
+            name='product-search'
+            label='Search'
+          />
         </div>
-        <SaloFormInput />
         <div className='search__category'>
           <select>
             <option value="">Select a category</option>
