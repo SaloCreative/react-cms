@@ -28,16 +28,3 @@
     color: $lush-black-20;
   }
 }
-
-.form__error {
-  display: none;
-  text-align: left;
-  width: 100%;
-  padding-top: 5px;
-  font-size: 14px;
-  color: $lush-red;
-
-  .invalid & {
-    display: block;
-  }
-}

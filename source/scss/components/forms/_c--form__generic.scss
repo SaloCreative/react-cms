@@ -1,0 +1,13 @@
+// Error messages
+
+.form__error {
+  display: none;
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  color: $lush-red;
+
+  .invalid & {
+    display: block;
+  }
+}

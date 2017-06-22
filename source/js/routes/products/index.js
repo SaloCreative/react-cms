@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import ProductListItem from 'components/products/list';
 import Loader from 'components/loader';
 import { DataTable, DataTableHeader } from 'components/structural/dataTable';
-import SaloFormInput from 'components/forms/text'
+import SaloFormInput from 'components/forms/input'
 
 export default class ProductIndex extends Component {
 
