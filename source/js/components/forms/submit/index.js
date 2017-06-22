@@ -23,6 +23,5 @@ SaloFormSubmit.defaultProps = {
 };
 
 SaloFormSubmit.propTypes = {
-  value: PropTypes.any,
-  processing: PropTypes.boolean
+  value: PropTypes.any
 };
