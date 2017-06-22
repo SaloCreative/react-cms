@@ -11,7 +11,8 @@ import * as Rule from 'actions/forms/validation/rules';
 import { validate, runValidation } from 'actions/forms/validation/validator';
 
 import FormInput from 'components/forms/formInput';
-import SaloFormInput from 'components/forms/input'
+import SaloFormInput from 'components/forms/input';
+import SaloFormSubmit from 'components/forms/submit';
 import Alerts from 'components/alerts';
 import { routeCodes } from 'routes';
 
@@ -107,12 +108,9 @@ export default class Login extends Component {
               onFieldChanged={ this.onChange('password') }
               validation={ this.errorFor('password') }
             />
-            <div className='form-group'>
-              <div className='login-button'>
-                <input type='submit' value='Login' />
-                <Loader style='inline' display={ this.props.login.meta.fetching } />
-              </div>
-            </div>
+
+            <SaloFormSubmit value="Login" processing={ this.props.login.meta.fetching } />
+
           </form>
 
         </div>

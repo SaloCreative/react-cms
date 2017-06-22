@@ -44,21 +44,3 @@
     }
   }
 }
-
-.login-button {
-  position: relative;
-  .lush-loader--inline {
-    color: #fff;
-    top: 5px;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    margin-left: -7.5px;
-  }
-  .loading & {
-    input {
-      background: $grey;
-      color: $grey;
-    }
-  }
-}
