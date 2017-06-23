@@ -12,13 +12,18 @@ export default class ProductIndex extends Component {
 
   componentWillMount() {
     if (this.props.products.meta.last_updated) {
-      if ((Date.now() - this.props.meta.last_updated) / 1000 > 300) {
+      if ((Date.now() - this.props.products.meta.last_updated) / 1000 > 300) {
         this.props.getProducts();
       }
     } else {
       this.props.getProducts();
     }
+  }
 
+  onChange(field) {
+    return (e) => {
+      this.props.updateProductFilters(field, e.target.value);
+    };
   }
 
   renderTableHeader() {
@@ -29,15 +34,18 @@ export default class ProductIndex extends Component {
             type='search'
             name='product-search'
             label='Search'
+            value={ this.props.productFilter.search }
+            onFieldChanged={ this.onChange('search') }
           />
         </div>
         <div className='search__category'>
           <SaloFromSelect name="product-category"
-            placeholder="Select a category"
-          />
+            label="Filter by category"
+            value={ this.props.productFilter.category }
+            onFieldChanged={ this.onChange('category') } />
         </div>
         <div className='search__order-by'>
-          <SaloFromSelect name="product-orderby" label="Sort by">
+          <SaloFromSelect name="product-orderby" label="Sort by" value={ this.props.productFilter.orderBy } onFieldChanged={ this.onChange('order') } >
             <option value="created_at-DESC">Newest product</option>
             <option value="created_at-ASC">Oldest product</option>
             <option value="price-DESC">Highest price</option>

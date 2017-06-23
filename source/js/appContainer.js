@@ -13,7 +13,8 @@ function mapStateToProps(state) {
     navigation: state.navigation,
     users: state.users,
     login: state.login,
-    products: state.products
+    products: state.products,
+    productFilter: state.productFilter
   };
 }
 

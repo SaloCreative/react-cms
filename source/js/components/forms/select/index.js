@@ -8,7 +8,7 @@ export default class SaloFromSelect extends Component {
   };
 
   renderPlaceholder() {
-    if (this.props.placeholder || !this.props.value) {
+    if (!this.props.value) {
       return (
         <option value=''></option>
       );
@@ -38,17 +38,5 @@ SaloFromSelect.defaultProps = {
   value: '',
   children: null,
   label: 'Enter a label',
-  name: 'a-select',
-  placeholder: false
-};
-
-SaloFromSelect.propTypes = {
-  validation: PropTypes.string,
-  onFieldChanged: PropTypes.func,
-  placeholder: PropTypes.boolean,
-  name: PropTypes.string,
-  label: PropTypes.string,
-  type: PropTypes.string,
-  children: PropTypes.any,
-  value: PropTypes.any
+  name: 'a-select'
 };
