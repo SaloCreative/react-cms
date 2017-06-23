@@ -5,7 +5,7 @@ const cookies = new Cookies();
 class Auth {
 
   static loggedIn() {
-    const authToken = cookies.get('authToken');
+    let authToken = cookies.get('authToken');
     return !!authToken && authToken.token;
   }
 

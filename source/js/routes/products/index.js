@@ -37,7 +37,7 @@ export default class ProductIndex extends Component {
           />
         </div>
         <div className='search__order-by'>
-          <SaloFromSelect name="product-orderby">
+          <SaloFromSelect name="product-orderby" label="Sort by">
             <option value="created_at-DESC">Newest product</option>
             <option value="created_at-ASC">Oldest product</option>
             <option value="price-DESC">Highest price</option>

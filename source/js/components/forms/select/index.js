@@ -8,45 +8,44 @@ export default class SaloFromSelect extends Component {
   };
 
   renderPlaceholder() {
-    if (this.props.placeholder) {
+    if (this.props.placeholder || !this.props.value) {
       return (
-        <option value=''>{this.props.placeholder}</option>
+        <option value=''></option>
       );
     }
   };
 
   render() {
-    if (this.props.name) {
-      return (
-        <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' }` }>
-          <label htmlFor={ this.props.name } >{ this.props.label }</label>
-          <select className='form-field'
-            ref={ this.props.name }
-            value={ this.props.value }
-            onChange={ this.props.onFieldChanged }
-          >
-            {this.renderPlaceholder()}
-            { this.props.children }
-          </select>
-          <span className='form__error'>{this.props.validation}</span>
-        </div>
-      );
-    }
-    return null;
+    return (
+      <div className={ `form-group select-wrapper ${ this.shouldDisplayError() ? 'invalid' : '' }` }>
+        <select className={ `form-field ${ this.props.value ? 'has-value' : '' }` }
+                ref={ this.props.name }
+                value={ this.props.value }
+                onChange={ this.props.onFieldChanged }
+        >
+          {this.renderPlaceholder()}
+          { this.props.children }
+        </select>
+        <span className='bar' />
+        <label htmlFor={ this.props.name } >{ this.props.label }</label>
+        <span className='form__error'>{ this.props.validation }</span>
+      </div>
+    );
   }
 }
 
 SaloFromSelect.defaultProps = {
   value: '',
   children: null,
-  label: '',
-  name: 'a-select'
+  label: 'Enter a label',
+  name: 'a-select',
+  placeholder: false
 };
 
 SaloFromSelect.propTypes = {
   validation: PropTypes.string,
   onFieldChanged: PropTypes.func,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.boolean,
   name: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
