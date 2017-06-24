@@ -4,7 +4,9 @@ import { Helmet } from 'react-helmet';
 
 import ProductListItem from 'components/products/list';
 import Loader from 'components/loader';
-import { DataTable, DataTableHeader } from 'components/structural/dataTable';
+import { DataTable } from 'components/structural/dataTable';
+import { Column, Row } from 'components/structural/grid';
+import SecondaryHeader from 'components/structural/secondaryHeader';
 import SaloFormInput from 'components/forms/input';
 import SaloFromSelect from 'components/forms/select';
 
@@ -26,50 +28,63 @@ export default class ProductIndex extends Component {
     };
   }
 
-  renderTableHeader() {
+  renderPageHeader() {
     return (
-      <DataTableHeader>
-        <div className='search__text'>
-          <SaloFormInput
-            type='search'
-            name='product-search'
-            label='Search'
-            value={ this.props.productFilter.search }
-            onFieldChanged={ this.onChange('search') }
-          />
-        </div>
-        <div className='search__category'>
-          <SaloFromSelect name="product-category"
-            label="Filter by category"
-            value={ this.props.productFilter.category }
-            onFieldChanged={ this.onChange('category') } />
-        </div>
-        <div className='search__order-by'>
-          <SaloFromSelect name="product-orderby" label="Sort by" value={ this.props.productFilter.orderBy } onFieldChanged={ this.onChange('order') } >
-            <option value="created_at-DESC">Newest product</option>
-            <option value="created_at-ASC">Oldest product</option>
-            <option value="price-DESC">Highest price</option>
-            <option value="price-ASC">Lowest price</option>
-          </SaloFromSelect>
-        </div>
-      </DataTableHeader>
+      <SecondaryHeader>
+        <Row>
+          <Column columnClass='search__text'>
+            <SaloFormInput
+              name='product-search'
+              type='search'
+              label='Search'
+              value={ this.props.productFilter.search }
+              onFieldChanged={ this.onChange('search') }/>
+          </Column>
+
+          <Column columnClass='search__category'>
+            <SaloFromSelect
+              name="product-category"
+              label="Filter by category"
+              value={ this.props.productFilter.category }
+              onFieldChanged={ this.onChange('category') }/>
+          </Column>
+
+          <Column columnClass='search__order-by'>
+            <SaloFromSelect
+              name="product-orderby"
+              label="Sort by"
+              value={ this.props.productFilter.orderBy }
+              onFieldChanged={ this.onChange('order') }>
+              <option value="created_at-DESC">Newest product</option>
+              <option value="created_at-ASC">Oldest product</option>
+              <option value="price-DESC">Highest price</option>
+              <option value="price-ASC">Lowest price</option>
+            </SaloFromSelect>
+          </Column>
+        </Row>
+      </SecondaryHeader>
     );
   }
 
   render() {
     const { products } = this.props;
     return (
-      <div id='product-index' className='row'>
-        <div className='product__wrapper column'>
-          <Helmet>
+      <div id='product-index'>
+        { this.renderPageHeader() }
+        <Row>
+          <Column columnClass='product__wrapper'>
+            <Helmet>
               <title>Products</title>
-          </Helmet>
-          <DataTable tableClass='product-index' tableHeader={ this.renderTableHeader() } loading={ products.meta.fetching }>
-            {products.data.map((product, i) =>
-              <ProductListItem { ...this.props } key={ i } i={ i } product={ product } />
-            )}
-          </DataTable>
-        </div>
+            </Helmet>
+            <DataTable
+              tableClass='product-index'
+              loading={ products.meta.fetching }>
+              {products.data.map((product, i) =>
+                <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
+              )}
+            </DataTable>
+          </Column>
+        </Row>
       </div>
     );
   }
@@ -77,7 +92,8 @@ export default class ProductIndex extends Component {
 
 ProductIndex.propTypes = {
   products: PropTypes.object,
-  getProducts: PropTypes.func
+  getProducts: PropTypes.func,
+  updateProductFilters: PropTypes.func
 };
 
 ProductIndex.propDefaults = {

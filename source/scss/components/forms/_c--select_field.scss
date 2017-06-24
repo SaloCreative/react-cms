@@ -30,7 +30,7 @@ select:focus ~ label, select.has-value ~ label{
   position: relative;
   &:after {
     position: absolute;
-    top: 30px;
+    top: 35px;
     right: 0.5em;
     /* Styling the down arrow */
     width: 0;

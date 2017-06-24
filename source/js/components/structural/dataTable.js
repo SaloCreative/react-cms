@@ -24,11 +24,14 @@ DataTable.defaultProps = {
 
 export class DataTableHeader extends Component {
   render() {
-    return (
-      <div className='content-table__header'>
-        { this.props.children }
-      </div>
-    );
+    if ( this.props.tableHeader ) {
+      return (
+        <div className='content-table__header'>
+          { this.props.children }
+        </div>
+      );
+    }
+    return null;
   }
 }
 
