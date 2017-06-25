@@ -8,9 +8,6 @@
     flex-direction: inherit;
     align-items: center;
   }
-  .product-list__title {
-    flex-direction: column;
-  }
   img {
     max-width: 100px;
     width: 100%;
@@ -19,8 +16,34 @@
   }
 }
 
+.product-list__title {
+  flex: 1 0 400px;
+  flex-wrap: wrap;
+  h3 {
+    display: flex;
+    width: 100%;
+    margin: 0;
+  }
+  P {
+    font-size: 12px;
+  }
+}
+
 .product-list__image {
   max-width: 125px;
+}
+
+.product-list__sku {
+  max-width: 120px;
+}
+
+.product-list__price {
+  max-width: 150px;
+}
+
+.product-list__stock,
+.product-list__active {
+  max-width: 220px;
 }
 
 .product-list__loader {

@@ -39,8 +39,10 @@ export default class ProductListItem extends Component {
           <Image image={ product.main_image } size='_thumb' placeholder='https://placeholdit.imgix.net/~text?txtsize=12&txt=100%C3%97100&w=100&h=100' />
         </Column>
         <Column columnClass='product-list__title'>
-          <h3>{ product.title }</h3>
-          <p>{ product.category_id }</p>
+          <div className='product-list__title-wrapper'>
+            <h3>{ product.title }</h3>
+            <p>{ product.category_id }</p>
+          </div>
         </Column>
         <Column columnClass='product-list__sku'>
           { product.sku }
