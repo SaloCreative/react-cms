@@ -7,6 +7,7 @@ import Loader from 'components/loader';
 import { Column } from 'components/structural/grid';
 import Image from 'components/image';
 import Price from 'components/price';
+import Date from 'components/date';
 
 export default class ProductListItem extends Component {
 
@@ -55,6 +56,9 @@ export default class ProductListItem extends Component {
         </Column>
         <Column columnClass='product-list__active'>
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
+        </Column>
+        <Column columnClass='product-list__date'>
+          <Date date={ product.updated_at } />
         </Column>
         <Column columnClass='product-list__actions'>
         </Column>
