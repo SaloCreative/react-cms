@@ -5,7 +5,8 @@ import FontAwesome from 'react-fontawesome';
 import Switch from 'components/switch';
 import Loader from 'components/loader';
 import { Column } from 'components/structural/grid';
-import Image from 'components/image'
+import Image from 'components/image';
+import Price from 'components/price';
 
 export default class ProductListItem extends Component {
 
@@ -45,7 +46,7 @@ export default class ProductListItem extends Component {
           { product.sku }
         </Column>
         <Column columnClass='product-list__price'>
-          { product.price }
+          <Price price={ product.price } />
         </Column>
         <Column columnClass='product-list__stock'>
           <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e, product, i) } />
