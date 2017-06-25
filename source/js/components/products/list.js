@@ -4,6 +4,8 @@ import FontAwesome from 'react-fontawesome';
 
 import Switch from 'components/switch';
 import Loader from 'components/loader';
+import { Column } from 'components/structural/grid';
+import Image from 'components/image'
 
 export default class ProductListItem extends Component {
 
@@ -30,29 +32,30 @@ export default class ProductListItem extends Component {
   render() {
     const { product, i } = this.props;
     return (
-      <div className='product-list__item column'>
+      <Column columnClass='product-list__item'>
         { this.renderLoader() }
-        <div className='product-list__image'>
-        </div>
-        <div className='product-list__title column'>
+        <Column columnClass='product-list__image'>
+          <Image image={ product.main_image } size='_thumb' placeholder='https://placeholdit.imgix.net/~text?txtsize=12&txt=100%C3%97100&w=100&h=100' />
+        </Column>
+        <Column columnClass='product-list__title'>
           <h3>{ product.title }</h3>
           <p>{ product.category_id }</p>
-        </div>
-        <div className='product-list__sku column'>
+        </Column>
+        <Column columnClass='product-list__sku'>
           { product.sku }
-        </div>
-        <div className='product-list__price column'>
+        </Column>
+        <Column columnClass='product-list__price'>
           { product.price }
-        </div>
-        <div className='product-list__stock column'>
+        </Column>
+        <Column columnClass='product-list__stock'>
           <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e, product, i) } />
-        </div>
-        <div className='product-list__active column'>
+        </Column>
+        <Column columnClass='product-list__active'>
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
-        </div>
-        <div className='product-list__actions column'>
-        </div>
-      </div>
+        </Column>
+        <Column columnClass='product-list__actions'>
+        </Column>
+      </Column>
     );
   }
 }
