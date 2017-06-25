@@ -9,9 +9,15 @@ export default class Price extends Component {
     return (<span>{ Moment(date*1000).format(format) }</span>)
   }
 
+  renderLabel() {
+    if (!this.props.label) { return null; }
+    return <span className='date__label'>{ this.props.label }</span>
+  }
+
   render() {
     return (
       <div className={ `date__wrapper ${ this.props.dateClass }` }>
+        { this.renderLabel() }
         { this.renderDate() }
       </div>
     );
@@ -21,5 +27,6 @@ export default class Price extends Component {
 Price.defaultProps = {
   date: Date.now() / 1000,
   format: 'DD-MM-YYYY hh:mm:ss',
-  dateClass: ''
+  dateClass: '',
+  label: ''
 };

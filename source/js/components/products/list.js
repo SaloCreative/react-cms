@@ -58,7 +58,7 @@ export default class ProductListItem extends Component {
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </Column>
         <Column columnClass='product-list__date'>
-          <Date date={ product.updated_at } />
+          <Date date={ product.updated_at } label='Last modified'/>
         </Column>
         <Column columnClass='product-list__actions'>
         </Column>
