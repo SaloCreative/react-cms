@@ -16,6 +16,7 @@ export const API = {
     PRODUCTS: {
         PRODUCTS: 'products',
         PRODUCT_EDIT: 'products/edit',
+        CATEGORIES: 'products/categories',
         TAGS: 'products/tags'
     }
 };

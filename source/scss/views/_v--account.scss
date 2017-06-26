@@ -2,7 +2,6 @@
   position: fixed;
   top: 0;
   align-items: center;
-  height: 100%;
   justify-content: center;
   height: 100vh;
   width: 100vw;
@@ -31,7 +30,7 @@
 }
 
 .account__form {
-  padding: 20px 40px;
+  padding: 15px 40px 0;
   &.loading {
     position: relative;
     &:after {
@@ -42,24 +41,6 @@
       height: 100%;
       width: 100%;
       content: '';
-    }
-  }
-}
-
-.login-button {
-  position: relative;
-  .lush-loader--inline {
-    color: #fff;
-    top: 7.5px;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    margin-left: -7.5px;
-  }
-  .loading & {
-    input {
-      background: $lush-black-44;
-      color: $lush-black-44;
     }
   }
 }

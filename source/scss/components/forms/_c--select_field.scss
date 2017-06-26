@@ -1,0 +1,45 @@
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  font-size: 16px;
+  padding: 0;
+  height: 35px;
+  color: $dark-grey;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $dark-grey;
+}
+
+/* Remove focus */
+select:focus {
+  outline: none
+}
+
+select:focus ~ label, select.has-value ~ label{
+  top: 0;
+  font-size: 14px;
+  color: $dark-grey;
+}
+
+/* Use custom arrow */
+.form-group select {
+  -webkit-appearance: none
+}
+.form-group.select-wrapper {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 35px;
+    right: 0.5em;
+    /* Styling the down arrow */
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: .375em solid $dark-grey;
+    pointer-events: none;
+  }
+}

@@ -22,6 +22,12 @@ const ErrorMessages = {
     message: {
       en: 'Could not fetch the products list at this time. Please try again.'
     }
+  },
+  getProductsCategoriesFailed: {
+    type: 'error',
+    message: {
+      en: 'Could not fetch the product categories at this time. Please try again.'
+    }
   }
 };
 

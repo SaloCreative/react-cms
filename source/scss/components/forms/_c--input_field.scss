@@ -1,0 +1,26 @@
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+input {
+  height: 35px;
+  font-size: 16px;
+  padding: 7.5px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $dark-grey;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* active state */
+input:focus ~ label, input.has-value ~ label {
+  top: 0;
+  font-size: 14px;
+  color: $dark-grey;
+}

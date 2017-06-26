@@ -24,7 +24,7 @@ export function ApiError(responseCode, errorMessage, response, componentHandleEr
       store.dispatch(error(ErrorMessages.forbidden));
     case 404 :
       if (!componentHandleError) {
-        browserHistory.push(routeCodes.ERROR);
+        //browserHistory.push(routeCodes.ERROR);
       }
     default :
       if (!componentHandleError) {

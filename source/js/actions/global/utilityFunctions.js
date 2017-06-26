@@ -86,11 +86,27 @@ export function formatCurrency(amount, region = 'GBP') {
 
 /**
  * FORMAT TIME RANGE
- * @param string
+ * @param time
  * @returns string
  */
 export function timeRange(time) {
   const hour = Moment(time).format('kk');
   const precedeHour = (hour - 1) <= 9 ? `0${ hour - 1 }` : hour - 1;
   return `${ precedeHour }:00 - ${ hour }:00`;
+}
+
+/**
+ * PERFORM AN UPDATE
+ * @param last_updated
+ * @param timePassed
+ * @returns boolean
+ */
+
+export function shouldUpdate(last_updated, timePassed = 600) {
+  if (last_updated) {
+    if ((Date.now() - last_updated) / 1000 <= timePassed) {
+      return false;
+    }
+  }
+  return true
 }

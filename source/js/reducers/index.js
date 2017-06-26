@@ -9,7 +9,9 @@ import navigation from './navigation';
 import login from './auth/login';
 
 // Products
-import products from './products'
+import products from './products';
+import productFilter from './products/filters';
+import productCategories from './products/categories';
 
 // Users
 
@@ -18,6 +20,8 @@ export default combineReducers({
   navigation,
   login,
   products,
+  productFilter,
+  productCategories,
   form: formReducer,
   routing: routerReducer
 });

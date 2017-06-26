@@ -2,61 +2,118 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import ProductListItem from 'components/products/list';
+import Pagination from '@salocreative/react-pagination';
+import { paginationStyles } from 'data/config';
 import Loader from 'components/loader';
-import { DataTable, DataTableHeader } from 'components/structural/dataTable';
+import { DataTable } from 'components/structural/dataTable';
+import { Column, Row } from 'components/structural/grid';
+import SecondaryHeader from 'components/structural/secondaryHeader';
+import SaloFormInput from 'components/forms/input';
+import SaloFromSelect from 'components/forms/select';
+
+import { shouldUpdate } from 'actions/global/utilityFunctions';
+import { ProductFilter } from 'actions/products/filter';
+import ProductListItem from 'components/products/list';
+
+let filter = new ProductFilter;
 
 export default class ProductIndex extends Component {
 
   componentWillMount() {
-    if (this.props.products.meta.last_updated) {
-      if ((Date.now() - this.props.meta.last_updated) / 1000 > 300) {
-        this.props.getProducts();
-      }
-    } else {
+    if (shouldUpdate(this.props.products.meta.last_updated, 300)) {
       this.props.getProducts();
     }
-
+    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
+      this.props.getCategories();
+    }
   }
 
-  renderTableHeader() {
+  onChange(field) {
+    return (e) => {
+      this.props.updateProductFilters(field, e.target.value);
+    };
+  }
+
+  changePage() {
+    return (e) => {
+      filter.page = parseInt(e.target.getAttribute('data-page'));
+      this.props.getProducts(filter);
+    };
+  }
+
+  renderPageHeader() {
     return (
-      <DataTableHeader>
-        <div className='search__text'>
-          <label>Search products</label>
-          <input type="search" />
-        </div>
-        <div className='search__category'>
-          <select>
-            <option value="">Select a category</option>
-          </select>
-        </div>
-        <div className='search__order-by'>
-          <select>
-            <option value="created_at-DESC">Newest product</option>
-            <option value="created_at-ASC">Oldest product</option>
-            <option value="price-DESC">Highest price</option>
-            <option value="price-ASC">Lowest price</option>
-          </select>
-        </div>
-      </DataTableHeader>
+      <SecondaryHeader>
+        <Row>
+          <Column columnClass='search__text'>
+            <SaloFormInput
+              name='product-search'
+              type='search'
+              label='Search'
+              value={ this.props.productFilter.search }
+              onFieldChanged={ this.onChange('search') }/>
+          </Column>
+
+          <Column columnClass='search__category'>
+            <SaloFromSelect
+              name="product-category"
+              label="Filter by category"
+              value={ this.props.productFilter.category }
+              onFieldChanged={ this.onChange('category') }/>
+          </Column>
+
+          <Column columnClass='search__order-by'>
+            <SaloFromSelect
+              name="product-orderby"
+              label="Sort by"
+              value={ this.props.productFilter.orderBy }
+              onFieldChanged={ this.onChange('order') }>
+              <option value="created_at-DESC">Newest product</option>
+              <option value="created_at-ASC">Oldest product</option>
+              <option value="price-DESC">Highest price</option>
+              <option value="price-ASC">Lowest price</option>
+            </SaloFromSelect>
+          </Column>
+        </Row>
+      </SecondaryHeader>
     );
+  }
+
+  renderPagination() {
+    const { products } = this.props;
+    if (products && products.meta.total) {
+      return (
+        <Pagination
+          total={ products.meta.total }
+          page={ products.meta.current_page }
+          perPage={ parseInt(products.meta.per_page) }
+          changePage={ (e) => this.changePage(e) }
+          styles={ paginationStyles } />
+      );
+    }
+    return null;
   }
 
   render() {
     const { products } = this.props;
     return (
-      <div id='product-index' className='row'>
-        <div className='product__wrapper column'>
-          <Helmet>
+      <div id='product-index'>
+        { this.renderPageHeader() }
+        <Row>
+          <Column columnClass='product__wrapper'>
+            <Helmet>
               <title>Products</title>
-          </Helmet>
-          <DataTable tableClass='product-index' tableHeader={ this.renderTableHeader() } loading={ products.meta.fetching }>
-            {products.data.map((product, i) =>
-              <ProductListItem { ...this.props } key={ i } i={ i } product={ product } />
-            )}
-          </DataTable>
-        </div>
+            </Helmet>
+            <DataTable
+              tableClass='product-index'
+              loading={ products.meta.fetching }>
+              {products.data.map((product, i) =>
+                <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
+              )}
+              { this.renderPagination() }
+            </DataTable>
+          </Column>
+        </Row>
       </div>
     );
   }
@@ -64,7 +121,9 @@ export default class ProductIndex extends Component {
 
 ProductIndex.propTypes = {
   products: PropTypes.object,
-  getProducts: PropTypes.func
+  getProducts: PropTypes.func,
+  updateProductFilters: PropTypes.func,
+  getCategories: PropTypes.func
 };
 
 ProductIndex.propDefaults = {

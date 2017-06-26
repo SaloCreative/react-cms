@@ -1,0 +1,19 @@
+.secondary-header {
+  justify-content: space-between;
+  padding: 20px 0;
+  width: 100%;
+  background: $white;
+  @include box-shadow;
+  margin-bottom: 25px;
+}
+
+.search__text,
+.search__category,
+.search__order-by {
+  width: 25%;
+  display: flex;
+}
+
+.search__order-by {
+  margin-left: auto;
+}
