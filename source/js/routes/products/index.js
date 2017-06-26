@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import Pagination from '@salocreative/react-pagination';
+
 import ProductListItem from 'components/products/list';
 import Loader from 'components/loader';
 import { DataTable } from 'components/structural/dataTable';
@@ -10,6 +12,9 @@ import SecondaryHeader from 'components/structural/secondaryHeader';
 import SaloFormInput from 'components/forms/input';
 import SaloFromSelect from 'components/forms/select';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
+import { ProductFilter } from 'actions/products/filter';
+
+let filter = new ProductFilter;
 
 export default class ProductIndex extends Component {
 
@@ -25,6 +30,13 @@ export default class ProductIndex extends Component {
   onChange(field) {
     return (e) => {
       this.props.updateProductFilters(field, e.target.value);
+    };
+  }
+
+  changePage() {
+    return (e) => {
+      filter.page = parseInt(e.target.getAttribute('data-page'));
+      this.props.getProducts(filter);
     };
   }
 
@@ -66,6 +78,20 @@ export default class ProductIndex extends Component {
     );
   }
 
+  renderPagination() {
+    const { products } = this.props;
+    if (products && products.meta.total) {
+      return (
+        <Pagination
+          total={ products.meta.total }
+          page={ products.meta.current_page }
+          perPage={ parseInt(products.meta.per_page) }
+          changePage={ (e) => this.changePage(e) } />
+      );
+    }
+    return null;
+  }
+
   render() {
     const { products } = this.props;
     return (
@@ -82,6 +108,7 @@ export default class ProductIndex extends Component {
               {products.data.map((product, i) =>
                 <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
               )}
+              { this.renderPagination() }
             </DataTable>
           </Column>
         </Row>

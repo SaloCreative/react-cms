@@ -86,7 +86,7 @@ export function formatCurrency(amount, region = 'GBP') {
 
 /**
  * FORMAT TIME RANGE
- * @param string
+ * @param time
  * @returns string
  */
 export function timeRange(time) {
@@ -97,8 +97,8 @@ export function timeRange(time) {
 
 /**
  * PERFORM AN UPDATE
- * @param string
- * @param number
+ * @param last_updated
+ * @param timePassed
  * @returns boolean
  */
 
@@ -108,6 +108,5 @@ export function shouldUpdate(last_updated, timePassed = 600) {
       return false;
     }
   }
-  console.log('Update');
   return true
 }
