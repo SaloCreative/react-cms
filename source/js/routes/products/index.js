@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import Pagination from '@salocreative/react-pagination';
-
-import ProductListItem from 'components/products/list';
+import { paginationStyles } from 'data/config';
 import Loader from 'components/loader';
 import { DataTable } from 'components/structural/dataTable';
 import { Column, Row } from 'components/structural/grid';
 import SecondaryHeader from 'components/structural/secondaryHeader';
 import SaloFormInput from 'components/forms/input';
 import SaloFromSelect from 'components/forms/select';
+
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
-import { paginationStyles } from 'data/config';
+import ProductListItem from 'components/products/list';
 
 let filter = new ProductFilter;
 
