@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
 
-export default class Price extends Component {
+export default class Date extends Component {
 
   renderDate() {
     const { date, format } = this.props;
@@ -24,8 +24,8 @@ export default class Price extends Component {
   }
 }
 
-Price.defaultProps = {
-  date: Date.now() / 1000,
+Date.defaultProps = {
+  date: Moment.unix(),
   format: 'DD-MM-YYYY hh:mm:ss',
   dateClass: '',
   label: ''

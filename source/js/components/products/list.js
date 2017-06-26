@@ -8,6 +8,7 @@ import { Column } from 'components/structural/grid';
 import Image from 'components/image';
 import Price from 'components/price';
 import Date from 'components/date';
+import Category from 'components/category';
 
 export default class ProductListItem extends Component {
 
@@ -42,7 +43,7 @@ export default class ProductListItem extends Component {
         <Column columnClass='product-list__title'>
           <div className='product-list__title-wrapper'>
             <h3>{ product.title }</h3>
-            <p>{ product.category_id }</p>
+            <p><Category category={ product.category_id } categories='' /></p>
           </div>
         </Column>
         <Column columnClass='product-list__sku'>
