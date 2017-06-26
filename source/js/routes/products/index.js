@@ -20,6 +20,13 @@ export default class ProductIndex extends Component {
     } else {
       this.props.getProducts();
     }
+    if (this.props.productCategories.meta.last_updated) {
+      if ((Date.now() - this.props.productCategories.meta.last_updated) / 1000 > 300) {
+        this.props.getCategories();
+      }
+    } else {
+      this.props.getCategories();
+    }
   }
 
   onChange(field) {
@@ -93,7 +100,8 @@ export default class ProductIndex extends Component {
 ProductIndex.propTypes = {
   products: PropTypes.object,
   getProducts: PropTypes.func,
-  updateProductFilters: PropTypes.func
+  updateProductFilters: PropTypes.func,
+  getCategories: PropTypes.func
 };
 
 ProductIndex.propDefaults = {
