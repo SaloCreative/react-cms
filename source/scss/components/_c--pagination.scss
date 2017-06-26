@@ -1,0 +1,22 @@
+.pagination {
+  padding: 25px 0 0!important;
+  a {
+    color: $dark-grey;
+  }
+  .disabled {
+    a {
+      color: $grey;
+    }
+  }
+  .active {
+    a {
+      color: #fff;
+    }
+  }
+  .pagination__item,
+  .pagination__previous,
+  .pagination__next {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}

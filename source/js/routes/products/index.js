@@ -13,6 +13,7 @@ import SaloFormInput from 'components/forms/input';
 import SaloFromSelect from 'components/forms/select';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
+import { paginationStyles } from 'data/config';
 
 let filter = new ProductFilter;
 
@@ -86,7 +87,8 @@ export default class ProductIndex extends Component {
           total={ products.meta.total }
           page={ products.meta.current_page }
           perPage={ parseInt(products.meta.per_page) }
-          changePage={ (e) => this.changePage(e) } />
+          changePage={ (e) => this.changePage(e) }
+          styles={ paginationStyles } />
       );
     }
     return null;
