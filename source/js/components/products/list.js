@@ -33,7 +33,7 @@ export default class ProductListItem extends Component {
   }
 
   render() {
-    const { product, i } = this.props;
+    const { product, i, productCategories } = this.props;
     return (
       <Column columnClass='product-list__item'>
         { this.renderLoader() }
@@ -43,7 +43,7 @@ export default class ProductListItem extends Component {
         <Column columnClass='product-list__title'>
           <div className='product-list__title-wrapper'>
             <h3>{ product.title }</h3>
-            <p><Category category={ product.category_id } categories='' /></p>
+            <p><Category category={ product.category_id } categories={ productCategories } /></p>
           </div>
         </Column>
         <Column columnClass='product-list__sku'>
