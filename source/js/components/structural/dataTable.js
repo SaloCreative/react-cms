@@ -4,12 +4,19 @@ import PropTypes from 'prop-types';
 import Loader from 'components/loader';
 
 export class DataTable extends Component {
+  renderContent() {
+    if (!this.props.loading && this.props.children) {
+      return this.props.children;
+    }
+    return null;
+  }
+
   render() {
     return (
       <div className={ `content_table ${ this.props.tableClass }` }>
         { this.props.tableHeader }
         <Loader display={ this.props.loading } />
-        { this.props.children }
+        { this.renderContent() }
       </div>
     );
   }

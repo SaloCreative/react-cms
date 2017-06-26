@@ -9,22 +9,15 @@ import { Column, Row } from 'components/structural/grid';
 import SecondaryHeader from 'components/structural/secondaryHeader';
 import SaloFormInput from 'components/forms/input';
 import SaloFromSelect from 'components/forms/select';
+import { shouldUpdate } from 'actions/global/utilityFunctions';
 
 export default class ProductIndex extends Component {
 
   componentWillMount() {
-    if (this.props.products.meta.last_updated) {
-      if ((Date.now() - this.props.products.meta.last_updated) / 1000 > 300) {
-        this.props.getProducts();
-      }
-    } else {
+    if (shouldUpdate(this.props.products.meta.last_updated, 300)) {
       this.props.getProducts();
     }
-    if (this.props.productCategories.meta.last_updated) {
-      if ((Date.now() - this.props.productCategories.meta.last_updated) / 1000 > 300) {
-        this.props.getCategories();
-      }
-    } else {
+    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
       this.props.getCategories();
     }
   }

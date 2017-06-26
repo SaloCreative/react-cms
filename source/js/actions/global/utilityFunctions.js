@@ -94,3 +94,20 @@ export function timeRange(time) {
   const precedeHour = (hour - 1) <= 9 ? `0${ hour - 1 }` : hour - 1;
   return `${ precedeHour }:00 - ${ hour }:00`;
 }
+
+/**
+ * PERFORM AN UPDATE
+ * @param string
+ * @param number
+ * @returns boolean
+ */
+
+export function shouldUpdate(last_updated, timePassed = 600) {
+  if (last_updated) {
+    if ((Date.now() - last_updated) / 1000 <= timePassed) {
+      return false;
+    }
+  }
+  console.log('Update');
+  return true
+}
