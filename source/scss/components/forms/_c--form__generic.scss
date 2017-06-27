@@ -58,7 +58,7 @@ input[type=submit] {
   text-transform: uppercase;
   color: #fff;
   @include transition__background;
-  @include box-shadow-large;
+  @include box-shadow;
   &:hover {
     background: mix($salo-blue, #000, 80%);
   }

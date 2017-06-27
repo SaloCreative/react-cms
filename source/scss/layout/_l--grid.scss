@@ -4,8 +4,6 @@
   @return #{($width * $value) / 100 }$unit;
 }
 
-;
-
 .container {
   width: 100%;
   max-width: width(100, px);
