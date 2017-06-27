@@ -1,13 +1,38 @@
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  &.has-icon {
+    padding-left: 40px;
+    .fa {
+      position: absolute;
+      left: 0;
+      height: 35px;
+      padding-top: 5px;
+      line-height: 30px;
+      bottom: 0;
+      font-size: 20px;
+    }
+  }
+}
+
 /* LABEL ======================================= */
-.form-group label {
-  color: $grey;
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 0;
-  top: 20px;
-  transition: 0.2s ease all;
+.form-group {
+  label {
+    color: $grey;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 24px;
+    transition: 0.2s ease all;
+  }
+  &.has-icon {
+    label {
+      left: 40px;
+    }
+  }
 }
 
 /* Invalid state */

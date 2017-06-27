@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 export default class SaloFormInput extends Component {
 
@@ -7,9 +8,17 @@ export default class SaloFormInput extends Component {
     return this.props.validation;
   };
 
+  renderIcon() {
+    if(!this.props.icon) { return null; }
+    return (
+      <FontAwesome name={ this.props.icon } size='2x' />
+    );
+  };
+
   render() {
     return (
-      <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' }` } >
+      <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' }` } >
+        { this.renderIcon() }
         <input className={ `form-field ${ this.props.value ? 'has-value' : '' }` }
                type={ this.props.type }
                ref={ this.props.name }
@@ -26,7 +35,8 @@ export default class SaloFormInput extends Component {
 SaloFormInput.defaultProps = {
   type: 'text',
   value: '',
-  name: 'form-field'
+  name: 'form-field',
+  icon: ''
 };
 
 SaloFormInput.propTypes = {
@@ -35,5 +45,6 @@ SaloFormInput.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.any
+  value: PropTypes.any,
+  icon: PropTypes.string
 };

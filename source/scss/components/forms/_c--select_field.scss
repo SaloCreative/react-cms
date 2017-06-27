@@ -20,6 +20,9 @@ select:focus ~ label, select.has-value ~ label{
   top: 0;
   font-size: 14px;
   color: $dark-grey;
+  .has-icon & {
+    display: none;
+  }
 }
 
 /* Use custom arrow */

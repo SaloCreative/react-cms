@@ -1,9 +1,3 @@
-.form-group {
-  position: relative;
-  margin-bottom: 20px;
-  padding-top: 20px;
-}
-
 input {
   height: 35px;
   font-size: 16px;
@@ -24,4 +18,7 @@ input:focus ~ label, input.has-value ~ label {
   top: 0;
   font-size: 14px;
   color: $dark-grey;
+  .has-icon & {
+    display: none;
+  }
 }

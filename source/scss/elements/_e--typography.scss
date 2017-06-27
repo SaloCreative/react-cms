@@ -28,13 +28,12 @@ h1 {
     @include cleanTop();
     font-family: $heading-font-family;
     font-weight: $heading-font-weight;
-    font-size: 3.7rem;
-    line-height: (45/37);
-    margin: 2rem 0;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 0;
 
     @include bp_min($tablet) {
-        font-size: 6.6rem;
-        line-height: (74/66);
+        font-size: 32px;
     }
 }
 
