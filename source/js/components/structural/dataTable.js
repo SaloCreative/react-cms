@@ -13,10 +13,12 @@ export class DataTable extends Component {
 
   render() {
     return (
-      <div className={ `content_table ${ this.props.tableClass }` }>
+      <div className='content-table__wrapper'>
         { this.props.tableHeader }
-        <Loader display={ this.props.loading } />
-        { this.renderContent() }
+        <div className={ `content_table ${ this.props.tableClass }` }>
+          <Loader display={ this.props.loading } />
+          { this.renderContent() }
+        </div>
       </div>
     );
   }
