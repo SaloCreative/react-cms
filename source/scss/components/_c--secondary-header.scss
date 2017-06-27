@@ -2,9 +2,11 @@
   justify-content: space-between;
   padding: 20px 0;
   width: 100%;
-  background: $white;
-  @include box-shadow;
-  margin-bottom: 25px;
+  &:not(.simplified) {
+    background: $white;
+    margin-bottom: 25px;
+    @include box-shadow;
+  }
 }
 
 .search__text,

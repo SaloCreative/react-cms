@@ -43,7 +43,7 @@ export default class ProductIndex extends Component {
 
   renderPageHeader() {
     return (
-      <SecondaryHeader>
+      <SecondaryHeader headerClass='simplified'>
         <Row>
           <Column columnClass='search__text'>
             <SaloFormInput
