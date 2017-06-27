@@ -24,6 +24,7 @@ export const routeCodes = {
     DASHBOARD: '/products',
     INDEX: '/products/list',
     ADD: '/products/add',
+    EDIT_BASE: '/products/edit',
     EDIT: '/products/edit/:id'
   },
   ERROR: '/404-error'

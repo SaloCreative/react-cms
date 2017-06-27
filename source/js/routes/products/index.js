@@ -13,7 +13,7 @@ import SaloFromSelect from 'components/forms/select';
 
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
-import ProductListItem from 'components/products/list';
+import ProductListItem from 'containers/products/list-item';
 
 let filter = new ProductFilter;
 
