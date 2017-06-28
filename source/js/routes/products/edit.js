@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Column, Row } from 'components/structural/grid';
-import SecondaryHeader from 'components/structural/secondaryHeader';
+import { Column, Row } from 'components/core/grid';
+import SecondaryHeader from 'components/headers/secondary';
 
 export default class EditProduct extends Component {
 
@@ -20,7 +20,7 @@ export default class EditProduct extends Component {
           </Row>
         </SecondaryHeader>
         <Row>
-          <Column columnClass='product__wrapper'>
+          <Column classes='product__wrapper'>
             Editing Product id: <strong>{ this.props.params.id}</strong>
           </Column>
           </Row>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
-import Header from 'components/header';
+import Header from 'components/headers/primary';
 import Auth from 'actions/auth/auth';
-import Alerts from 'components/alerts';
+import Alerts from 'components/core/alerts';
 
 export default class App extends Component {
 

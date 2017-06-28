@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import Dropdown from 'components/dropdown';
+import Dropdown from 'components/core/dropdown';
 
 export default class AccountDropdown extends Component {
 

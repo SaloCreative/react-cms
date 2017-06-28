@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { config } from 'data/config';
+import { config } from 'constants/config';
 
 export default class Image extends Component {
 

@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import Pagination from '@salocreative/react-pagination';
-import { paginationStyles } from 'data/config';
-import Loader from 'components/loader';
-import { DataTable, DataTableHeader } from 'components/structural/dataTable';
-import { Column, Row } from 'components/structural/grid';
-import SecondaryHeader from 'components/structural/secondaryHeader';
+import { paginationStyles } from 'constants/config';
+import Loader from 'components/core/loader';
+import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/content-table';
+import { Column, Row, Container, Card } from 'components/core/grid';
+import SecondaryHeader from 'components/headers/secondary';
 import SaloFormInput from 'components/forms/input';
 import SaloFromSelect from 'components/forms/select';
 
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
-import ProductListItem from 'containers/products/list-item';
+import ProductListItem from 'components/products/list-item';
 
 let filter = new ProductFilter;
 
@@ -41,10 +41,10 @@ export default class ProductIndex extends Component {
     };
   }
 
-  renderPageHeader() {
+  renderFilterHeader() {
     return (
-      <DataTableHeader>
-        <Column columnClass='search__text'>
+      <Row>
+        <Column classes='search__text'>
           <SaloFormInput
             icon='search'
             name='product-search'
@@ -54,7 +54,7 @@ export default class ProductIndex extends Component {
             onFieldChanged={ this.onChange('search') }/>
         </Column>
 
-        <Column columnClass='search__category'>
+        <Column classes='search__category'>
           <SaloFromSelect
             icon='sitemap'
             name='product-category'
@@ -63,7 +63,7 @@ export default class ProductIndex extends Component {
             onFieldChanged={ this.onChange('category') }/>
         </Column>
 
-        <Column columnClass='search__order-by'>
+        <Column classes='search__order-by'>
           <SaloFromSelect
             icon='sort'
             name='product-orderby'
@@ -76,7 +76,7 @@ export default class ProductIndex extends Component {
             <option value="price-ASC">Lowest price</option>
           </SaloFromSelect>
         </Column>
-      </DataTableHeader>
+      </Row>
     );
   }
 
@@ -99,20 +99,26 @@ export default class ProductIndex extends Component {
     const { products } = this.props;
     return (
       <div id='product-index'>
+        <Helmet>
+          <title>Products</title>
+        </Helmet>
+        <SecondaryHeader>
+        </SecondaryHeader>
+        { this.renderFilterHeader() }
         <Row>
-          <Column columnClass='product__wrapper'>
-            <Helmet>
-              <title>Products</title>
-            </Helmet>
-            <DataTable
-              tableClass='product-index'
-              loading={ products.meta.fetching }
-              tableHeader={ this.renderPageHeader() } >
-              {products.data.map((product, i) =>
-                <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
-              )}
-              { this.renderPagination() }
-            </DataTable>
+          <Column classes='product__wrapper'>
+            <Card classes='content_table_card'>
+              <DataTable
+                tableClass='product-index'
+                loading={ products.meta.fetching } >
+                {products.data.map((product, i) =>
+                  <DataTableRow key={ i }>
+                    <ProductListItem { ...this.props } i={ i } product={ product }/>
+                  </DataTableRow>
+                )}
+                { this.renderPagination() }
+              </DataTable>
+            </Card>
           </Column>
         </Row>
       </div>

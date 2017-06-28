@@ -5,14 +5,14 @@ import Cookies from 'universal-cookie';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
-import Loader from 'components/loader';
+import Loader from 'components/core/loader';
 
 import * as Rule from 'actions/forms/validation/rules';
 import { validate, runValidation } from 'actions/forms/validation/validator';
 
 import SaloFormInput from 'components/forms/input';
 import SaloFormSubmit from 'components/forms/submit';
-import Alerts from 'components/alerts';
+import Alerts from 'components/core/alerts';
 import { routeCodes } from 'routes';
 
 const fieldValidations = [

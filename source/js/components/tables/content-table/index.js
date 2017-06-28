@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Loader from 'components/loader';
+import Loader from 'components/core/loader';
 
 export class DataTable extends Component {
   renderContent() {
@@ -42,5 +42,19 @@ export class DataTableHeader extends Component {
 }
 
 DataTableHeader.defaultProps = {
+  children: ''
+};
+
+export class DataTableRow extends Component {
+  render() {
+    return (
+      <div className='content-table__row'>
+        { this.props.children }
+      </div>
+    );
+  }
+}
+
+DataTableRow.defaultProps = {
   children: ''
 };

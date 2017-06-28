@@ -1,11 +1,16 @@
-.content_table {
-  background: #fff;
-  padding: 12.5px 25px 50px;
-  margin-bottom: 25px;
-  @include box-shadow;
+.content_table_card {
+  padding: 1.25rem 2.5rem 0;
+}
+
+.content-table__row {
+  border-bottom: 1px solid $light-grey;
+  &:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .content-table__header {
   display: flex;
+  padding: 0.5rem 0 3rem;
   flex-direction: row;
 }

@@ -1,4 +1,4 @@
-import { config } from 'data/config';
+import { config } from 'constants/config';
 import { authToken } from './token';
 
 let token;

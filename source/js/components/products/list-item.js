@@ -5,13 +5,13 @@ import { Link } from 'react-router';
 
 import { routeCodes } from 'routes';
 
-import Switch from 'components/switch';
-import Loader from 'components/loader';
-import { Column } from 'components/structural/grid';
-import Image from 'components/image';
-import Price from 'components/price';
-import Date from 'components/date';
-import Category from 'components/category';
+import Switch from 'components/core/switch';
+import Loader from 'components/core/loader';
+import { Column, Row } from 'components/core/grid';
+import Image from 'components/core/image';
+import Price from 'components/core/price';
+import Date from 'components/core/date';
+import Category from 'components/core/category';
 
 export default class ProductListItem extends Component {
 
@@ -38,37 +38,34 @@ export default class ProductListItem extends Component {
   render() {
     const { product, i, productCategories } = this.props;
     return (
-      <Column columnClass='product-list__item'>
+      <Row classes='product-list__item'>
         { this.renderLoader() }
-        <Column columnClass='product-list__image'>
+        <Column classes='product-list__image'>
           <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` }>
             <Image image={ product.main_image } size='_thumb' placeholder='https://placeholdit.imgix.net/~text?txtsize=12&txt=100%C3%97100&w=100&h=100' />
           </Link>
         </Column>
-        <Column columnClass='product-list__title'>
+        <Column classes='product-list__title'>
           <div className='product-list__title-wrapper'>
             <h3>{ product.title }</h3>
             <p><Category category={ product.category_id } categories={ productCategories } /></p>
           </div>
         </Column>
-        <Column columnClass='product-list__sku'>
+        <Column classes='product-list__sku'>
           { product.sku }
         </Column>
-        <Column columnClass='product-list__price'>
+        <Column classes='product-list__price'>
           <Price price={ product.price } />
         </Column>
-        <Column columnClass='product-list__stock'>
+        <Column classes='product-list__stock'>
           <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e, product, i) } />
         </Column>
-        <Column columnClass='product-list__active'>
+        <Column classes='product-list__active'>
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </Column>
-        <Column columnClass='product-list__date'>
-          <Date date={ product.updated_at } label='Last modified'/>
+        <Column classes='product-list__actions'>
         </Column>
-        <Column columnClass='product-list__actions'>
-        </Column>
-      </Column>
+      </Row>
     );
   }
 }

@@ -5,8 +5,8 @@ import FontAwesome from 'react-fontawesome';
 
 import { Link } from 'react-router';
 import { routeCodes } from 'routes';
-import AccountDropdown from 'components/account-dropdown';
-import Navigation from 'components/navigation';
+import AccountDropdown from '../account-dropdown';
+import Navigation from '../navigation';
 
 export default class Header extends Component {
 
