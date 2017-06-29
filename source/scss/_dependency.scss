@@ -61,29 +61,23 @@
 // --------
 // components
 // --------
-@import 'components/c--dropdown';
-@import 'components/c--tile';
-@import 'components/c--loader';
-@import 'components/c--textarea';
-@import 'components/c--alerts';
-@import 'components/c--modal';
-@import 'components/c--table';
-@import 'components/c--account_dropdown';
-@import 'components/c--switch';
-@import 'components/c--secondary-header';
-@import 'components/c--date';
-@import 'components/c--pagination';
+@import 'components/core/c--dropdown';
+@import 'components/core/c--loader';
+@import 'components/forms/c--textarea';
+@import 'components/core/c--alerts';
+@import 'components/core/c--modal';
+@import 'components/core/c--table';
+@import 'components/header/c--account_dropdown';
+@import 'components/core/c--switch';
+@import 'components/header/c--secondary-header';
+@import 'components/core/c--date';
+@import 'components/core/c--pagination';
 @import 'components/forms/c--input_field';
 @import 'components/forms/c--form__generic';
 @import 'components/forms/c--select_field';
+@import 'components/header/s--header';
 
 
-// --------
-// sections
-// --------
-@import 'sections/s--header';
-@import 'sections/s--footer';
-@import 'sections/s--content';
 
 // --------
 // Views

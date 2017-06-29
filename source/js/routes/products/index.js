@@ -14,6 +14,7 @@ import SaloFromSelect from 'components/forms/select';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
 import ProductListItem from 'components/products/list-item';
+import ProductsHeader from 'components/products/header';
 
 let filter = new ProductFilter;
 
@@ -102,8 +103,7 @@ export default class ProductIndex extends Component {
         <Helmet>
           <title>Products</title>
         </Helmet>
-        <SecondaryHeader>
-        </SecondaryHeader>
+        <ProductsHeader />
         { this.renderFilterHeader() }
         <Row>
           <Column classes='product__wrapper'>
