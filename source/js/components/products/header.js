@@ -9,7 +9,7 @@ export default class ProductsHeader extends Component {
     return (
       <SecondaryHeader>
         <Column>
-          <h3 className='secondary-header__title'><FontAwesome name='angle-right' /> Products</h3>
+          {/*<h3 className='secondary-header__title'><FontAwesome name='angle-right' /> Products</h3>*/}
         </Column>
         <div className='header-meta'>
           <a class='header-action-button'>
