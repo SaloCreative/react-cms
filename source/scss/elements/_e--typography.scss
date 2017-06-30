@@ -162,14 +162,14 @@ a,
     font-size: 1em;
     color: currentColor;
     transition: color 0.3s;
-
+    text-decoration: none;
     p > & {
         font-weight: 600;
     }
 
     &:hover {
         transition: color 0.3s;
-        color: $lush-black-44;
+        color: $salo-blue;
     }
 }
 
