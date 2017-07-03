@@ -35,16 +35,19 @@
 }
 
 .product-list__sku {
-  max-width: 120px;
+  flex: 0 0 120px;
+}
+.product-list__actions {
+  flex: 0 0 102.5px;
 }
 
 .product-list__price {
-  max-width: 150px;
+  flex: 1 0 150px;
 }
 
 .product-list__stock,
 .product-list__active {
-  max-width: 220px;
+  flex: 1 0 140px;
 }
 
 .product-list__loader {
@@ -61,5 +64,13 @@
     left: 50%;
     margin-left: -25px;
     margin-top: -21.5px;
+  }
+}
+
+.product-list__delete {
+  margin-left: 12.5px;
+  background: $salo-red;
+  &:hover {
+    background: mix($salo-red, #000, 80%);
   }
 }

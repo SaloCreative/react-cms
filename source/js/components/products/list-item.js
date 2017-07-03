@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import FontAwesome from 'react-fontawesome';
 
 import { routeCodes } from 'routes';
 
@@ -63,6 +64,8 @@ export default class ProductListItem extends Component {
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </Column>
         <Column classes='product-list__actions'>
+          <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` } className='action-button'><FontAwesome name='pencil' /></Link>
+          <button className='action-button product-list__delete'><FontAwesome name='trash-o' /></button>
         </Column>
       </Row>
     );
