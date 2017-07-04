@@ -34,7 +34,7 @@ DataTable.defaultProps = {
 export class DataTableHeader extends Component {
   render() {
     return (
-      <div className='content-table__header'>
+      <div className='content-table__header content-table__row'>
         { this.props.children }
       </div>
     );

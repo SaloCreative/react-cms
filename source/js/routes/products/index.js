@@ -96,6 +96,30 @@ export default class ProductIndex extends Component {
     return null;
   }
 
+  renderTableHeader() {
+    return (
+      <DataTableHeader>
+        <Column classes='product-list__image' />
+        <Column classes='product-list__title'>
+          <p>Title</p>
+        </Column>
+        <Column classes='product-list__sku'>
+          <p>SKU</p>
+        </Column>
+        <Column classes='product-list__price'>
+          <p>Price</p>
+        </Column>
+        <Column classes='product-list__stock'>
+          <p>Stock</p>
+        </Column>
+        <Column classes='product-list__active'>
+          <p>Active</p>
+        </Column>
+        <Column classes='product-list__actions' />
+      </DataTableHeader>
+    );
+  }
+
   render() {
     const { products } = this.props;
     return (
@@ -110,6 +134,7 @@ export default class ProductIndex extends Component {
             <Card classes='content_table_card'>
               <DataTable
                 tableClass='product-index'
+                tableHeader={ this.renderTableHeader() }
                 loading={ products.meta.fetching } >
                 {products.data.map((product, i) =>
                   <DataTableRow key={ i }>
