@@ -128,7 +128,6 @@ export default class ProductIndex extends Component {
           <title>Products</title>
         </Helmet>
         <ProductsHeader />
-        { this.renderFilterHeader() }
         <Row>
           <Column classes='product__wrapper'>
             <Card classes='content_table_card'>

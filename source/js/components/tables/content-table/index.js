@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from 'components/core/loader';
+import { Row } from 'components/core/grid';
 
 export class DataTable extends Component {
   renderContent() {
@@ -35,7 +36,9 @@ export class DataTableHeader extends Component {
   render() {
     return (
       <div className='content-table__header content-table__row'>
-        { this.props.children }
+        <Row>
+          { this.props.children }
+        </Row>
       </div>
     );
   }
