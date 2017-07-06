@@ -8,7 +8,7 @@ import { routeCodes } from 'routes';
 import Switch from 'components/core/switch';
 import Loader from 'components/core/loader';
 import { Column, Row } from 'components/core/grid';
-import { DataTableRow } from 'components/tables/content-table';
+import { DataTableRow } from 'components/tables/data-table';
 import Image from 'components/core/image';
 import Price from 'components/core/price';
 import Date from 'components/core/date';
@@ -63,9 +63,6 @@ export default class ProductListItem extends Component {
         </Column>
         <Column classes='product-list__active'>
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
-        </Column>
-        <Column classes='product-list__updated'>
-          <Date date={ product.updated_at } format='DD/MM/YYYY' />
         </Column>
         <Column classes='product-list__actions'>
           <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` } className='action-button'><FontAwesome name='pencil' /></Link>

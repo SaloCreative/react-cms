@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import Pagination from '@salocreative/react-pagination';
 import { paginationStyles } from 'constants/config';
 import Loader from 'components/core/loader';
-import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/content-table';
+import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/data-table';
 import { Column, Row, Container, Card } from 'components/core/grid';
 import SecondaryHeader from 'components/headers/secondary';
 import SaloFormInput from 'components/forms/input';
@@ -99,10 +99,10 @@ export default class ProductIndex extends Component {
   renderTableHeader() {
     return (
       <DataTableHeader>
-        <Column classes='product-list__image' />
-        <Column classes='product-list__title'>
+        <Column classes='product-list__image'>
           <p>Title</p>
         </Column>
+        <Column classes='product-list__title' />
         <Column classes='product-list__sku'>
           <p>SKU</p>
         </Column>
@@ -114,9 +114,6 @@ export default class ProductIndex extends Component {
         </Column>
         <Column classes='product-list__active'>
           <p>Active</p>
-        </Column>
-        <Column classes='product-list__updated'>
-          <p>Updated at</p>
         </Column>
         <Column classes='product-list__actions' />
       </DataTableHeader>
@@ -136,7 +133,9 @@ export default class ProductIndex extends Component {
             <DataTable
               tableClass='product-index'
               tableHeader={ this.renderTableHeader() }
-              loading={ products.meta.fetching } >
+              loading={ products.meta.fetching }
+              filters='ewf'
+              title='Products' >
 
               {products.data.map((product, i) =>
                 <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
