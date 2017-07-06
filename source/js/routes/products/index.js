@@ -115,6 +115,9 @@ export default class ProductIndex extends Component {
         <Column classes='product-list__active'>
           <p>Active</p>
         </Column>
+        <Column classes='product-list__updated'>
+          <p>Updated at</p>
+        </Column>
         <Column classes='product-list__actions' />
       </DataTableHeader>
     );
@@ -130,19 +133,18 @@ export default class ProductIndex extends Component {
         <ProductsHeader />
         <Row>
           <Column classes='product__wrapper'>
-            <Card classes='content_table_card'>
-              <DataTable
-                tableClass='product-index'
-                tableHeader={ this.renderTableHeader() }
-                loading={ products.meta.fetching } >
-                {products.data.map((product, i) =>
-                  <DataTableRow key={ i }>
-                    <ProductListItem { ...this.props } i={ i } product={ product }/>
-                  </DataTableRow>
-                )}
-                { this.renderPagination() }
-              </DataTable>
-            </Card>
+            <DataTable
+              tableClass='product-index'
+              tableHeader={ this.renderTableHeader() }
+              loading={ products.meta.fetching } >
+
+              {products.data.map((product, i) =>
+                <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
+              )}
+
+              { this.renderPagination() }
+
+            </DataTable>
           </Column>
         </Row>
       </div>

@@ -31,9 +31,11 @@ body {
   position: relative;
   width: 100%;
   max-width: width(100, px);
-  .row {
-    margin: 0 -1.25rem;
-  }
+}
+
+.row.inset-margin {
+  margin: 0 -1.25rem;
+  width: calc(100% + 2.5rem);
 }
 
 .column {

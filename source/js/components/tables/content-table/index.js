@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from 'components/core/loader';
-import { Row } from 'components/core/grid';
+import { Row, Card } from 'components/core/grid';
 
 export class DataTable extends Component {
   renderContent() {
@@ -14,13 +14,15 @@ export class DataTable extends Component {
 
   render() {
     return (
-      <div className='content-table__wrapper'>
-        { this.props.tableHeader }
-        <div className={ `content_table ${ this.props.tableClass }` }>
-          <Loader display={ this.props.loading } />
-          { this.renderContent() }
+      <Card classes='content_table_card'>
+        <div className='content-table__wrapper'>
+          <div className={ `content_table ${ this.props.tableClass }` }>
+            { this.props.tableHeader }
+            <Loader display={ this.props.loading } />
+            { this.renderContent() }
+          </div>
         </div>
-      </div>
+      </Card>
     );
   }
 }
@@ -35,11 +37,11 @@ DataTable.defaultProps = {
 export class DataTableHeader extends Component {
   render() {
     return (
-      <div className='content-table__header content-table__row'>
-        <Row>
+      <Row classes='content-table__row content-table__header'>
+        <Row classes='inset-margin'>
           { this.props.children }
         </Row>
-      </div>
+      </Row>
     );
   }
 }
@@ -51,13 +53,16 @@ DataTableHeader.defaultProps = {
 export class DataTableRow extends Component {
   render() {
     return (
-      <div className='content-table__row'>
-        { this.props.children }
-      </div>
+      <Row classes={ `content-table__row ${ this.props.classes }` }>
+        <Row classes='inset-margin'>
+          { this.props.children }
+        </Row>
+      </Row>
     );
   }
 }
 
 DataTableRow.defaultProps = {
-  children: ''
+  children: '',
+  classes: ''
 };
