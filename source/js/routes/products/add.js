@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import { Column, Row, Card } from 'components/core/grid';
@@ -11,6 +12,10 @@ import ProductDescription from 'components/products/description';
 import ProductDimensionsPicker from 'components/products/dimensions-picker';
 
 export default class AddProduct extends Component {
+
+  componentWillMount() {
+    this.props.addNewProduct();
+  }
 
   render() {
     return (
@@ -31,4 +36,9 @@ export default class AddProduct extends Component {
     );
   }
 }
+
+AddProduct.propTypes = {
+  addNewProduct: PropTypes.func
+};
+
 

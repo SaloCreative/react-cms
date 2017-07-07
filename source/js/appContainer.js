@@ -6,6 +6,7 @@ import * as navigationActions from 'actions/navigation';
 import * as productListActions from 'actions/products';
 import * as productGetActions from 'actions/products/get';
 import * as productEditActions from 'actions/products/edit';
+import * as productAddActions from 'actions/products/add';
 import * as productCategoriesActions from 'actions/products/categories';
 import App from 'routes/app';
 
@@ -32,6 +33,7 @@ function mapDispatchToProps(dispatch) {
       productListActions,
       productGetActions,
       productEditActions,
+      productAddActions,
       productCategoriesActions
     ), dispatch);
 }

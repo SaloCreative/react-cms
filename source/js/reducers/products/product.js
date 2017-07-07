@@ -1,7 +1,8 @@
 import {
   GET_PRODUCT_FETCHING,
   GET_PRODUCT_RECEIVED,
-  GET_PRODUCT_FAILED
+  GET_PRODUCT_FAILED,
+  ADD_NEW_PRODUCT
 } from 'actions/products/types';
 
 const initialState = {
@@ -46,6 +47,9 @@ function product(state = initialState, action) {
           failed: true
         }
       };
+
+    case ADD_NEW_PRODUCT :
+      return initialState;
 
     default :
       return state;
