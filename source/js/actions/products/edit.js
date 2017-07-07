@@ -1,7 +1,7 @@
 import { CALL_API, getJSON } from 'redux-api-middleware';
 import { API, HEADER, ENDPOINT } from 'api';
 import { ApiError } from 'api/errorHandler';
-import ErrorMessages from 'reducers/alerts/messages/errorMessages';
+import ErrorMessages from 'constants/messages/errorMessages';
 
 import { ProductFilter } from './filter';
 

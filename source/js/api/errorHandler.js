@@ -1,5 +1,5 @@
 import store from 'store';
-import ErrorMessages from 'reducers/alerts/messages/errorMessages';
+import ErrorMessages from 'constants/messages/errorMessages';
 import { browserHistory } from 'react-router';
 import { routeCodes } from 'routes';
 
@@ -20,12 +20,15 @@ export function ApiError(responseCode, errorMessage, response, componentHandleEr
   switch (responseCode) {
     case 401 :
       console.log('401 Error - Not authorised');
+      break;
     case 403 :
       store.dispatch(error(ErrorMessages.forbidden));
+      break;
     case 404 :
       if (!componentHandleError) {
-        //browserHistory.push(routeCodes.ERROR);
+        browserHistory.push(routeCodes.ERROR);
       }
+      break;
     default :
       if (!componentHandleError) {
         store.dispatch(error(errorMessage));

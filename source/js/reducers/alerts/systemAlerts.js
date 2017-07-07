@@ -1,7 +1,7 @@
-import ErrorMessages from './messages/errorMessages';
-import WarningMessages from './messages/warningMessages';
-import InfoMessages from './messages/infoMessages';
-import SuccessMessages from './messages/successMessages';
+import ErrorMessages from 'constants/messages/errorMessages';
+import WarningMessages from 'constants/messages/warningMessages';
+import InfoMessages from 'constants/messages/infoMessages';
+import SuccessMessages from 'constants/messages/successMessages';
 
 // Error reducer
 function systemAlerts(state = [], action) {

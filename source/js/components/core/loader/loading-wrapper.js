@@ -1,9 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 
+import Loader from 'components/core/loader';
+import FetchFail from 'components/core/alerts/fetch-fail';
+import { Row } from 'components/core/grid';
+
 export default class LoadingWrapper extends Component {
   render() {
-    if (this.props.display) {
-     return this.props.children;
+    if (this.props.display && !this.props.loading) {
+     return <Row>{ this.props.children }</Row>;
+    }
+    if (this.props.loading) {
+      return <Row><Loader display={ this.props.loading } /></Row>;
+    }
+    if (this.props.error) {
+      return <Row><FetchFail display={ this.props.error } message={ this.props.errorMessage } retryAction={ this.props.retryAction }/></Row>;
     }
     return null;
   }
@@ -12,11 +22,18 @@ export default class LoadingWrapper extends Component {
 
 LoadingWrapper.defaultProps = {
   display: false,
+  loading: false,
+  error: false,
+  errorMessage: '',
   classes: '',
-  children: (<div className='wrapper'>Why no content?</div> )
+  children: (<Row>Why no content?</Row> )
 };
 
 LoadingWrapper.propTypes = {
   display: PropTypes.bool,
-  classes: PropTypes.string
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
+  errorMessage: PropTypes.object,
+  classes: PropTypes.string,
+  retryAction: PropTypes.func
 };

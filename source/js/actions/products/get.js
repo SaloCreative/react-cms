@@ -1,7 +1,7 @@
 import { CALL_API, getJSON } from 'redux-api-middleware';
 import { API, HEADER, ENDPOINT } from 'api';
 import { ApiError } from 'api/errorHandler';
-import ErrorMessages from 'reducers/alerts/messages/errorMessages';
+import ErrorMessages from 'constants/messages/errorMessages';
 
 import { ProductFilter } from './filter';
 
@@ -30,7 +30,7 @@ export const getProduct = (id) => ({
         type: GET_PRODUCT_FAILED,
         payload: (action, state, res) => {
           getJSON(res).then(
-            (json) => new ApiError(res.status, ErrorMessages.getProductsFailed, json)
+            (json) => new ApiError(res.status, ErrorMessages.getProductFailed, json)
           );
         }
       }
@@ -38,27 +38,3 @@ export const getProduct = (id) => ({
     ]
   }
 });
-
-export function toggleProductOnline(product, e, i) {
-  return function (dispatch) {
-    let fields = {
-      slug: product.slug,
-      sku: product.sku,
-      title: product.title,
-      online: e
-    };
-    dispatch(updateProduct(product.id, fields, i));
-  };
-}
-
-export function toggleProductStock(product, e, i) {
-  return function (dispatch) {
-    let fields = {
-      slug: product.slug,
-      sku: product.sku,
-      title: product.title,
-      inStock: e
-    };
-    dispatch(updateProduct(product.id, fields, i));
-  };
-}

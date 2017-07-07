@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import { Column, Row, Card } from 'components/core/grid';
-import FailedReport from 'components/core/alerts/failed-report';
-import Loader from 'components/core/loader';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
 
@@ -22,28 +20,36 @@ export default class EditProduct extends Component {
     this.props.getProduct(this.props.params.id);
   }
 
+  attemptProductFetch() {
+    this.props.getProduct(this.props.params.id);
+  }
+
   render() {
     const { product } = this.props;
-    let displayContent = !product.meta.fetching && product.data.id;
+    let displayContent = false;
+    if (!product.meta.fetching && product.data.id) {
+      displayContent = true;
+    }
     return (
       <div id='product-add'>
         <Helmet>
           <title>Edit Product</title>
         </Helmet>
         <ProductsHeader />
-        <Row>
-          <FailedReport display={ product.meta.failed } message={ ErrorMessages.getProductFailed.message } />
-          <Loader display={ product.meta.fetching } />
-        </Row>
-        <LoadingWrapper display={ displayContent }>
-          <Row>
-            <FeaturedImage />
-            <ProductDetails />
-            <ProductTagsPicker />
-            <Gallery />
-            <ProductDescription />
-            <ProductDimensionsPicker />
-          </Row>
+        <LoadingWrapper
+          display={ displayContent }
+          loading={ product.meta.fetching }
+          error={ product.meta.failed }
+          errorMessage={ ErrorMessages.getProductFailed.message }
+          retryAction={ () => this.attemptProductFetch() } >
+
+          <FeaturedImage />
+          <ProductDetails />
+          <ProductTagsPicker />
+          <Gallery />
+          <ProductDescription />
+          <ProductDimensionsPicker />
+
         </LoadingWrapper>
       </div>
     );
