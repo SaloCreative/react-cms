@@ -11,7 +11,7 @@ import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/data
 import { Column, Row, Container, Card } from 'components/core/grid';
 import SecondaryHeader from 'components/headers/secondary';
 import SaloFormInput from 'components/forms/input';
-import SaloFromSelect from 'components/forms/select';
+import SaloFormSelect from 'components/forms/select';
 
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
@@ -62,7 +62,7 @@ export default class ProductIndex extends Component {
         </Column>
 
         <Column classes='search__category'>
-          <SaloFromSelect
+          <SaloFormSelect
             icon='sitemap'
             name='product-category'
             label='Filter by category'
@@ -71,7 +71,7 @@ export default class ProductIndex extends Component {
         </Column>
 
         <Column classes='search__order-by'>
-          <SaloFromSelect
+          <SaloFormSelect
             icon='sort'
             name='product-orderby'
             label='Sort by'
@@ -81,7 +81,7 @@ export default class ProductIndex extends Component {
             <option value="created_at-ASC">Oldest product</option>
             <option value="price-DESC">Highest price</option>
             <option value="price-ASC">Lowest price</option>
-          </SaloFromSelect>
+          </SaloFormSelect>
         </Column>
       </Row>
     );

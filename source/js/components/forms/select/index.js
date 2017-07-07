@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
-export default class SaloFromSelect extends Component {
+export default class SaloFormSelect extends Component {
 
   shouldDisplayError = () => {
     return this.props.validation;
@@ -43,7 +43,7 @@ export default class SaloFromSelect extends Component {
   }
 }
 
-SaloFromSelect.defaultProps = {
+SaloFormSelect.defaultProps = {
   value: '',
   children: null,
   label: 'Enter a label',
