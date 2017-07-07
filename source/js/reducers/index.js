@@ -10,6 +10,7 @@ import login from './auth/login';
 
 // Products
 import products from './products';
+import product from './products/product';
 import productFilter from './products/filters';
 import productCategories from './products/categories';
 
@@ -20,6 +21,7 @@ export default combineReducers({
   navigation,
   login,
   products,
+  product,
   productFilter,
   productCategories,
   form: formReducer,

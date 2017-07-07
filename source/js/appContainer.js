@@ -4,6 +4,7 @@ import * as authActions from 'actions/auth/authActions';
 import * as alertHandling from 'actions/alerts/alerts';
 import * as navigationActions from 'actions/navigation';
 import * as productListActions from 'actions/products';
+import * as productGetActions from 'actions/products/get';
 import * as productEditActions from 'actions/products/edit';
 import * as productCategoriesActions from 'actions/products/categories';
 import App from 'routes/app';
@@ -15,6 +16,7 @@ function mapStateToProps(state) {
     users: state.users,
     login: state.login,
     products: state.products,
+    product: state.product,
     productFilter: state.productFilter,
     productCategories: state.productCategories
   };
@@ -28,6 +30,7 @@ function mapDispatchToProps(dispatch) {
       alertHandling,
       navigationActions,
       productListActions,
+      productGetActions,
       productEditActions,
       productCategoriesActions
     ), dispatch);
