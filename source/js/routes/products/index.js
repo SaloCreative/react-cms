@@ -4,7 +4,9 @@ import { Helmet } from 'react-helmet';
 
 import Pagination from '@salocreative/react-pagination';
 import { paginationStyles } from 'constants/config';
-import Loader from 'components/core/loader';
+import LoadingWrapper from 'components/core/loader/loading-wrapper';
+import ErrorMessages from 'constants/messages/errorMessages';
+
 import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/data-table';
 import { Column, Row, Container, Card } from 'components/core/grid';
 import SecondaryHeader from 'components/headers/secondary';
@@ -27,6 +29,10 @@ export default class ProductIndex extends Component {
     if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
       this.props.getCategories();
     }
+  }
+
+  attemptProductsFetch() {
+    this.props.getProducts();
   }
 
   onChange(field) {
@@ -122,13 +128,23 @@ export default class ProductIndex extends Component {
 
   render() {
     const { products } = this.props;
+    let displayContent = false;
+    if (!products.meta.fetching && products.data.length > 0) {
+      displayContent = true;
+    }
     return (
       <div id='product-index'>
         <Helmet>
           <title>Products</title>
         </Helmet>
         <ProductsHeader />
-        <Row>
+        <LoadingWrapper
+          display={ displayContent }
+          loading={ products.meta.fetching }
+          error={ products.meta.failed }
+          errorMessage={ ErrorMessages.getProductsFailed.message }
+          retryAction={ () => this.attemptProductsFetch() } >
+
           <Column classes='product__wrapper'>
             <DataTable
               tableClass='product-index'
@@ -145,7 +161,8 @@ export default class ProductIndex extends Component {
 
             </DataTable>
           </Column>
-        </Row>
+
+        </LoadingWrapper>
       </div>
     );
   }

@@ -26,7 +26,7 @@ export function ApiError(responseCode, errorMessage, response, componentHandleEr
       break;
     case 404 :
       if (!componentHandleError) {
-        browserHistory.push(routeCodes.ERROR);
+        //browserHistory.push(routeCodes.ERROR);
       }
       break;
     default :

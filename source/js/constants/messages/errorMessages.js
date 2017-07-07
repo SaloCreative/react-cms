@@ -20,13 +20,13 @@ const ErrorMessages = {
   getProductFailed: {
     type: 'error',
     message: {
-      en: 'Could not fetch the product at this time. Please try again.'
+      en: 'Could not fetch the product at this time'
     }
   },
   getProductsFailed: {
     type: 'error',
     message: {
-      en: 'Could not fetch the products list at this time. Please try again.'
+      en: 'Could not fetch the products list at this time'
     }
   },
   getProductsCategoriesFailed: {

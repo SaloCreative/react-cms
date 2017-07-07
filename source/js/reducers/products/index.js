@@ -10,7 +10,8 @@ import {
 const initialState = {
   data: [],
   meta: {
-    last_updated: ''
+    last_updated: '',
+    failed: false
   }
 };
 
@@ -33,6 +34,7 @@ function products(state = initialState, action) {
         meta: {
           fetching: false,
           last_updated: Date.now(),
+          failed: false,
           current_page: action.payload.current_page,
           per_page: action.payload.per_page,
           total: action.payload.total
@@ -45,6 +47,7 @@ function products(state = initialState, action) {
         meta: {
           ...state.meta,
           fetching: false,
+          failed: true,
           last_updated: ''
         }
       };

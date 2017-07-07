@@ -72,7 +72,7 @@ export const getProducts = (filter = new ProductFilter) => ({
         type: GET_PRODUCTS_FAILED,
         payload: (action, state, res) => {
           getJSON(res).then(
-            (json) => new ApiError(res.status, ErrorMessages.getProductsFailed, json)
+            (json) => new ApiError(res.status, ErrorMessages.getProductsFailed, json, true)
           );
         }
       }
