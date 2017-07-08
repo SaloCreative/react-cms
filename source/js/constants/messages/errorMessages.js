@@ -23,6 +23,24 @@ const ErrorMessages = {
       en: 'Could not fetch the product at this time'
     }
   },
+  updateProductFailed: {
+    type: 'error',
+    message: {
+      en: 'Could not update the product at this time'
+    }
+  },
+  slug: {
+    type: 'error',
+    message: {
+      en: 'That url has already been taken'
+    }
+  },
+  sku: {
+    type: 'error',
+    message: {
+      en: 'The SKU has already been taken'
+    }
+  },
   getProductsFailed: {
     type: 'error',
     message: {

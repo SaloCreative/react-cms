@@ -41,15 +41,23 @@ export const updateProduct = (id, body, i = null) => ({
       {
         type: UPDATING_PRODUCT_FAILED,
         payload: (action, state, res) => {
-          getJSON(res).then(
-            (json) => new ApiError(res.status, ErrorMessages.getProductsFailed, json)
-          );
+          return getJSON(res).then((json) => {
+            ApiError(res.status, ErrorMessages.updateProductFailed, json);
+            return {
+              i
+            };
+          });
         }
       }
-
     ]
   }
 });
+
+export function editProduct(product) {
+  return function (dispatch) {
+    dispatch(updateProduct(product.id, product));
+  };
+}
 
 export function toggleProductOnline(product, e, i) {
   return function (dispatch) {

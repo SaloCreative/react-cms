@@ -14,7 +14,8 @@ function systemAlerts(state = [], action) {
       return [ErrorMessages.tillReportFetchFail];
 
     case 'API_FAILURE' :
-      return [action.payload.errorMessage];
+      return [...state, action.payload.errorMessage];
+
 
     case 'CLEAR_SYSTEM_ALERT' :
       return [

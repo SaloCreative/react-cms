@@ -4,7 +4,9 @@ import {
   GET_PRODUCT_FAILED,
   ADD_NEW_PRODUCT,
   PRODUCT_FIELD_CHANGED,
-  PRODUCT_SECTION_VALIDATION
+  PRODUCT_SECTION_VALIDATION,
+  UPDATING_PRODUCT_FETCHING,
+  UPDATING_PRODUCT_RECEIVED
 } from 'actions/products/types';
 
 const initialState = {
@@ -92,6 +94,28 @@ function product(state = initialState, action) {
           }
         }
       };
+
+    case UPDATING_PRODUCT_FETCHING :
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          fetching: true,
+          last_updated: ''
+        }
+      };
+
+    case UPDATING_PRODUCT_RECEIVED :
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          saved: true,
+          fetching: false,
+          last_updated: Date.now()
+        }
+      };
+
     default :
       return state;
   }

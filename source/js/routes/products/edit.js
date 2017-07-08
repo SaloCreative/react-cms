@@ -29,8 +29,17 @@ export default class EditProduct extends Component {
     this.props.getProduct(this.props.params.id);
   }
 
+  checkAllValid() {
+    const { product } = this.props;
+    return product.meta.validations.details;
+  }
+
   saveProduct() {
-    console.log('save edits');
+   if (this.checkAllValid()) {
+     this.props.editProduct(this.props.product.data);
+   } else {
+     alert('There are validation errors');
+   }
   }
 
   render() {
@@ -77,5 +86,6 @@ export default class EditProduct extends Component {
 }
 
 EditProduct.propTypes = {
-  getProduct: PropTypes.func
+  getProduct: PropTypes.func,
+  editProduct: PropTypes.func
 };

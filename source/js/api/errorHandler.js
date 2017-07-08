@@ -18,6 +18,18 @@ function error(errorMessage) {
 
 export function ApiError(responseCode, errorMessage, response, componentHandleError = false) {
   switch (responseCode) {
+    case 400 : {
+      let errors = Object.keys(response);
+      errors.forEach(function(errorItem) {
+        let currentError = ErrorMessages[errorItem];
+        if (currentError) {
+          store.dispatch(error(currentError));
+        } else {
+          store.dispatch(error(errorMessage));
+        }
+      });
+      break;
+    }
     case 401 :
       console.log('401 Error - Not authorised');
       break;
