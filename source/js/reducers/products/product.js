@@ -100,7 +100,7 @@ function product(state = initialState, action) {
         ...state,
         meta: {
           ...state.meta,
-          fetching: true,
+          saving: true,
           last_updated: ''
         }
       };
@@ -111,7 +111,7 @@ function product(state = initialState, action) {
         meta: {
           ...state.meta,
           saved: true,
-          fetching: false,
+          saving: false,
           last_updated: Date.now()
         }
       };
