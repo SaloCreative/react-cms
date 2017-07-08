@@ -23,7 +23,10 @@ function product(state = initialState, action) {
       return {
         ...state,
         meta: {
-          ...state.meta, fetching: true
+          ...state.meta,
+          fetching: true,
+          failed: false,
+          saved: true
         },
         data: {}
       };
@@ -33,9 +36,11 @@ function product(state = initialState, action) {
         ...state,
         data: action.payload,
         meta: {
+          ...state.meta,
           fetching: false,
-          last_updated: Date.now(),
-          failed: false
+          failed: false,
+          saved: true,
+          last_updated: Date.now()
         }
       };
 
@@ -45,8 +50,9 @@ function product(state = initialState, action) {
         meta: {
           ...state.meta,
           fetching: false,
-          last_updated: '',
-          failed: true
+          failed: true,
+          saved: true,
+          last_updated: ''
         }
       };
 
@@ -58,7 +64,10 @@ function product(state = initialState, action) {
         ...state,
         meta: {
           ...state.meta,
-          saved: false
+          fetching: false,
+          failed: false,
+          saved: false,
+          last_updated: ''
         },
         data: {
           ...state.data,

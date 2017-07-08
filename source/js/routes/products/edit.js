@@ -8,6 +8,7 @@ import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
 
 import ProductsHeader from 'components/products/header';
+import ProductsSecondaryHeader from 'components/products/header-secondary';
 import FeaturedImage from 'components/products/featured-image';
 import ProductDetails from 'components/products/details';
 import ProductTagsPicker from 'components/products/tags-picker';
@@ -28,6 +29,10 @@ export default class EditProduct extends Component {
     this.props.getProduct(this.props.params.id);
   }
 
+  saveProduct() {
+    console.log('save edits');
+  }
+
   render() {
     const { product } = this.props;
     let displayContent = false;
@@ -40,6 +45,7 @@ export default class EditProduct extends Component {
           <title>Edit Product</title>
         </Helmet>
         <ProductsHeader />
+        <ProductsSecondaryHeader saveEdits={ () => this.saveProduct() } { ...this.props }/>
         <LoadingWrapper
           display={ displayContent }
           loading={ product.meta.fetching }
@@ -48,7 +54,9 @@ export default class EditProduct extends Component {
           retryAction={ () => this.attemptProductFetch() } >
 
           <FeaturedImage />
-          <ProductDetails categories={ this.props.productCategories.data } showErrors={ true } { ...this.props }/>
+          <ProductDetails { ...this.props }
+            categories={ this.props.productCategories.data }
+            showErrors={ true }/>
           <ProductTagsPicker />
           <Gallery />
           <ProductDescription />

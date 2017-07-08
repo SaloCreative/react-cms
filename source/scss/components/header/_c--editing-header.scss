@@ -1,0 +1,32 @@
+.editing-header__right {
+  flex-direction: row;
+  margin-left: auto;
+  height: 90px;
+  .switch__wrapper {
+    margin-right: 2.5rem;
+  }
+}
+
+.editing-header__save {
+  @include transition__all;
+  display: flex;
+  align-items: center;
+  width: 90px;
+  border-left: 1px solid $grey;
+  border-right: 1px solid $grey;
+  color: $grey;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:hover {
+    border-left: 1px solid $salo-blue;
+    border-right: 1px solid $salo-blue;
+  }
+  &.disabled {
+    background: transparent !important;
+    color: $light-grey;
+    border-left: 1px solid $light-grey;
+    border-right: 1px solid $light-grey;
+    cursor: default;
+  }
+}

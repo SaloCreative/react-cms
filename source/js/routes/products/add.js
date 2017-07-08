@@ -31,7 +31,8 @@ export default class AddProduct extends Component {
         <ProductsHeader />
         <Row>
           <FeaturedImage />
-          <ProductDetails categories={ this.props.productCategories.data } { ...this.props }/>
+          <ProductDetails { ...this.props }
+            categories={ this.props.productCategories.data }/>
           <ProductTagsPicker />
           <Gallery />
           <ProductDescription />
