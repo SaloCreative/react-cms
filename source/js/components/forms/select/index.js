@@ -8,6 +8,13 @@ export default class SaloFormSelect extends Component {
     return this.props.validation;
   };
 
+  renderRequired() {
+    if(!this.props.requiredAsterisk) { return null; }
+    return (
+      <sup>*</sup>
+    );
+  }
+
   renderPlaceholder() {
     if (!this.props.value) {
       return (
@@ -36,7 +43,7 @@ export default class SaloFormSelect extends Component {
           { this.props.children }
         </select>
         <span className='bar' />
-        <label htmlFor={ this.props.name } >{ this.props.label }</label>
+        <label htmlFor={ this.props.name } >{ this.props.label } { this.renderRequired() }</label>
         <span className='form__error'>{ this.props.validation }</span>
       </div>
     );
@@ -48,5 +55,17 @@ SaloFormSelect.defaultProps = {
   children: null,
   label: 'Enter a label',
   name: 'a-select',
-  icon: ''
+  icon: '',
+  requiredAsterisk: false
+};
+
+SaloFormSelect.propTypes = {
+  validation: PropTypes.string,
+  requiredAsterisk: PropTypes.bool,
+  onFieldChanged: PropTypes.func,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.any,
+  icon: PropTypes.string
 };

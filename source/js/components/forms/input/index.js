@@ -8,6 +8,13 @@ export default class SaloFormInput extends Component {
     return this.props.validation;
   };
 
+  renderRequired() {
+    if(!this.props.requiredAsterisk) { return null; }
+    return (
+      <sup>*</sup>
+    );
+  }
+
   renderIcon() {
     if(!this.props.icon) { return null; }
     return (
@@ -25,7 +32,7 @@ export default class SaloFormInput extends Component {
                value={ this.props.value }
                onChange={ this.props.onFieldChanged } />
         <span className='bar' />
-        <label>{ this.props.label }</label>
+        <label>{ this.props.label } { this.renderRequired() }</label>
         <span className='form__error'>{ this.props.validation }</span>
       </div>
     );
@@ -36,11 +43,13 @@ SaloFormInput.defaultProps = {
   type: 'text',
   value: '',
   name: 'form-field',
-  icon: ''
+  icon: '',
+  requiredAsterisk: false
 };
 
 SaloFormInput.propTypes = {
   validation: PropTypes.string,
+  requiredAsterisk: PropTypes.bool,
   onFieldChanged: PropTypes.func,
   name: PropTypes.string,
   label: PropTypes.string,

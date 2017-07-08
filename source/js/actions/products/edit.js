@@ -8,7 +8,8 @@ import { ProductFilter } from './filter';
 import {
   UPDATING_PRODUCT_FETCHING,
   UPDATING_PRODUCT_RECEIVED,
-  UPDATING_PRODUCT_FAILED
+  UPDATING_PRODUCT_FAILED,
+  PRODUCT_FIELD_CHANGED
 } from './types';
 
 export const updateProduct = (id, body, i = null) => ({
@@ -71,4 +72,12 @@ export function toggleProductStock(product, e, i) {
     };
     dispatch(updateProduct(product.id, fields, i));
   };
+}
+
+export function productFieldChanged(field, value) {
+  return {
+    type: PRODUCT_FIELD_CHANGED,
+    field,
+    value
+  }
 }

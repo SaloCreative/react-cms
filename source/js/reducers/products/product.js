@@ -2,7 +2,8 @@ import {
   GET_PRODUCT_FETCHING,
   GET_PRODUCT_RECEIVED,
   GET_PRODUCT_FAILED,
-  ADD_NEW_PRODUCT
+  ADD_NEW_PRODUCT,
+  PRODUCT_FIELD_CHANGED
 } from 'actions/products/types';
 
 const initialState = {
@@ -51,6 +52,19 @@ function product(state = initialState, action) {
 
     case ADD_NEW_PRODUCT :
       return initialState;
+
+    case PRODUCT_FIELD_CHANGED :
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          saved: false
+        },
+        data: {
+          ...state.data,
+          [action.field]: action.value
+        }
+      };
 
     default :
       return state;

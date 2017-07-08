@@ -48,7 +48,7 @@ export default class EditProduct extends Component {
           retryAction={ () => this.attemptProductFetch() } >
 
           <FeaturedImage />
-          <ProductDetails product={ product.data } categories={ this.props.productCategories.data }/>
+          <ProductDetails categories={ this.props.productCategories.data } showErrors={ true } { ...this.props }/>
           <ProductTagsPicker />
           <Gallery />
           <ProductDescription />

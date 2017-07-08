@@ -13,7 +13,6 @@ const fieldValidations = [
   validate('title', 'Title', Rule.required),
   validate('slug', 'Url', Rule.required),
   validate('sku', 'SKU', Rule.required),
-  validate('price', 'Price', Rule.required),
   validate('category_id', 'Category', Rule.required)
 ];
 
@@ -25,17 +24,17 @@ export default class ProductDetails extends Component {
       validationErrors: {}
     };
     // Run validations on initial state
-    this.state.validationErrors = runValidation(this.props.product, fieldValidations);
+    this.state.validationErrors = runValidation(this.props.product.data, fieldValidations);
   }
 
   onChange(field) {
     return (e) => {
-      console.log(e.target.value);
-      /*const newState = update(this.state, {
-        [field]: { $set: e.target.value }
-      });*/
-      newState.validationErrors = runValidation(newState, fieldValidations);
-      this.setState(newState);
+      this.props.productFieldChanged(field, e.target.value);
+      let newState = this.state;
+      setTimeout(() => {
+        newState.validationErrors = runValidation(this.props.product.data, fieldValidations);
+        this.setState(newState);
+      }, 10);
     };
   }
 
@@ -54,39 +53,42 @@ export default class ProductDetails extends Component {
           <SaloFormInput
             name='title'
             label='Product title'
-            value={ product.title }
+            value={ product.data.title }
             onFieldChanged={ this.onChange('title') }
             validation={ this.errorFor('title') }
+            requiredAsterisk={ true }
           />
           <SaloFormInput
             name='slug'
             label='Product url'
-            value={ product.slug }
+            value={ product.data.slug }
             onFieldChanged={ this.onChange('slug') }
             validation={ this.errorFor('slug') }
+            requiredAsterisk={ true }
           />
           <SaloFormInput
             name='sku'
             label='Product SKU'
-            value={ product.sku }
+            value={ product.data.sku }
             onFieldChanged={ this.onChange('sku') }
             validation={ this.errorFor('sku') }
+            requiredAsterisk={ true }
           />
           <SaloFormInput
             icon='gbp'
             type='number'
             name='price'
             label='Product price'
-            value={ product.price }
+            value={ product.data.price }
             onFieldChanged={ this.onChange('price') }
-            validation={ this.errorFor('price') }
           />
           <SaloFormSelect
             name='category_id'
             label='Product category'
-            value={ product.category_id }
-            onFieldChanged={ this.onChange('order') }
-            validation={ this.errorFor('category_id') }>
+            value={ product.data.category_id }
+            onFieldChanged={ this.onChange('category_id') }
+            validation={ this.errorFor('category_id') }
+            requiredAsterisk={ true }>
             {categories.map((category, i) =>
               <option key={ i } value={ category.id }>{ category.title }</option>
             )}
@@ -100,12 +102,15 @@ export default class ProductDetails extends Component {
 ProductDetails.propTypes = {
   product: PropTypes.object,
   categories: PropTypes.array,
+  productFieldChanged: PropTypes.func,
   showErrors: PropTypes.bool
 };
 
 ProductDetails.defaultProps = {
-  product: {},
+  product: {
+    data: {}
+  },
   categories: [],
-  showErrors: true
+  showErrors: false
 };
 

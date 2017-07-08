@@ -22,6 +22,7 @@ export default class AddProduct extends Component {
   }
 
   render() {
+    const { product } = this.props;
     return (
       <div id='product-add'>
         <Helmet>
@@ -30,7 +31,7 @@ export default class AddProduct extends Component {
         <ProductsHeader />
         <Row>
           <FeaturedImage />
-          <ProductDetails categories={ this.props.productCategories.data } />
+          <ProductDetails categories={ this.props.productCategories.data } { ...this.props }/>
           <ProductTagsPicker />
           <Gallery />
           <ProductDescription />
