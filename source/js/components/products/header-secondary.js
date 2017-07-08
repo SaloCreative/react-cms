@@ -38,8 +38,8 @@ export default class ProductsSecondaryHeader extends Component {
     return (
       <SecondaryHeader headerClass='pull-up'>
         <Column classes='editing-header__left'>
-          <ul>
-            <li>General</li>
+          <ul className='editing-header__tabs-nav'>
+            <li className='active'>General</li>
             <li>Inventory &amp; Sales</li>
             <li>SEO</li>
           </ul>
