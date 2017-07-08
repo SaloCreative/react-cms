@@ -9,7 +9,8 @@ const initialState = {
   data: {},
   meta: {
     last_updated: '',
-    failed: false
+    failed: false,
+    saved: true
   }
 };
 

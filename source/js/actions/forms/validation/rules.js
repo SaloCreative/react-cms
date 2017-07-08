@@ -1,7 +1,7 @@
 import * as ErrorMessages from './messages';
 
 export const required = (text) => {
-  if (text) {
+  if (text || text === 0) {
     return null;
   } else {
     return ErrorMessages.isRequired;
