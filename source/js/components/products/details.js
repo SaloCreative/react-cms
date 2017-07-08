@@ -38,52 +38,50 @@ export default class ProductDetails extends Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, categories } = this.props;
     return (
       <Column classes='is-4'>
-        <Card>
-          <Row>
-            <SaloFormInput
-              name='title'
-              label='Product title'
-              value={ product.title }
-              onFieldChanged={ this.onChange('password') }
-              validation={ this.errorFor('password') }
-            />
-            <SaloFormInput
-              name='slug'
-              label='Product url'
-              value={ product.slug }
-              onFieldChanged={ this.onChange('password') }
-              validation={ this.errorFor('password') }
-            />
-            <SaloFormInput
-              name='sku'
-              label='Product SKU'
-              value={ product.sku }
-              onFieldChanged={ this.onChange('password') }
-              validation={ this.errorFor('password') }
-            />
-            <SaloFormInput
-              type='number'
-              name='price'
-              label='Product price'
-              value={ product.price }
-              onFieldChanged={ this.onChange('password') }
-              validation={ this.errorFor('password') }
-            />
-            <SaloFormSelect
-              name='category_id'
-              label='Product category'
-              value={ product.category_id }
-              onFieldChanged={ this.onChange('order') }
-              validation={ this.errorFor('password') }>
-              <option value="created_at-DESC">Newest product</option>
-              <option value="created_at-ASC">Oldest product</option>
-              <option value="price-DESC">Highest price</option>
-              <option value="price-ASC">Lowest price</option>
-            </SaloFormSelect>
-          </Row>
+        <Card classes='product-details__card'>
+          <SaloFormInput
+            name='title'
+            label='Product title'
+            value={ product.title }
+            onFieldChanged={ this.onChange('password') }
+            validation={ this.errorFor('password') }
+          />
+          <SaloFormInput
+            name='slug'
+            label='Product url'
+            value={ product.slug }
+            onFieldChanged={ this.onChange('password') }
+            validation={ this.errorFor('password') }
+          />
+          <SaloFormInput
+            name='sku'
+            label='Product SKU'
+            value={ product.sku }
+            onFieldChanged={ this.onChange('password') }
+            validation={ this.errorFor('password') }
+          />
+          <SaloFormInput
+            icon='gbp'
+            type='number'
+            name='price'
+            label='Product price'
+            value={ product.price }
+            onFieldChanged={ this.onChange('password') }
+            validation={ this.errorFor('password') }
+          />
+          <SaloFormSelect
+            name='category_id'
+            label='Product category'
+            value={ product.category_id }
+            onFieldChanged={ this.onChange('order') }
+            validation={ this.errorFor('password') }>
+            {categories.map((category, i) =>
+              <option value={ category.id }>{ category.title }</option>
+            )}
+          </SaloFormSelect>
         </Card>
       </Column>
     );
@@ -91,10 +89,12 @@ export default class ProductDetails extends Component {
 }
 
 ProductDetails.propTypes = {
-  product: PropTypes.object
+  product: PropTypes.object,
+  categories: PropTypes.array
 };
 
 ProductDetails.defaultProps = {
-  product: {}
+  product: {},
+  categories: []
 };
 

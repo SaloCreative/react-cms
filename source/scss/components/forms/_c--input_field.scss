@@ -17,7 +17,4 @@ input:focus {
 input:focus ~ label, input.has-value ~ label {
   top: 0;
   font-size: 14px;
-  .has-icon & {
-    display: none;
-  }
 }

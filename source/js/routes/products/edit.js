@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
@@ -18,6 +19,9 @@ export default class EditProduct extends Component {
 
   componentWillMount() {
     this.props.getProduct(this.props.params.id);
+    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
+      this.props.getCategories();
+    }
   }
 
   attemptProductFetch() {
@@ -44,7 +48,7 @@ export default class EditProduct extends Component {
           retryAction={ () => this.attemptProductFetch() } >
 
           <FeaturedImage />
-          <ProductDetails product={ product.data }/>
+          <ProductDetails product={ product.data } categories={ this.props.productCategories.data }/>
           <ProductTagsPicker />
           <Gallery />
           <ProductDescription />

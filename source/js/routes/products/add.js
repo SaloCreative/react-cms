@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import ProductsHeader from 'components/products/header';
 import FeaturedImage from 'components/products/featured-image';
@@ -15,6 +16,9 @@ export default class AddProduct extends Component {
 
   componentWillMount() {
     this.props.addNewProduct();
+    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
+      this.props.getCategories();
+    }
   }
 
   render() {
@@ -26,7 +30,7 @@ export default class AddProduct extends Component {
         <ProductsHeader />
         <Row>
           <FeaturedImage />
-          <ProductDetails />
+          <ProductDetails categories={ this.props.productCategories.data } />
           <ProductTagsPicker />
           <Gallery />
           <ProductDescription />
