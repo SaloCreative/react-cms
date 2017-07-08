@@ -1,5 +1,9 @@
+import Cookies from 'universal-cookie';
 import { config } from 'constants/config';
-import { authToken } from './token';
+
+const cookies = new Cookies();
+
+const authToken = cookies.get('authToken');
 
 let token;
 if (authToken) {
