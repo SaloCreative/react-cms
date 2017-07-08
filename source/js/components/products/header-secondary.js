@@ -16,6 +16,10 @@ export default class ProductsSecondaryHeader extends Component {
     return product.meta.validations.details;
   }
 
+  toggleSwitch(field, e) {
+    this.props.productFieldChanged(field, e);
+  }
+
   renderSaveButton() {
     const { product } = this.props;
     let label = 'Saved';
@@ -41,9 +45,9 @@ export default class ProductsSecondaryHeader extends Component {
           </ul>
         </Column>
         <Column classes='editing-header__right'>
-          <Switch label='Featured' state={ product.data.featured } switch={ (e) => this.toggleOnline(e, product, i) } />
-          <Switch label='Online' labelOff='Offline' state={ product.data.online } switch={ (e) => this.toggleOnline(e, product, i) } />
-          <Switch label='Available' labelOff='Sold' state={ product.data.inStock } switch={ (e) => this.toggleStock(e, product, i) } />
+          <Switch label='Featured' state={ product.data.featured } switch={ (e) => this.toggleSwitch('featured', e) } />
+          <Switch label='Online' labelOff='Offline' state={ product.data.online } switch={ (e) => this.toggleSwitch('online', e) } />
+          <Switch label='Available' labelOff='Sold' state={ product.data.inStock } switch={ (e) => this.toggleSwitch('inStock', e) } />
           { this.renderSaveButton() }
         </Column>
       </SecondaryHeader>

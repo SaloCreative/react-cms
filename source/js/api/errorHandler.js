@@ -18,32 +18,42 @@ function error(errorMessage) {
 
 export function ApiError(responseCode, errorMessage, response, componentHandleError = false) {
   switch (responseCode) {
-    case 400 : {
-      let errors = Object.keys(response);
-      errors.forEach(function(errorItem) {
-        let currentError = ErrorMessages[errorItem];
-        if (currentError) {
-          store.dispatch(error(currentError));
-        } else {
-          store.dispatch(error(errorMessage));
-        }
-      });
-      break;
-    }
+
     case 401 :
       console.log('401 Error - Not authorised');
       break;
+
     case 403 :
       store.dispatch(error(ErrorMessages.forbidden));
       break;
+
     case 404 :
       if (!componentHandleError) {
         //browserHistory.push(routeCodes.ERROR);
       }
       break;
+
     default :
       if (!componentHandleError) {
-        store.dispatch(error(errorMessage));
+        // Check for response object from API
+        let errors = Object.keys(response);
+        if (errors.length > 0) {
+          let dispatched = 0;
+          // Loop over and see if local translation available
+          errors.forEach(function(errorItem) {
+            let currentError = ErrorMessages[errorItem];
+            if (currentError) {
+              store.dispatch(error(currentError));
+              dispatched++;
+            }
+          });
+          // Check at least one error is dispatched
+          if (dispatched <= 0) {
+            store.dispatch(error(errorMessage));
+          }
+        } else {
+          store.dispatch(error(errorMessage));
+        }
       }
   }
 }
