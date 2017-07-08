@@ -33,7 +33,9 @@ export default class ProductDetails extends Component {
       let newState = this.state;
       setTimeout(() => {
         newState.validationErrors = runValidation(this.props.product.data, fieldValidations);
+        let errorCount = Object.keys(this.state.validationErrors).length;
         this.setState(newState);
+        return this.props.productValidationChange('details', errorCount);
       }, 10);
     };
   }
@@ -103,6 +105,7 @@ ProductDetails.propTypes = {
   product: PropTypes.object,
   categories: PropTypes.array,
   productFieldChanged: PropTypes.func,
+  productValidationChange: PropTypes.func,
   showErrors: PropTypes.bool
 };
 

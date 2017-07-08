@@ -32,12 +32,12 @@ function products(state = initialState, action) {
         ...state,
         data: action.payload.data,
         meta: {
+          ...state.meta,
           fetching: false,
           last_updated: Date.now(),
-          failed: false,
           current_page: action.payload.current_page,
           per_page: action.payload.per_page,
-          total: action.payload.total
+          total: action.payload.total,
         }
       };
 
@@ -48,7 +48,8 @@ function products(state = initialState, action) {
           ...state.meta,
           fetching: false,
           failed: true,
-          last_updated: ''
+          last_updated: '',
+          valid: false
         }
       };
 

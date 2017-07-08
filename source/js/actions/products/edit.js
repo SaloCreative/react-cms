@@ -9,7 +9,8 @@ import {
   UPDATING_PRODUCT_FETCHING,
   UPDATING_PRODUCT_RECEIVED,
   UPDATING_PRODUCT_FAILED,
-  PRODUCT_FIELD_CHANGED
+  PRODUCT_FIELD_CHANGED,
+  PRODUCT_SECTION_VALIDATION
 } from './types';
 
 export const updateProduct = (id, body, i = null) => ({
@@ -79,5 +80,13 @@ export function productFieldChanged(field, value) {
     type: PRODUCT_FIELD_CHANGED,
     field,
     value
+  }
+}
+
+export function productValidationChange(section, errors) {
+  return {
+    type: PRODUCT_SECTION_VALIDATION,
+    section,
+    errors
   }
 }

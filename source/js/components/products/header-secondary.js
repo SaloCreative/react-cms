@@ -10,13 +10,20 @@ import Switch from 'components/core/switch';
 import { routeCodes } from 'routes';
 
 export default class ProductsSecondaryHeader extends Component {
+
+  checkAllValid() {
+    const { product } = this.props;
+    return product.meta.validations.details;
+  }
+
   renderSaveButton() {
     const { product } = this.props;
     let label = 'Saved';
+    let valid = this.checkAllValid();
     if (!product.meta.saved) {
       label = 'Save'
     }
-    if (product.meta.fetching || product.meta.saved) {
+    if (product.meta.fetching || product.meta.saved || !valid) {
       return <a className='editing-header__save disabled'>{ label }</a>;
     }
     return <a className='editing-header__save disables' onClick={ () => this.props.saveEdits() }>{ label }</a>;

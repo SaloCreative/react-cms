@@ -3,7 +3,8 @@ import {
   GET_PRODUCT_RECEIVED,
   GET_PRODUCT_FAILED,
   ADD_NEW_PRODUCT,
-  PRODUCT_FIELD_CHANGED
+  PRODUCT_FIELD_CHANGED,
+  PRODUCT_SECTION_VALIDATION
 } from 'actions/products/types';
 
 const initialState = {
@@ -11,7 +12,10 @@ const initialState = {
   meta: {
     last_updated: '',
     failed: false,
-    saved: true
+    saved: true,
+    validations: {
+      details: false
+    }
   }
 };
 
@@ -24,9 +28,7 @@ function product(state = initialState, action) {
         ...state,
         meta: {
           ...state.meta,
-          fetching: true,
-          failed: false,
-          saved: true
+          fetching: true
         },
         data: {}
       };
@@ -38,9 +40,12 @@ function product(state = initialState, action) {
         meta: {
           ...state.meta,
           fetching: false,
-          failed: false,
           saved: true,
-          last_updated: Date.now()
+          last_updated: Date.now(),
+          validations: {
+            ...state.meta.validations,
+            details: true
+          }
         }
       };
 
@@ -51,7 +56,6 @@ function product(state = initialState, action) {
           ...state.meta,
           fetching: false,
           failed: true,
-          saved: true,
           last_updated: ''
         }
       };
@@ -64,8 +68,6 @@ function product(state = initialState, action) {
         ...state,
         meta: {
           ...state.meta,
-          fetching: false,
-          failed: false,
           saved: false,
           last_updated: ''
         },
@@ -75,6 +77,21 @@ function product(state = initialState, action) {
         }
       };
 
+    case PRODUCT_SECTION_VALIDATION :
+      let valid = false;
+      if (action.errors <= 0) {
+        valid = true;
+      }
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          validations: {
+            ...state.meta.validations,
+            [action.section]: valid
+          }
+        }
+      };
     default :
       return state;
   }

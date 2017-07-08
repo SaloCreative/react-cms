@@ -45,7 +45,10 @@ export default class EditProduct extends Component {
           <title>Edit Product</title>
         </Helmet>
         <ProductsHeader />
-        <ProductsSecondaryHeader saveEdits={ () => this.saveProduct() } { ...this.props }/>
+
+        <ProductsSecondaryHeader { ...this.props }
+          saveEdits={ () => this.saveProduct() } />
+
         <LoadingWrapper
           display={ displayContent }
           loading={ product.meta.fetching }
@@ -54,12 +57,17 @@ export default class EditProduct extends Component {
           retryAction={ () => this.attemptProductFetch() } >
 
           <FeaturedImage />
+
           <ProductDetails { ...this.props }
             categories={ this.props.productCategories.data }
             showErrors={ true }/>
+
           <ProductTagsPicker />
+
           <Gallery />
+
           <ProductDescription />
+
           <ProductDimensionsPicker />
 
         </LoadingWrapper>
