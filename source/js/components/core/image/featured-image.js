@@ -39,7 +39,7 @@ export default class FeaturedImage extends Component {
       if (image) {
         imgSrc = config.BASE_URL + '/' + image.folder + `/` + image.slug + '_medium_thumb' + `.` + image.extension;
       }
-      return `url(${ imgSrc }) no-repeat center`
+      return `url("${ imgSrc }") no-repeat center`;
     }
     return '#ebebeb'
   }

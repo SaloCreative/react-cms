@@ -32,7 +32,7 @@ export const getMedia = (filter = new MediaFilter) => ({
         type: GET_MEDIA_LIST_FAILED,
         payload: (action, state, res) => {
           getJSON(res).then(
-            (json) => new ApiError(res.status, ErrorMessages.getProductsFailed, json, true)
+            (json) => new ApiError(res.status, ErrorMessages.getMediaFailed, json, true)
           );
         }
       }

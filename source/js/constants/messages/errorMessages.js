@@ -17,6 +17,12 @@ const ErrorMessages = {
       en: 'You do not have permission to complete this action.'
     }
   },
+  getMediaFailed: {
+    type: 'error',
+    message: {
+      en: 'Could not fetch the media list at this time'
+    }
+  },
   getProductFailed: {
     type: 'error',
     message: {
