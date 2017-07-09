@@ -52,10 +52,8 @@ export default class ImagePicker extends Component {
   }
 
   saveImage() {
-    if (this.state.currentImage == this.state.selectedImage) {
-      this.closeModal();
-    } else {
-      this.closeModal();
+    this.closeModal();
+    if (this.state.currentImage !== this.state.selectedImage) {
       return this.props.onChangeImage(this.state.selectedImage, this.state.asset);
     }
   }
