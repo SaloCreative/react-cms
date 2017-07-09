@@ -24,6 +24,10 @@ export default class FeaturedImage extends Component {
     this.setState({ isImagePickerOpen: true });
   }
 
+  setFeaturedImage(img) {
+    this.props.productFieldChanged('featured_image', img);
+  }
+
   renderImagePicker() {
     const { image } = this.props;
     let selectedImage;
@@ -35,7 +39,8 @@ export default class FeaturedImage extends Component {
         image={ image }
         open={ this.state.isImagePickerOpen }
         onClose={ () => this.closeModal() }
-        selectedImage={ selectedImage } />;
+        selectedImage={ selectedImage }
+        onChangeImage={ (img) => this.setFeaturedImage(img) } />;
     }
     return null;
   }

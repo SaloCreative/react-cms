@@ -86,3 +86,12 @@
     opacity: 1;
   }
 }
+
+.modal__footer {
+  text-align: right;
+  padding: 0 2.5rem 1.25rem;
+  border-top: 1px solid $grey;
+  button, .button {
+    margin-left: 25px;
+  }
+}

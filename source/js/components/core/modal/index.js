@@ -11,6 +11,16 @@ export default class Modal extends Component {
     }
   }
 
+  renderFooter() {
+    if (this.props.footer) {
+      return (
+        <div className='modal__footer'>
+          { this.props.footer }
+        </div>
+      )
+    }
+  }
+
   render() {
     if (this.props.isOpen === false) { return null; }
 
@@ -25,6 +35,7 @@ export default class Modal extends Component {
           <div className='modal__body'>
             {this.props.children}
           </div>
+          { this.renderFooter() }
         </div>
         <div className='modal__backdrop' onClick={ e => this.close(e) } role='presentation' />
       </div>
@@ -38,7 +49,8 @@ Modal.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   onClose: PropTypes.func,
-  classes: PropTypes.string
+  classes: PropTypes.string,
+  footer: PropTypes.any
 };
 
 Modal.defaultProps = {
@@ -47,5 +59,6 @@ Modal.defaultProps = {
   subtitle: '',
   onClose: null,
   isOpen: null,
-  classes: ''
+  classes: '',
+  footer: ''
 };

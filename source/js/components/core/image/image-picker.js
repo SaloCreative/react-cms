@@ -6,6 +6,7 @@ import { config } from 'constants/config';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import ErrorMessages from 'constants/messages/errorMessages';
 
+import { Column, Row, Card } from 'components/core/grid';
 import Modal from 'components/core/modal';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 
@@ -42,9 +43,33 @@ export default class ImagePicker extends Component {
     }
   }
 
+  resetModal() {
+    this.setState({selectedImage: this.state.currentImage});
+    if (this.props.onClose) {
+      this.props.onClose();
+    }
+  }
+
+  saveImage() {
+    if (this.state.currentImage == this.state.selectedImage) {
+      this.closeModal();
+    } else {
+      this.closeModal();
+      return this.props.onChangeImage(this.state.selectedImage);
+    }
+  }
+
+  modalFooter() {
+    return (
+      <div className='image-picker__submits'>
+        <a className='button button--negative' onClick={ () => this.resetModal() }>Cancel</a>
+        <a className='button button--positive' onClick={ () => this.saveImage() }>Save</a>
+      </div>
+    )
+  }
+
   updateImage(img) {
     this.setState({selectedImage: img});
-    console.log(this.state.selectedImage);
   }
 
   render() {
@@ -55,7 +80,13 @@ export default class ImagePicker extends Component {
     }
     return (
       <div className='image-picker'>
-        <Modal isOpen={ this.props.open } onClose={ () => this.closeModal() } classes='large' title='Choose an image'>
+        <Modal
+          isOpen={ this.props.open }
+          onClose={ () => this.closeModal() }
+          classes='large'
+          title='Choose an image'
+          footer={ this.modalFooter() } >
+
           <LoadingWrapper
             display={ displayContent }
             loading={ media.meta.fetching }
@@ -71,6 +102,7 @@ export default class ImagePicker extends Component {
                 imageChanged={ (img) => this.updateImage(img) } />
             )}
           </LoadingWrapper>
+
         </Modal>
       </div>
     );
@@ -82,7 +114,8 @@ ImagePicker.propTypes = {
   media: PropTypes.object,
   classes: PropTypes.string,
   open: PropTypes.bool,
-  getMedia: PropTypes.func
+  getMedia: PropTypes.func,
+  onChangeImage: PropTypes.func
 };
 
 ImagePicker.defaultProps = {

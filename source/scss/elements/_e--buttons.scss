@@ -57,126 +57,38 @@ $negative-disabled-border        : #cecece;
 //
 // button default styles
 //
-.button {
+.button,
+button {
     -webkit-appearance: none;
-    border-radius: 0;
-    padding: 2rem 1.6rem 1.6rem 2rem;
     user-select: none;
     touch-action: manipulation;
     cursor: pointer;
-    background-image: none;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    line-height: (18 / 11);
-    text-transform: uppercase;
-    transition: all 0.2s;
-    border-width: 1px;
-    border-style: solid;
+    background: $salo-blue;
+    border: none;
     display: inline-block;
-    text-decoration: none;
-    min-height: 56px;
-    font-weight: 400;
-
-    &[disabled],
-    &.active,
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 20px;
+    padding: 1.5rem 3rem;
+    @include transition__background;
+    @include box-shadow;
     &:hover {
-        transition: all 0.2s;
-    }
-}
-
-.button--primary {
-    color: $primary-colour;
-    border-color: $primary-border;
-    background-color: $primary-background;
-
-    &:hover {
-        color: $primary-hover-colour;
-        border-color: $primary-hover-border;
-        background-color: $primary-hover-background;
-    }
-
-    &:active {
-        color: $primary-active-colour;
-        border-color: $primary-active-border;
-        background-color: $primary-active-background;
-    }
-
-    &[disabled] {
-        color: $primary-disabled-colour;
-        border-color: $primary-disabled-border;
-        background-color: $primary-disabled-background;
-    }
-}
-
-.button--secondary {
-    color: $secondary-colour;
-    border-color: $secondary-border;
-    background-color: $secondary-background;
-
-    &:hover {
-        color: $secondary-hover-colour;
-        border-color: $secondary-hover-border;
-        background-color: $secondary-hover-background;
-    }
-
-    &:active {
-        color: $secondary-active-colour;
-        border-color: $secondary-active-border;
-        background-color: $secondary-active-background;
-    }
-
-    &[disabled] {
-        color: $secondary-disabled-colour;
-        border-color: $secondary-disabled-border;
-        background-color: $secondary-disabled-background;
+        background: mix($salo-blue, #000, 80%);
+        color: #fff;
     }
 }
 
 .button--positive {
-    color: $salo-green-colour;
-    border-color: $salo-green-border;
-    background-color: $salo-green-background;
-
+    background: $salo-green;
     &:hover {
-        color: $salo-green-hover-colour;
-        border-color: $salo-green-hover-border;
-        background-color: $salo-green-hover-background;
-    }
-
-    &:active {
-        color: $salo-green-active-colour;
-        border-color: $salo-green-active-border;
-        background-color: $salo-green-active-background;
-    }
-
-    &[disabled] {
-        color: $salo-green-disabled-colour;
-        border-color: $salo-green-disabled-border;
-        background-color: $salo-green-disabled-background;
+        background: mix($salo-green, #000, 80%);
     }
 }
 
 .button--negative {
-    color: $negative-colour;
-    border-color: $negative-border;
-    background-color: $negative-background;
-
+    background: $salo-red;
     &:hover {
-        color: $negative-hover-colour;
-        border-color: $negative-hover-border;
-        background-color: $negative-hover-background;
-    }
-
-    &:active {
-        color: $negative-active-colour;
-        border-color: $negative-active-border;
-        background-color: $negative-active-background;
-    }
-
-    &[disabled] {
-        color: $negative-disabled-colour;
-        border-color: $negative-disabled-border;
-        background-color: $negative-disabled-background;
+        background: mix($salo-red, #000, 80%);
     }
 }
 
