@@ -1,3 +1,12 @@
 @mixin box-shadow() {
   box-shadow: 0px 2px 2px #aab2bd;
 }
+
+@mixin large-box-shadow() {
+ box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+

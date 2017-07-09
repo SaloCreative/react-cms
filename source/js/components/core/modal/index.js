@@ -15,12 +15,12 @@ export default class Modal extends Component {
     if (this.props.isOpen === false) { return null; }
 
     return (
-      <div className='modal' role='dialog'>
+      <div className={ `modal ${ this.props.classes }` } role='dialog'>
         <div className='modal__wrapper'>
           <div className='modal__header'>
             <h3>{this.props.title}</h3>
             <h3 className='modal__subheading'>{this.props.subtitle}</h3>
-            <a className='modal__close' onClick={ e => this.close(e) } role='button' tabIndex='-1'><FontAwesome name='cross' /></a>
+            <a className='modal__close' onClick={ e => this.close(e) } role='button' tabIndex='-1'><FontAwesome name='times' /></a>
           </div>
           <div className='modal__body'>
             {this.props.children}
@@ -37,7 +37,8 @@ Modal.propTypes = {
   isOpen: PropTypes.bool,
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  classes: PropTypes.string
 };
 
 Modal.defaultProps = {
@@ -45,5 +46,6 @@ Modal.defaultProps = {
   title: 'Modal title',
   subtitle: '',
   onClose: null,
-  isOpen: null
+  isOpen: null,
+  classes: ''
 };

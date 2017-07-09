@@ -5,8 +5,24 @@ import FontAwesome from 'react-fontawesome'
 
 import { config } from 'constants/config';
 import { Column, Row, Card } from 'components/core/grid';
+import ImagePicker from 'components/core/image/image-picker';
 
 export default class FeaturedImage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      isImagePickerOpen: false
+    };
+  }
+
+  closeModal() {
+    this.setState({ isImagePickerOpen: false });
+  }
+
+  openModal() {
+    this.setState({ isImagePickerOpen: true });
+  }
 
   renderBackground() {
     const { image } = this.props;
@@ -33,10 +49,11 @@ export default class FeaturedImage extends Component {
     return (
       <Column classes={ `is-4 featured-image__wrapper ${ this.props.classes } ${ image && image.slug ? 'has-image' : '' }` }>
         <div className='card' style={{background: this.renderBackground()}}>
-         <a className='featured-image__link'>
+         <a className='featured-image__link' onClick={ () => this.openModal() }>
            { this.renderAddOverlayIcon() }
            <span className='featured-image__text'>Featured Image</span>
          </a>
+          <ImagePicker open={ this.state.isImagePickerOpen } onClose={ () => this.closeModal() } />
         </div>
       </Column>
     );
