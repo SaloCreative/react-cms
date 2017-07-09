@@ -30,7 +30,7 @@ export default class MediaPickerItem extends Component {
 
   imagePicked() {
     const { asset } = this.props;
-    this.props.imageChanged(asset.id);
+    this.props.imageChanged(asset.id, asset);
   }
 
   render() {

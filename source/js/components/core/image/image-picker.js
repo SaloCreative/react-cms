@@ -21,7 +21,8 @@ export default class ImagePicker extends Component {
     super(props);
     this.state = {
       currentImage: this.props.selectedImage,
-      selectedImage: this.props.selectedImage
+      selectedImage: this.props.selectedImage,
+      asset: {}
     }
   }
 
@@ -55,7 +56,7 @@ export default class ImagePicker extends Component {
       this.closeModal();
     } else {
       this.closeModal();
-      return this.props.onChangeImage(this.state.selectedImage);
+      return this.props.onChangeImage(this.state.selectedImage, this.state.asset);
     }
   }
 
@@ -63,13 +64,14 @@ export default class ImagePicker extends Component {
     return (
       <div className='image-picker__submits'>
         <a className='button button--negative' onClick={ () => this.resetModal() }>Cancel</a>
-        <a className='button button--positive' onClick={ () => this.saveImage() }>Save</a>
+        <a className='button button--positive' onClick={ () => this.saveImage() }>Select</a>
       </div>
     )
   }
 
-  updateImage(img) {
+  updateImage(img, asset) {
     this.setState({selectedImage: img});
+    this.setState({asset});
   }
 
   render() {
@@ -99,7 +101,7 @@ export default class ImagePicker extends Component {
                 selectedImage={ this.state.selectedImage }
                 key={ i } i={ i }
                 asset={ asset }
-                imageChanged={ (img) => this.updateImage(img) } />
+                imageChanged={ (img, asset) => this.updateImage(img, asset) } />
             )}
           </LoadingWrapper>
 
