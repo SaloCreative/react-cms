@@ -49,7 +49,7 @@ export default class AddProduct extends Component {
           saveEdits={ () => this.saveProduct() } />
 
         <Row>
-          <FeaturedImage image={ this.props.product.data.main_image } />
+          <FeaturedImage image={ this.props.product.data.main_image } { ...this.props }/>
 
           <ProductDetails { ...this.props }
             categories={ this.props.productCategories.data } />

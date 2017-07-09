@@ -22,6 +22,9 @@ export const API = {
         PRODUCT_EDIT: 'products/edit',
         CATEGORIES: 'products/categories',
         TAGS: 'products/tags'
+    },
+    MEDIA: {
+        MEDIA: 'media'
     }
 };
 

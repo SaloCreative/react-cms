@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as authActions from 'actions/auth/authActions';
 import * as alertHandling from 'actions/alerts/alerts';
+import * as mediaActions from 'actions/media';
 import * as navigationActions from 'actions/navigation';
 import * as productListActions from 'actions/products';
 import * as productGetActions from 'actions/products/get';
@@ -16,6 +17,7 @@ function mapStateToProps(state) {
     navigation: state.navigation,
     users: state.users,
     login: state.login,
+    media: state.media,
     products: state.products,
     product: state.product,
     productFilter: state.productFilter,
@@ -29,6 +31,7 @@ function mapDispatchToProps(dispatch) {
       {},
       authActions,
       alertHandling,
+      mediaActions,
       navigationActions,
       productListActions,
       productGetActions,

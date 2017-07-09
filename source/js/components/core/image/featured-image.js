@@ -24,6 +24,14 @@ export default class FeaturedImage extends Component {
     this.setState({ isImagePickerOpen: true });
   }
 
+  renderImagePicker() {
+    const { image } = this.props;
+    if (this.state.isImagePickerOpen) {
+      return <ImagePicker { ...this.props } image={ image } open={ this.state.isImagePickerOpen } onClose={ () => this.closeModal() } />;
+    }
+    return null;
+  }
+
   renderBackground() {
     const { image } = this.props;
     if (image && image.slug) {
@@ -53,7 +61,7 @@ export default class FeaturedImage extends Component {
            { this.renderAddOverlayIcon() }
            <span className='featured-image__text'>Featured Image</span>
          </a>
-          <ImagePicker open={ this.state.isImagePickerOpen } onClose={ () => this.closeModal() } />
+          { this.renderImagePicker() }
         </div>
       </Column>
     );

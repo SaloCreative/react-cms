@@ -8,6 +8,9 @@ import navigation from './navigation';
 // Auth
 import login from './auth/login';
 
+// Media
+import media from './media';
+
 // Products
 import products from './products';
 import product from './products/product';
@@ -20,6 +23,7 @@ export default combineReducers({
   systemAlerts,
   navigation,
   login,
+  media,
   products,
   product,
   productFilter,

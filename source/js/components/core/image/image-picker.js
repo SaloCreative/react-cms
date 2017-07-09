@@ -5,8 +5,17 @@ import FontAwesome from 'react-fontawesome'
 import { config } from 'constants/config';
 import { Column, Row, Card } from 'components/core/grid';
 import Modal from 'components/core/modal';
+import { MediaFilter } from 'actions/media/filter';
+
+let filter = new MediaFilter;
 
 export default class ImagePicker extends Component {
+
+  componentWillMount() {
+    filter.type = 'image';
+    console.og
+    this.props.getMedia(filter);
+  }
 
   closeModal() {
     if (this.props.onClose) {
@@ -17,7 +26,9 @@ export default class ImagePicker extends Component {
   render() {
     return (
       <div className='image-picker'>
-        <Modal isOpen={ this.props.open } onClose={ () => this.closeModal() } classes='large' title='My Modal Title' />
+        <Modal isOpen={ this.props.open } onClose={ () => this.closeModal() } classes='large' title='Choose an image'>
+          some contnet here
+        </Modal>
       </div>
     );
   }
@@ -25,14 +36,13 @@ export default class ImagePicker extends Component {
 
 ImagePicker.propTypes = {
   image: PropTypes.object,
-  images: PropTypes.object,
+  media: PropTypes.object,
   classes: PropTypes.string,
   open: PropTypes.bool
 };
 
 ImagePicker.defaultProps = {
   image: {},
-  images: {},
   classes: '',
   open: false
 };
