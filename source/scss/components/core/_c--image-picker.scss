@@ -7,3 +7,16 @@
   background-size: cover !important;
   padding: 50% 0;
 }
+
+.image-picker__checked {
+  position: absolute;
+  color: #fff;
+  background: $salo-green;
+  height: 30px;
+  width: 30px;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

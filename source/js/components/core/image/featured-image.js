@@ -26,8 +26,16 @@ export default class FeaturedImage extends Component {
 
   renderImagePicker() {
     const { image } = this.props;
+    let selectedImage;
+    if (image && image.id) {
+      selectedImage = image.id;
+    }
     if (this.state.isImagePickerOpen) {
-      return <ImagePicker { ...this.props } image={ image } open={ this.state.isImagePickerOpen } onClose={ () => this.closeModal() } />;
+      return <ImagePicker { ...this.props }
+        image={ image }
+        open={ this.state.isImagePickerOpen }
+        onClose={ () => this.closeModal() }
+        selectedImage={ selectedImage } />;
     }
     return null;
   }

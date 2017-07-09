@@ -16,6 +16,14 @@ let filter = new MediaFilter;
 
 export default class ImagePicker extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentImage: this.props.selectedImage,
+      selectedImage: this.props.selectedImage
+    }
+  }
+
   componentWillMount() {
     filter.type = 'image';
     if (shouldUpdate(this.props.media.meta.last_updated, 300)) {
@@ -32,6 +40,11 @@ export default class ImagePicker extends Component {
     if (this.props.onClose) {
       this.props.onClose();
     }
+  }
+
+  updateImage(img) {
+    this.setState({selectedImage: img});
+    console.log(this.state.selectedImage);
   }
 
   render() {
@@ -51,9 +64,12 @@ export default class ImagePicker extends Component {
             retryAction={ () => this.attemptProductFetch() } >
 
             { media.data.map((asset, i) =>
-              <MediaPickerItem { ...this.props } key={ i } i={ i } asset={ asset }/>
+              <MediaPickerItem
+                selectedImage={ this.state.selectedImage }
+                key={ i } i={ i }
+                asset={ asset }
+                imageChanged={ (img) => this.updateImage(img) } />
             )}
-
           </LoadingWrapper>
         </Modal>
       </div>
@@ -62,7 +78,7 @@ export default class ImagePicker extends Component {
 }
 
 ImagePicker.propTypes = {
-  image: PropTypes.object,
+  selectedImage: PropTypes.any,
   media: PropTypes.object,
   classes: PropTypes.string,
   open: PropTypes.bool,
@@ -70,7 +86,7 @@ ImagePicker.propTypes = {
 };
 
 ImagePicker.defaultProps = {
-  image: {},
+  selectedImage: '',
   classes: '',
   open: false
 };
