@@ -83,7 +83,12 @@ function products(state = initialState, action) {
           ]
         }
       }
-      return state;
+      return {
+        ...state,
+        meta: {
+          ...state.meta, last_updated: ''
+        }
+      };
 
     case UPDATING_PRODUCT_FAILED :
       if (action.payload.i || action.payload.i === 0) {
@@ -102,6 +107,7 @@ function products(state = initialState, action) {
         }
       }
       return state;
+
 
     default :
       return state;
