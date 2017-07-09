@@ -9,8 +9,8 @@ import { Column, Row, Card } from 'components/core/grid';
 export default class FeaturedImage extends Component {
 
   renderBackground() {
-    if (this.props.image) {
-      const { image } = this.props;
+    const { image } = this.props;
+    if (image && image.slug) {
       let imgSrc;
       if (image) {
         imgSrc = config.BASE_URL + '/' + image.folder + `/` + image.slug + '_medium_thumb' + `.` + image.extension;
@@ -21,15 +21,17 @@ export default class FeaturedImage extends Component {
   }
 
   renderAddOverlayIcon() {
-    if (this.props.image) {
+    const { image } = this.props;
+    if (image && image.slug) {
       return <FontAwesome name='exchange' size='2x' />
     }
     return <FontAwesome name='plus' size='2x' />
   }
 
   render() {
+    const { image } = this.props;
     return (
-      <Column classes={ `is-4 featured-image__wrapper ${ this.props.classes } ${ this.props.image ? 'has-image' : '' }` }>
+      <Column classes={ `is-4 featured-image__wrapper ${ this.props.classes } ${ image && image.slug ? 'has-image' : '' }` }>
         <div className='card' style={{background: this.renderBackground()}}>
          <a className='featured-image__link'>
            { this.renderAddOverlayIcon() }

@@ -14,13 +14,14 @@
   width: 90px;
   border-left: 1px solid $grey;
   border-right: 1px solid $grey;
-  color: $grey;
+  color: #fff;
   justify-content: center;
   cursor: pointer;
   text-transform: uppercase;
+  background: $salo-blue;
   &:hover {
-    border-left: 1px solid $salo-blue;
-    border-right: 1px solid $salo-blue;
+    background: mix($salo-blue, #000, 80%);
+    color: #fff;
   }
   &.disabled {
     background: transparent !important;
