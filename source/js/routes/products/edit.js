@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
+import FeaturedImage from 'components/core/image/featured-image';
 import ErrorMessages from 'constants/messages/errorMessages';
 
 import ProductsHeader from 'components/products/header';
 import ProductsSecondaryHeader from 'components/products/header-secondary';
-import FeaturedImage from 'components/products/featured-image';
 import ProductDetails from 'components/products/details';
 import ProductTagsPicker from 'components/products/tags-picker';
 import Gallery from 'components/products/gallery';
