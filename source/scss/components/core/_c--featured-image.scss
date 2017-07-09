@@ -1,0 +1,31 @@
+.featured-image__wrapper {
+  .card {
+    position: relative;
+    background-size: cover !important;
+  }
+}
+
+.featured-image__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include transition__all;
+  &:hover {
+    background: rgba(0,0,0,0.1);
+    color: #fff;
+  }
+  .has-image & {
+    opacity: 0;
+    color: #fff;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

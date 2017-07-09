@@ -65,7 +65,7 @@ export default class EditProduct extends Component {
           errorMessage={ ErrorMessages.getProductFailed.message }
           retryAction={ () => this.attemptProductFetch() } >
 
-          <FeaturedImage />
+          <FeaturedImage image={ this.props.product.data.main_image } />
 
           <ProductDetails { ...this.props }
             categories={ this.props.productCategories.data }
