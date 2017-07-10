@@ -27,8 +27,6 @@ export function willExpireAlerts() {
 
 export function expireAlerts() {
   return function (dispatch) {
-    setTimeout(() => {
-      dispatch(clearAllSystemAlerts())
-    }, 5000)
+    dispatch(clearAllSystemAlerts());
   }
 }

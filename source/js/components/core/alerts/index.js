@@ -4,16 +4,24 @@ import FontAwesome from 'react-fontawesome';
 
 export default class Alerts extends Component {
 
+  clearTimed;
+
   shouldComponentUpdate(nextProps, nextState) {
     const alerts = nextProps.systemAlerts;
-    console.log(alerts.data.length > 0 && !alerts.meta.will_delete, alerts.meta.will_delete);
     if (alerts.data.length > 0 && !alerts.meta.will_delete) {
-      console.log('needs to trigger');
       this.props.willExpireAlerts();
-      this.props.expireAlerts();
     }
     // return a boolean value always to make sure other updates aren't blocked
     return true;
+  }
+
+  componentWillUpdate() {
+    if (this.props.systemAlerts.meta.will_delete) {
+      clearTimeout(this.clearTimed);
+      this.clearTimed = setTimeout(() => {
+        this.props.expireAlerts();
+      }, 5000);
+    }
   }
 
   render() {
