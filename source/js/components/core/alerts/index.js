@@ -3,11 +3,24 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
 export default class Alerts extends Component {
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const alerts = nextProps.systemAlerts;
+    console.log(alerts.data.length > 0 && !alerts.meta.will_delete, alerts.meta.will_delete);
+    if (alerts.data.length > 0 && !alerts.meta.will_delete) {
+      console.log('needs to trigger');
+      this.props.willExpireAlerts();
+      this.props.expireAlerts();
+    }
+    // return a boolean value always to make sure other updates aren't blocked
+    return true;
+  }
+
   render() {
-    if (this.props.systemAlerts.length > 0) {
+    if (this.props.systemAlerts.data.length > 0) {
       return (
         <div className='alerts__wrapper'>
-          {this.props.systemAlerts.map((alert, i) =>
+          {this.props.systemAlerts.data.map((alert, i) =>
             (<div className={ `alert ${ alert.type }` } key={ i }>
               <div className='cell'>
                 {alert.message.en}
@@ -25,10 +38,12 @@ export default class Alerts extends Component {
 }
 
 Alerts.propTypes = {
-  systemAlerts: PropTypes.array,
-  clearSystemAlert: PropTypes.func.isRequired
+  systemAlerts: PropTypes.object,
+  clearSystemAlert: PropTypes.func.isRequired,
+  willExpireAlerts: PropTypes.func.isRequired,
+  expireAlerts: PropTypes.func.isRequired
 };
 
 Alerts.defaultProps = {
-  systemAlerts: []
+  systemAlerts: {}
 };
