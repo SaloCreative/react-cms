@@ -4,7 +4,8 @@ import {
   GET_PRODUCTS_FAILED,
   UPDATING_PRODUCT_FETCHING,
   UPDATING_PRODUCT_RECEIVED,
-  UPDATING_PRODUCT_FAILED
+  UPDATING_PRODUCT_FAILED,
+  CREATE_PRODUCT_RECEIVED
 } from 'actions/products/types';
 
 const initialState = {
@@ -73,6 +74,7 @@ function products(state = initialState, action) {
       return state;
 
     case UPDATING_PRODUCT_RECEIVED :
+    case CREATE_PRODUCT_RECEIVED :
       if (action.payload.i || action.payload.i === 0) {
         return {
           ...state,

@@ -23,6 +23,12 @@ const ErrorMessages = {
       en: 'Could not fetch the media list at this time'
     }
   },
+  addProductFailed: {
+    type: 'error',
+    message: {
+      en: 'Could not add the product at this time'
+    }
+  },
   getProductFailed: {
     type: 'error',
     message: {

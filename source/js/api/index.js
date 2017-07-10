@@ -20,6 +20,7 @@ export const API = {
     PRODUCTS: {
         PRODUCTS: 'products',
         PRODUCT_EDIT: 'products/edit',
+        PRODUCT_ADD: 'products/add',
         CATEGORIES: 'products/categories',
         TAGS: 'products/tags'
     },

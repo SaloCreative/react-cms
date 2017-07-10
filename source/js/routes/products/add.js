@@ -34,8 +34,21 @@ export default class AddProduct extends Component {
     }
   }
 
+  checkAllValid() {
+    const { product } = this.props;
+    return product.meta.validations.details;
+  }
+
   saveProduct() {
-    console.log('save edits');
+    if (this.checkAllValid()) {
+      if (!this.props.product.meta.created) {
+        this.props.createProduct(this.props.product.data);
+      } else {
+        this.props.editProduct(this.props.product.data);
+      }
+    } else {
+      alert('There are validation errors');
+    }
   }
 
   render() {
@@ -68,7 +81,8 @@ export default class AddProduct extends Component {
 }
 
 AddProduct.propTypes = {
-  addNewProduct: PropTypes.func
+  addNewProduct: PropTypes.func,
+  createProduct: PropTypes.func
 };
 
 

@@ -6,7 +6,11 @@ import {
   PRODUCT_FIELD_CHANGED,
   PRODUCT_SECTION_VALIDATION,
   UPDATING_PRODUCT_FETCHING,
-  UPDATING_PRODUCT_RECEIVED
+  UPDATING_PRODUCT_RECEIVED,
+  UPDATING_PRODUCT_FAILED,
+  CREATE_PRODUCT_FETCHING,
+  CREATE_PRODUCT_RECEIVED,
+  CREATE_PRODUCT_FAILED
 } from 'actions/products/types';
 
 const initialState = {
@@ -96,6 +100,7 @@ function product(state = initialState, action) {
       };
 
     case UPDATING_PRODUCT_FETCHING :
+    case CREATE_PRODUCT_FETCHING :
       return {
         ...state,
         meta: {
@@ -105,13 +110,27 @@ function product(state = initialState, action) {
         }
       };
 
-    case UPDATING_PRODUCT_RECEIVED :
+    case UPDATING_PRODUCT_FAILED :
+    case CREATE_PRODUCT_FAILED :
       return {
         ...state,
         meta: {
           ...state.meta,
+          saving: false
+        }
+      };
+
+    case UPDATING_PRODUCT_RECEIVED :
+    case CREATE_PRODUCT_RECEIVED :
+      return {
+        ...state,
+        data: action.payload.product,
+        meta: {
+          ...state.meta,
           saved: true,
           saving: false,
+          fetching: false,
+          created: true,
           last_updated: Date.now()
         }
       };
