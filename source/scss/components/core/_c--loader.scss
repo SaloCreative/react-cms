@@ -1,20 +1,20 @@
 // Default loader
 
-.lush-loader,
-.lush-loader:after {
+.salo-loader,
+.salo-loader:after {
   border-radius: 50%;
   width: 8em;
   height: 8em;
 }
-.lush-loader {
+.salo-loader {
   margin: 40px auto;
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
-  border-top: 1.1em solid $lush-black-20;
-  border-right: 1.1em solid $lush-black-20;
-  border-bottom: 1.1em solid $lush-black-20;
-  border-left: 1.1em solid $lush-black-80;
+  border-top: 1.1em solid $light-grey;
+  border-right: 1.1em solid $light-grey;
+  border-bottom: 1.1em solid $light-grey;
+  border-left: 1.1em solid $dark-grey;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
@@ -46,9 +46,9 @@
 
 // Inline loader
 
-.lush-loader--inline,
-.lush-loader--inline:before,
-.lush-loader--inline:after {
+.salo-loader--inline,
+.salo-loader--inline:before,
+.salo-loader--inline:after {
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
@@ -57,8 +57,8 @@
   -webkit-animation: load7 1.8s infinite ease-in-out;
   animation: load7 1.8s infinite ease-in-out;
 }
-.lush-loader--inline {
-  color: $lush-black-80;
+.salo-loader--inline {
+  color: $dark-grey;
   font-size: 10px;
   margin: 0px auto;
   position: relative;
@@ -69,18 +69,18 @@
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
-.lush-loader--inline:before,
-.lush-loader--inline:after {
+.salo-loader--inline:before,
+.salo-loader--inline:after {
   content: '';
   position: absolute;
   top: 0;
 }
-.lush-loader--inline:before {
+.salo-loader--inline:before {
   left: -2.5em;
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
-.lush-loader--inline:after {
+.salo-loader--inline:after {
   left: 2.5em;
 }
 @-webkit-keyframes load7 {

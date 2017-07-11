@@ -6,7 +6,7 @@
 .form__textarea {
   margin: 0 !important;
   .invalid & {
-    border-bottom: 2px solid $lush-red;
+    border-bottom: 2px solid $salo-red;
   }
   &:focus,
   &:active {
@@ -14,12 +14,12 @@
     outline: none;
   }
   &::-webkit-input-placeholder {
-    color: $lush-black-20;
+    color: $light-grey;
   }
   &::-moz-placeholder {
-    color: $lush-black-20;
+    color: $light-grey;
   }
   &:-ms-input-placeholder {
-    color: $lush-black-20;
+    color: $light-grey;
   }
 }

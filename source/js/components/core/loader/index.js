@@ -6,12 +6,12 @@ export default class Loader extends Component {
       switch (this.props.style) {
         case 'inline':
           return (
-            <div className='lush-loader--inline'>Loading&hellip;</div>
+            <div className='salo-loader--inline'>Loading&hellip;</div>
           );
         case 'default':
         default:
           return (
-            <div className='lush-loader'>Loading&hellip;</div>
+            <div className='salo-loader'>Loading&hellip;</div>
           );
       }
     } else {

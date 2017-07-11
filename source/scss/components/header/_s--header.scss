@@ -37,10 +37,10 @@
   }
 
   &.is-active {
-    color: $lush-black-44;
+    color: $grey;
 
     path {
-      fill: $lush-black-44;
+      fill: $grey;
     }
   }
 }
@@ -147,7 +147,7 @@
   justify-content: center;
 
   .navigation-overlay__link--inverse & {
-    background: $lush-black-80;
+    background: $dark-grey;
   }
 }
 
@@ -156,6 +156,6 @@
   margin-top: 30px;
 
   .navigation-overlay__link--inverse & {
-    color: $lush-black-80;
+    color: $dark-grey;
   }
 }
