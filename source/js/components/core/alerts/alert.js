@@ -24,6 +24,20 @@ const styles = {
     },
     '&.info': {
       background: '#00B5D2'
+    },
+    '&:after': {
+      display: 'block',
+      content: '""',
+      width: '0',
+      left: '0',
+      top: '0',
+      position: 'absolute',
+      height: '2px',
+      background: 'rgba(255,255,255,0.3)',
+      webkitAnimationFillMode: 'both',
+      animationFillMode: 'both',
+      webkitAnimation: 'loadSwipe 5s linear',
+      animation: 'loadSwipe 5s linear'
     }
   },
   alert__close: {
@@ -40,6 +54,14 @@ const styles = {
     transition: 'opacity 0.3s linear',
     '&:hover': {
       opacity: '1.0'
+    }
+  },
+  '@keyframes loadSwipe': {
+    '0%': {
+      width: '0'
+    },
+    '100%': {
+      width: '100%'
     }
   }
 };
