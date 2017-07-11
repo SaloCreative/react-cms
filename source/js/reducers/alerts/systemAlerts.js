@@ -3,54 +3,43 @@ import WarningMessages from 'constants/messages/warningMessages';
 import InfoMessages from 'constants/messages/infoMessages';
 import SuccessMessages from 'constants/messages/successMessages';
 
+import { getIndexByKey } from 'actions/global/utilityFunctions';
+
 // Error reducer
-function systemAlerts(state = { meta: {}, data: [] }, action) {
+function systemAlerts(state = [], action) {
+
+  let id = Math.floor((Math.random() * 9999) + 1000);
   switch (action.type) {
 
     case 'LOG_IN_FAIL' :
-      return {
-        ...state,
-        data: [
-          ...state.data, ErrorMessages.login
-        ]
-      };
+      return [
+        {
+          id,
+          error: ErrorMessages.login
+        }
+      ];
 
     case 'API_FAILURE' :
-      return {
+      return [
         ...state,
-        data: [
-          ...state.data, action.payload.errorMessage
-        ]
-      };
+        {
+          id,
+          error: action.payload.errorMessage
+        }
+      ];
+
+    case 'WILL_CLEAR_SYSTEM_ALERT' :
+      return state;
 
     case 'CLEAR_SYSTEM_ALERT' :
-      return {
-        ...state,
-        data: [
-          ...state.data.slice(0, action.i),
-          ...state.data.slice(action.i + 1)
-        ]
-      };
-
-    case 'WILL_CLEAR_ALL_SYSTEM_ALERTS' :
-      return {
-        ...state,
-        meta: {
-          ...state.meta, will_delete: true
-        }
-      };
+      const index = getIndexByKey(state, action.alert);
+      return [
+        ...state.slice(0,index),
+        ...state.slice(index + 1)
+      ];
 
     case 'CLEAR_ALL_SYSTEM_ALERTS' :
-      if (state.meta.will_delete) {
-        return {
-          ...state,
-          meta: {
-            ...state.meta, will_delete: false
-          },
-          data: []
-        };
-      }
-      return state;
+      return {};
 
     default:
       return state;

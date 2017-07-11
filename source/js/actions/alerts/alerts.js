@@ -1,9 +1,16 @@
 import React from 'react';
 
-export function clearSystemAlert(i) {
+export function clearSystemAlert(alert) {
   return {
     type: 'CLEAR_SYSTEM_ALERT',
-    i
+    alert
+  };
+}
+
+export function willClearSystemAlert(alert) {
+  return {
+    type: 'WILL_CLEAR_SYSTEM_ALERT',
+    alert
   };
 }
 
@@ -13,19 +20,22 @@ export function clearAllSystemAlerts() {
   };
 }
 
-export function willClearAllSystemAlerts() {
-  return {
-    type: 'WILL_CLEAR_ALL_SYSTEM_ALERTS'
-  };
-}
-
-export function willExpireAlerts() {
+export function setAlertClear(alert) {
   return function (dispatch) {
-    dispatch(willClearAllSystemAlerts());
+    dispatch(willClearSystemAlert(alert));
+    setTimeout(() => {
+      dispatch(clearSystemAlert(alert));
+    }, 5000)
   }
 }
 
-export function expireAlerts() {
+export function clearAlert(alert) {
+  return function (dispatch) {
+    dispatch(clearSystemAlert(alert));
+  }
+}
+
+export function clearAlerts() {
   return function (dispatch) {
     dispatch(clearAllSystemAlerts());
   }

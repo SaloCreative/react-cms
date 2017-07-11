@@ -110,3 +110,19 @@ export function shouldUpdate(last_updated, timePassed = 600) {
   }
   return true
 }
+
+/**
+ * REMOVE KEY BY VALUE
+ * @param myObj
+ * @param deleteKey
+ * @returns object
+ */
+
+export function removeByKey (myObj, deleteKey) {
+  return Object.keys(myObj)
+    .filter(key => key !== deleteKey)
+    .reduce((result, current) => {
+      result[current] = myObj[current];
+      return result;
+    }, {});
+}
