@@ -52,7 +52,7 @@ export default class App extends Component {
         }
 
         <div className='page'>
-          <Alerts { ...this.props } />
+          <Alerts alerts={ this.props.systemAlerts } />
           { this.children() }
         </div>
       </div>

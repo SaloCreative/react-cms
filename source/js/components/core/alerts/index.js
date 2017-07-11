@@ -7,12 +7,12 @@ import Alert from 'components/core/alerts/alert';
 export default class Alerts extends Component {
 
   render() {
-    const { systemAlerts } = this.props;
-    if (systemAlerts.length > 0) {
+    const { alerts } = this.props;
+    if (alerts.length > 0) {
       return (
         <div className='alerts__wrapper'>
-          { systemAlerts.map((alert, i) =>
-            (<Alert key={ i } i={ i } alert={ alert } alerts={ systemAlerts } />)
+          { alerts.map((alert, i) =>
+            (<Alert key={ i } i={ i } alert={ alert } />)
           )}
         </div>
       );
@@ -22,9 +22,9 @@ export default class Alerts extends Component {
 }
 
 Alerts.propTypes = {
-  systemAlerts: PropTypes.array
+  alerts: PropTypes.array
 };
 
 Alerts.defaultProps = {
-  systemAlerts: []
+  alerts: []
 };
