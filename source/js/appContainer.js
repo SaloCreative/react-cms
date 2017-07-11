@@ -1,7 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as authActions from 'actions/auth/authActions';
-import * as alertHandling from 'actions/alerts/alerts';
 import * as mediaActions from 'actions/media';
 import * as navigationActions from 'actions/navigation';
 import * as productListActions from 'actions/products';
@@ -30,7 +29,6 @@ function mapDispatchToProps(dispatch) {
     Object.assign(
       {},
       authActions,
-      alertHandling,
       mediaActions,
       navigationActions,
       productListActions,
