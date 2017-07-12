@@ -5,6 +5,7 @@ import { Alerts } from '@salocreative/react-redux-alerts';
 
 import Header from 'components/headers/primary';
 import Auth from 'actions/auth/auth';
+import { alertStyles } from 'constants/config';
 
 export default class App extends Component {
 
@@ -53,7 +54,7 @@ export default class App extends Component {
         }
 
         <div className='page'>
-          <Alerts alerts={ this.props.systemAlerts } />
+          <Alerts alerts={ this.props.systemAlerts } colours={ alertStyles } />
           { this.children() }
         </div>
       </div>

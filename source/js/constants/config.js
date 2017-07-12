@@ -25,13 +25,20 @@ export const themeColours = {
     salo_primary: '#2d323f',
     salo_dark_blue: '#5264AE',
     salo_blue: '#00B5D2',
+    salo_amber: '#cce82e',
     salo_green: '#23cf70',
     salo_red: '#ed5565',
     lightest_grey: '#f2f2f2',
     light_grey: '#ebebeb',
     grey: '#d1d3d4',
     dark_grey: '#757575'
+};
 
+export const alertStyles = {
+    error: themeColours.salo_red,
+    warning: themeColours.salo_amber,
+    info: themeColours.salo_blue,
+    success: themeColours.salo_green
 };
 
 export const paginationStyles = {

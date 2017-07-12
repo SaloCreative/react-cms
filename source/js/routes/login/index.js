@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 import { Alerts } from '@salocreative/react-redux-alerts';
+import { alertStyles } from 'constants/config';
 import Loader from 'components/core/loader';
 
 import * as Rule from 'actions/forms/validation/rules';
@@ -88,7 +89,7 @@ export default class Login extends Component {
         <div className='account__panel'>
           <img className='account__title' src='/assets/img/logo-full.png' alt='Salo Creative CMS' />
 
-          <Alerts alerts={ this.props.systemAlerts } />
+          <Alerts alerts={ this.props.systemAlerts } colours={ alertStyles } />
 
           <form ref='loginForm' className={ `account__form ${ this.props.login.meta.fetching ? 'loading' : '' }` } onSubmit={ this.handleSubmit.bind(this) } noValidate>
 
