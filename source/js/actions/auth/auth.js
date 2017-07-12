@@ -10,7 +10,7 @@ class Auth {
   }
 
   static logOut() {
-    cookies.remove('authToken');
+    cookies.remove('authToken', { path: '/' });
   }
 }
 
