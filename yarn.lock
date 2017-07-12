@@ -17,9 +17,9 @@
     react "^0.14.2"
     react-jss "^6.1.1"
 
-"@salocreative/react-redux-alerts@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@salocreative/react-redux-alerts/-/react-redux-alerts-0.0.1.tgz#3aae5d33178db07263e8f7fa71453f247616f754"
+"@salocreative/react-redux-alerts@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@salocreative/react-redux-alerts/-/react-redux-alerts-1.1.0.tgz#2453f7a7283d077acdd5ed6e2f073bf635b80316"
   dependencies:
     prop-types "^15.5.10"
     react "^0.14.2"
