@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
+import { Alerts } from '@salocreative/react-redux-alerts';
+
 import Header from 'components/headers/primary';
 import Auth from 'actions/auth/auth';
-import Alerts from 'components/core/alerts';
 
 export default class App extends Component {
 

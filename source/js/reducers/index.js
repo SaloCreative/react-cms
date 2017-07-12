@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 
-import systemAlerts from './alerts/systemAlerts';
+import { systemAlerts } from '@salocreative/react-redux-alerts';
 import navigation from './navigation';
 
 // Auth

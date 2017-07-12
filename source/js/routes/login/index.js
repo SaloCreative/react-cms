@@ -5,6 +5,7 @@ import Cookies from 'universal-cookie';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
+import { Alerts } from '@salocreative/react-redux-alerts';
 import Loader from 'components/core/loader';
 
 import * as Rule from 'actions/forms/validation/rules';
@@ -12,7 +13,6 @@ import { validate, runValidation } from 'actions/forms/validation/validator';
 
 import SaloFormInput from 'components/forms/input';
 import SaloFormSubmit from 'components/forms/submit';
-import Alerts from 'components/core/alerts';
 import { routeCodes } from 'routes';
 
 const fieldValidations = [
@@ -88,7 +88,7 @@ export default class Login extends Component {
         <div className='account__panel'>
           <img className='account__title' src='/assets/img/logo-full.png' alt='Salo Creative CMS' />
 
-          <Alerts { ...this.props } />
+          <Alerts alerts={ this.props.systemAlerts } />
 
           <form ref='loginForm' className={ `account__form ${ this.props.login.meta.fetching ? 'loading' : '' }` } onSubmit={ this.handleSubmit.bind(this) } noValidate>
 
