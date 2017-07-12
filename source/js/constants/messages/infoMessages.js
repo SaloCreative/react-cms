@@ -1,9 +1,7 @@
 const InfoMessages = {
   general: {
     type: 'info',
-    message: {
-      en: 'General information notice'
-    }
+    message: 'General information notice'
   }
 };
 
