@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as productListActions from 'actions/products';
+import * as productEditActions from 'actions/products/edit';
 
 import Pagination from '@salocreative/react-pagination';
 import { paginationStyles } from 'constants/config';
@@ -21,7 +26,7 @@ import ProductsHeader from 'components/products/header';
 
 let filter = new ProductFilter;
 
-export default class ProductIndex extends Component {
+class ProductIndex extends Component {
 
   componentWillMount() {
     if (shouldUpdate(this.props.products.meta.last_updated, 300)) {
@@ -177,3 +182,12 @@ ProductIndex.propDefaults = {
   products: {}
 };
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    Object.assign({},
+      productListActions,
+      productEditActions
+    ), dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ProductIndex);

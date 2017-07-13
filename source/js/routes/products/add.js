@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import update from 'immutability-helper';
 import { Helmet } from 'react-helmet';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as productAddActions from 'actions/products/add';
+import * as productEditActions from 'actions/products/edit';
 
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
@@ -16,7 +21,7 @@ import Gallery from 'components/products/gallery';
 import ProductDescription from 'components/products/description';
 import ProductDimensionsPicker from 'components/products/dimensions-picker';
 
-export default class AddProduct extends Component {
+class AddProduct extends Component {
 
   constructor() {
     super();
@@ -83,4 +88,12 @@ AddProduct.propTypes = {
   createProduct: PropTypes.func
 };
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    Object.assign({},
+      productAddActions,
+      productEditActions
+    ), dispatch);
+}
 
+export default connect(null, mapDispatchToProps)(AddProduct);

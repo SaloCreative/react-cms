@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as productGetActions from 'actions/products/get';
+import * as productEditActions from 'actions/products/edit';
 
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
@@ -17,7 +22,7 @@ import Gallery from 'components/products/gallery';
 import ProductDescription from 'components/products/description';
 import ProductDimensionsPicker from 'components/products/dimensions-picker';
 
-export default class EditProduct extends Component {
+class EditProduct extends Component {
 
   componentWillMount() {
     this.props.getProduct(this.props.params.id);
@@ -87,3 +92,13 @@ EditProduct.propTypes = {
   getProduct: PropTypes.func,
   editProduct: PropTypes.func
 };
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    Object.assign({},
+      productGetActions,
+      productEditActions
+    ), dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(EditProduct);

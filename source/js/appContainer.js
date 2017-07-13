@@ -3,12 +3,6 @@ import { connect } from 'react-redux';
 import * as authActions from 'actions/auth/authActions';
 import * as mediaActions from 'actions/media';
 import * as navigationActions from 'actions/navigation';
-import * as productListActions from 'actions/products';
-import * as productGetActions from 'actions/products/get';
-import * as productEditActions from 'actions/products/edit';
-import * as productAddActions from 'actions/products/add';
-import * as productCategoriesActions from 'actions/products/categories';
-import * as productTagActions from 'actions/products/tags';
 import App from 'routes/app';
 
 function mapStateToProps(state) {
@@ -32,13 +26,7 @@ function mapDispatchToProps(dispatch) {
       {},
       authActions,
       mediaActions,
-      navigationActions,
-      productListActions,
-      productGetActions,
-      productEditActions,
-      productAddActions,
-      productCategoriesActions,
-      productTagActions
+      navigationActions
     ), dispatch);
 }
 

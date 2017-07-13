@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import { shouldUpdate } from 'actions/global/utilityFunctions';
+import * as productCategoriesActions from 'actions/products/categories';
+import * as productTagActions from 'actions/products/tags';
 
-export default class ProductWrapper extends Component {
+class ProductWrapper extends Component {
 
   componentWillMount() {
     if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
@@ -37,3 +41,12 @@ ProductWrapper.defaultProps = {
   id: 'product-container'
 };
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    Object.assign({},
+      productCategoriesActions,
+      productTagActions
+    ), dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ProductWrapper);
