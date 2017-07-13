@@ -16,6 +16,7 @@ import products from './products';
 import product from './products/product';
 import productFilter from './products/filters';
 import productCategories from './products/categories';
+import productTags from './products/tags';
 
 // Users
 
@@ -28,6 +29,7 @@ export default combineReducers({
   product,
   productFilter,
   productCategories,
+  productTags,
   form: formReducer,
   routing: routerReducer
 });

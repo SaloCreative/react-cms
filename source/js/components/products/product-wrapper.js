@@ -7,7 +7,10 @@ export default class ProductWrapper extends Component {
 
   componentWillMount() {
     if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
-      this.props.getCategories();
+      this.props.getProductCategories();
+    }
+    if (shouldUpdate(this.props.productTags.meta.last_updated, 300)) {
+      this.props.getProductTags();
     }
   }
 
@@ -21,8 +24,11 @@ export default class ProductWrapper extends Component {
 }
 
 ProductWrapper.propTypes = {
+  productTags: PropTypes.object,
+  productCategories: PropTypes.object,
   children: PropTypes.any,
-  createProduct: PropTypes.func,
+  getProductCategories: PropTypes.func,
+  getProductTags: PropTypes.func,
   id: PropTypes.string
 };
 

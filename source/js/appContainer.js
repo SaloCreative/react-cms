@@ -8,6 +8,7 @@ import * as productGetActions from 'actions/products/get';
 import * as productEditActions from 'actions/products/edit';
 import * as productAddActions from 'actions/products/add';
 import * as productCategoriesActions from 'actions/products/categories';
+import * as productTagActions from 'actions/products/tags';
 import App from 'routes/app';
 
 function mapStateToProps(state) {
@@ -20,7 +21,8 @@ function mapStateToProps(state) {
     products: state.products,
     product: state.product,
     productFilter: state.productFilter,
-    productCategories: state.productCategories
+    productCategories: state.productCategories,
+    productTags: state.productTags
   };
 }
 
@@ -35,7 +37,8 @@ function mapDispatchToProps(dispatch) {
       productGetActions,
       productEditActions,
       productAddActions,
-      productCategoriesActions
+      productCategoriesActions,
+      productTagActions
     ), dispatch);
 }
 
