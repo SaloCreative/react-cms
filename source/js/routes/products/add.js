@@ -7,6 +7,7 @@ import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import FeaturedImage from 'components/core/image/featured-image';
 
+import ProductWrapper from 'components/products/product-wrapper';
 import ProductsHeader from 'components/products/header';
 import ProductsSecondaryHeader from 'components/products/header-secondary';
 import ProductDetails from 'components/products/details';
@@ -29,9 +30,6 @@ export default class AddProduct extends Component {
 
   componentWillMount() {
     this.props.addNewProduct();
-    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
-      this.props.getCategories();
-    }
   }
 
   checkAllValid() {
@@ -53,7 +51,7 @@ export default class AddProduct extends Component {
 
   render() {
     return (
-      <div id='product-add'>
+      <ProductWrapper { ...this.props } id='product-add'>
         <Helmet>
             <title>Add Product</title>
         </Helmet>
@@ -75,7 +73,7 @@ export default class AddProduct extends Component {
 
           <ProductDimensionsPicker />
         </Row>
-      </div>
+      </ProductWrapper>
     );
   }
 }

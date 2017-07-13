@@ -16,6 +16,7 @@ import SaloFormSelect from 'components/forms/select';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { ProductFilter } from 'actions/products/filter';
 import ProductListItem from 'components/products/list-item';
+import ProductWrapper from 'components/products/product-wrapper';
 import ProductsHeader from 'components/products/header';
 
 let filter = new ProductFilter;
@@ -25,9 +26,6 @@ export default class ProductIndex extends Component {
   componentWillMount() {
     if (shouldUpdate(this.props.products.meta.last_updated, 300)) {
       this.props.getProducts();
-    }
-    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
-      this.props.getCategories();
     }
   }
 
@@ -133,7 +131,7 @@ export default class ProductIndex extends Component {
       displayContent = true;
     }
     return (
-      <div id='product-index'>
+      <ProductWrapper id='product-index' { ...this.props }>
         <Helmet>
           <title>Products</title>
         </Helmet>
@@ -163,7 +161,7 @@ export default class ProductIndex extends Component {
           </Column>
 
         </LoadingWrapper>
-      </div>
+      </ProductWrapper>
     );
   }
 }

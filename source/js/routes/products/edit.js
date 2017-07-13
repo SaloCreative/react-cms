@@ -8,6 +8,7 @@ import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import FeaturedImage from 'components/core/image/featured-image';
 import ErrorMessages from 'constants/messages/errorMessages';
 
+import ProductWrapper from 'components/products/product-wrapper';
 import ProductsHeader from 'components/products/header';
 import ProductsSecondaryHeader from 'components/products/header-secondary';
 import ProductDetails from 'components/products/details';
@@ -20,9 +21,6 @@ export default class EditProduct extends Component {
 
   componentWillMount() {
     this.props.getProduct(this.props.params.id);
-    if (shouldUpdate(this.props.productCategories.meta.last_updated, 300)) {
-      this.props.getCategories();
-    }
   }
 
   attemptProductFetch() {
@@ -49,7 +47,7 @@ export default class EditProduct extends Component {
       displayContent = true;
     }
     return (
-      <div id='product-add'>
+      <ProductWrapper { ...this.props } id='product-edit'>
         <Helmet>
           <title>Edit Product</title>
         </Helmet>
@@ -80,7 +78,7 @@ export default class EditProduct extends Component {
           <ProductDimensionsPicker />
 
         </LoadingWrapper>
-      </div>
+      </ProductWrapper>
     );
   }
 }

@@ -33,7 +33,7 @@ LoadingWrapper.propTypes = {
   display: PropTypes.bool,
   loading: PropTypes.bool,
   error: PropTypes.bool,
-  errorMessage: PropTypes.object,
+  errorMessage: PropTypes.string,
   classes: PropTypes.string,
   retryAction: PropTypes.func
 };
