@@ -4,16 +4,21 @@ import { Helmet } from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+// Actions
 import * as productGetActions from 'actions/products/get';
 import * as productEditActions from 'actions/products/edit';
 
+// General components
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import FeaturedImage from 'components/core/image/featured-image';
 import ErrorMessages from 'constants/messages/errorMessages';
 
-import ProductWrapper from 'components/products/product-wrapper';
+// Containers
+import ProductWrapper from 'containers/products';
+
+// Product components
 import ProductsHeader from 'components/products/header';
 import ProductsSecondaryHeader from 'components/products/header-secondary';
 import ProductDetails from 'components/products/details';

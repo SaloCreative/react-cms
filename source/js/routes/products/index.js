@@ -3,25 +3,29 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Pagination from '@salocreative/react-pagination';
 
+// Actions
 import * as productListActions from 'actions/products';
 import * as productEditActions from 'actions/products/edit';
 
-import Pagination from '@salocreative/react-pagination';
+// General components
 import { paginationStyles } from 'constants/config';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
-
+import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/data-table';
 import { Column, Row, Container, Card } from 'components/core/grid';
 import SecondaryHeader from 'components/headers/secondary';
 import SaloFormInput from 'components/forms/input';
 import SaloFormSelect from 'components/forms/select';
 
-import { shouldUpdate } from 'actions/global/utilityFunctions';
+// Containers
+import ProductWrapper from 'containers/products';
+
+// Product components
 import { ProductFilter } from 'actions/products/filter';
 import ProductListItem from 'components/products/list-item';
-import ProductWrapper from 'components/products/product-wrapper';
 import ProductsHeader from 'components/products/header';
 
 let filter = new ProductFilter;
