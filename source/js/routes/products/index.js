@@ -140,7 +140,7 @@ class ProductIndex extends Component {
       displayContent = true;
     }
     return (
-      <ProductWrapper id='product-index' { ...this.props }>
+      <ProductWrapper id='product-index'>
         <Helmet>
           <title>Products</title>
         </Helmet>

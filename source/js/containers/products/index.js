@@ -49,4 +49,14 @@ function mapDispatchToProps(dispatch) {
     ), dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(ProductWrapper);
+function mapStateToProps(state) {
+  return {
+    products: state.products,
+    product: state.product,
+    productFilter: state.productFilter,
+    productCategories: state.productCategories,
+    productTags: state.productTags
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductWrapper);
