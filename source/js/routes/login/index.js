@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import update from 'immutability-helper';
 import { Helmet } from 'react-helmet';
 import Cookies from 'universal-cookie';
-import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router-dom';;
 import PropTypes from 'prop-types';
 
 import { Alerts } from '@salocreative/react-redux-alerts';

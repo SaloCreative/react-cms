@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';;
 
 import { Row, Column } from 'components/core/grid';
 import SecondaryHeader from 'components/headers/secondary';

@@ -11,7 +11,7 @@ export default class ProductIndex extends Component {
             <title>Products</title>
         </Helmet>
         <div className='product__wrapper'>
-
+          lol
         </div>
       </div>
     );

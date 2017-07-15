@@ -1,23 +1,25 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-
 import { Provider } from 'react-redux';
-import { IntlProvider } from 'react-intl';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import AppContainer from 'appContainer';
 
 import Routes from 'routes';
-import store from 'store';
+import store, { history } from 'store';
 
 // Load SCSS
 import '../scss/app.scss';
 
 
 const router = (
-  
   <Provider store={ store }>
-    <IntlProvider locale={ navigator.language }>
-      <Routes />
-    </IntlProvider>
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' component={ AppContainer } />
+      </Switch>
+    </BrowserRouter>
   </Provider>
 );
 

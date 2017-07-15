@@ -3,7 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import FontAwesome from 'react-fontawesome';
 
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';;
 import { routeCodes } from 'routes';
 import AccountDropdown from '../account-dropdown';
 import Navigation from '../navigation';
@@ -28,11 +28,11 @@ export default class Header extends Component {
                                 <FontAwesome name='tasks' size='lg' />
                             </Link>
 
-                            <Link className='navigation__notification'>
+                            <Link to='/' className='navigation__notification'>
                                 <FontAwesome name='envelope-o' size='lg' />
                             </Link>
 
-                            <Link className='navigation__notification'>
+                            <Link to='/' className='navigation__notification'>
                                 <FontAwesome name='bell' size='lg' />
                             </Link>
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
+import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 
 import auth from 'actions/auth/auth';
 import { history } from 'store';
@@ -27,6 +28,9 @@ export const routeCodes = {
     EDIT_BASE: '/products/edit',
     EDIT: '/products/edit/:id'
   },
+  PAGES: '/pages',
+  MEDIA: '/media',
+  SETTINGS: '/settings',
   ERROR: '/404-error'
 };
 
@@ -50,24 +54,9 @@ function requireNotAuth(nextState, replace) {
 export default class Routes extends Component {
   render() {
     return (
-      <Router history={ history } onUpdate={ () => window.scrollTo(0, 0) }>
-        <Route path={ publicPath } component={ AppContainer } >
-
-          {/* Dashboard route */}
-          <IndexRoute name='Dashboard' component={ Dashboard } onEnter={ requireAuth } />
-
-          {/* Product routes */}
-          <Route name='Products' path={ routeCodes.PRODUCT.DASHBOARD } component={ ProductDashboard } onEnter={ requireAuth } />
-          <Route name='Products' path={ routeCodes.PRODUCT.INDEX } component={ ProductIndex } onEnter={ requireAuth } />
-          <Route name='Add Product' path={ routeCodes.PRODUCT.ADD } component={ AddProduct } onEnter={ requireAuth } />
-          <Route name='Edit Product' path={ routeCodes.PRODUCT.EDIT } component={ EditProduct } onEnter={ requireAuth } />
-
-          {/* Misc routes */}
-          <Route name='Login' path={ routeCodes.LOGIN } component={ Login } onEnter={ requireNotAuth } />
-          <Route name='404 Error' path='*' component={ NotFound } onEnter={ requireAuth } />
-
-        </Route>
-      </Router>
+      <ConnectedRouter history={ history } onUpdate={ () => window.scrollTo(0, 0) }>
+        <Route path={ publicPath } component={ AppContainer } />
+      </ConnectedRouter>
     );
   }
 }

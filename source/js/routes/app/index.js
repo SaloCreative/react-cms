@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import { Route, Switch } from 'react-router-dom';
 
 import { Alerts } from '@salocreative/react-redux-alerts';
+
+import Dashboard from 'routes/dashboard';
+import ProductDashboard from 'routes/products/dashboard';
+import { routeCodes } from 'routes';
 
 import Header from 'components/headers/primary';
 import Auth from 'actions/auth/auth';
@@ -9,19 +14,6 @@ import AuthWrapper from 'containers/auth';
 import { alertStyles } from 'constants/config';
 
 export default class App extends Component {
-
-  children = () => {
-    const { children } = this.props;
-
-    // Map for rending child components and adding context which contains
-    // child component routing information.
-    return React.Children.map(children, (child) => {
-      return React.cloneElement(child, {
-        ...this.props,
-        context: child.props
-      });
-    });
-  };
 
   render() {
     return (
@@ -36,7 +28,10 @@ export default class App extends Component {
 
         <div className='page'>
           <Alerts alerts={ this.props.systemAlerts } colours={ alertStyles } />
-          { this.children() }
+          <Switch>
+            <Route exact name='Products' path={ routeCodes.PRODUCT.DASHBOARD } component={ ProductDashboard } />
+            <Route exact name='Dashboard' path={ routeCodes.DASHBOARD } component={ Dashboard } />
+          </Switch>
         </div>
       </div>
     );

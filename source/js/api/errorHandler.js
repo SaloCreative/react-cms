@@ -1,6 +1,6 @@
 import store from 'store';
 import ErrorMessages from 'constants/messages/errorMessages';
-import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router-dom';;
 import { routeCodes } from 'routes';
 
 /**

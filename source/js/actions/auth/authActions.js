@@ -1,4 +1,3 @@
-import { browserHistory } from 'react-router';
 import { CALL_API, getJSON } from 'redux-api-middleware';
 import { API, HEADER, ENDPOINT } from 'api';
 
@@ -27,7 +26,7 @@ export function logOutUser() {
   return function (dispatch) {
     auth.logOut();
     dispatch(logOutSuccess());
-    browserHistory.push(routeCodes.LOGIN);
+    history.push(routeCodes.LOGIN);
   };
 }
 

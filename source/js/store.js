@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { syncHistoryWithStore } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory'
 import { apiMiddleware } from 'redux-api-middleware';
-import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router-dom';
 import thunk from 'redux-thunk';
 
 import 'babel-polyfill';
@@ -37,7 +37,8 @@ if (isProduction) {
   );
 }
 
-export const history = syncHistoryWithStore(browserHistory, store);
+
+export const history = createHistory();
 
 if (module.hot) {
   module.hot.accept('./reducers/', () => {

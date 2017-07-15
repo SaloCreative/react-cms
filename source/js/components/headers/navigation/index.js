@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';;
 import FontAwesome from 'react-fontawesome';
 
 import { routeCodes } from 'routes';
@@ -7,18 +7,20 @@ import { routeCodes } from 'routes';
 export default class Navigation extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-        const text = this.props.routes[this.props.routes.length - 1].name;
+        /* const text = this.props.routes[this.props.routes.length - 1].name;
         const newText = nextProps.routes[nextProps.routes.length - 1].name;
         if (text !== newText && nextProps.navigation.menuOpen === false) {
             this.props.setNavigationState({ menuOpen: false, managerMenuOpen: false, icon: 'bars', text: newText });
-        }
+        } */
         // return a boolean value always to make sure other updates aren't blocked
         return true;
     }
 
     componentDidMount() {
+        console.log(this.props);
+        console.log(this.context);
         // Make sure menu is correct for load
-        return this.props.setNavigationState({ menuOpen: false, icon: 'bars', text: this.props.routes[this.props.routes.length - 1].name });
+        // return this.props.setNavigationState({ menuOpen: false, icon: 'bars', text: this.props.routes[this.props.routes.length - 1].name });
     }
 
     toggleList(label) {
