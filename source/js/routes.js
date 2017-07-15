@@ -52,7 +52,7 @@ export default class Routes extends Component {
     return (
       <Router history={ history } onUpdate={ () => window.scrollTo(0, 0) }>
         <Route path={ publicPath } component={ AppContainer } >
-         
+
           {/* Dashboard route */}
           <IndexRoute name='Dashboard' component={ Dashboard } onEnter={ requireAuth } />
 
