@@ -42,12 +42,12 @@
   transition: all 0.2s ease-in-out;
   &:hover {
     color: #fff;
-    background: $grey;
+    background: mix($salo-blue, #000, 80%);
   }
 }
 
 .dropdown__button {
-  background: black;
+  background: $salo-primary;
   color: #fff;
   border-bottom: none;
 }

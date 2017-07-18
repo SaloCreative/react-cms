@@ -24,6 +24,24 @@ button {
     }
 }
 
+.action-button {
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    align-items: center;
+    background: $salo-blue;
+    color: #fff !important;
+    @include transition__background;
+    @include box-shadow;
+    &:hover {
+        background: mix($salo-blue, #000, 80%);
+    }
+}
+
 .button--positive {
     background: $salo-green;
     &:hover {
@@ -43,20 +61,14 @@ button:focus {
     outline: none;
 }
 
-.action-button {
-    padding: 0;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    border: none;
-    border-radius: 50%;
-    align-items: center;
-    background: $salo-blue;
-    color: #fff !important;
-    @include transition__background;
-    @include box-shadow;
+.action-button.fixed {
+    position: fixed;
+    width: 56px;
+    height: 56px;
+    right: 25px;
+    bottom: 25px;
+    @include transition__all;
     &:hover {
-        background: mix($salo-blue, #000, 80%);
+        transform: rotate(45deg);
     }
 }

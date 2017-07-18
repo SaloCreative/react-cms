@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
+import FontAwesome from 'react-fontawesome';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import * as productCategoriesActions from 'actions/products/categories';
 import * as productTagActions from 'actions/products/tags';
@@ -22,6 +22,7 @@ class ProductWrapper extends Component {
     return (
       <div className='product-load-wrapper' id={ this.props.id }>
         { this.props.children }
+        <button className='action-button fixed'><FontAwesome name='plus' /></button>
       </div>
     );
   }
