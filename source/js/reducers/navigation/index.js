@@ -3,7 +3,6 @@ import {
 } from 'actions/navigation';
 
 const initialState = {
-  text: 'Menu',
   menuOpen: false,
   icon: 'bars'
 };
@@ -14,17 +13,13 @@ function navigation(state = initialState, action) {
 
     case NAVIGATION_STATE_CHANGE :
       return {
-        text: action.navState.text,
         menuOpen: action.navState.menuOpen,
-        managerMenuOpen: false,
         icon: action.navState.icon
       };
 
     case 'MANAGER_NAVIGATION_STATE_CHANGE' :
         return {
-          text: action.navState.text,
           menuOpen: false,
-          managerMenuOpen: action.navState.managerMenuOpen,
           icon: 'menu'
         };
 

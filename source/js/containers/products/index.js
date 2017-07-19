@@ -28,7 +28,7 @@ class ProductWrapper extends Component {
     return (
       <div className='product-load-wrapper' id={ this.props.id }>
         { this.props.children }
-        <FixedMenu>
+        <FixedMenu icon='plus'>
           <a className='fixed-action__item'>
             <FontAwesome name='sitemap' /> Categories
           </a>

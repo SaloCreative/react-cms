@@ -65,8 +65,8 @@ export default class ProductListItem extends Component {
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </Column>
         <Column classes='product-list__actions'>
-          <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` } className='action-button'><FontAwesome name='pencil' /></Link>
-          <button className='action-button product-list__delete'><FontAwesome name='trash-o' /></button>
+          <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` } className='action-button no-back'><FontAwesome name='pencil' /></Link>
+          <button className='action-button product-list__delete no-back'><FontAwesome name='trash-o' /></button>
         </Column>
       </DataTableRow>
     );

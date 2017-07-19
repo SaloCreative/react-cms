@@ -40,6 +40,16 @@ button {
     &:hover {
         background: mix($salo-blue, #000, 80%);
     }
+    &.no-back {
+        background: none;
+        color: $dark-grey !important;
+        box-shadow: none;
+        @include transition__all;
+        &:hover {
+            background: $lightest-grey;
+            @include box-shadow;
+        }
+    }
 }
 
 .button--positive {

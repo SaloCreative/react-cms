@@ -34,7 +34,13 @@ export default class App extends Component {
           </Header>
        </AuthWrapper>
 
-        <div className='page'>
+        <div className={ `page ${ this.props.navigation.menuOpen ? 'menu-open' : '' }` }>
+          <AuthWrapper { ...this.props } >
+            <div id='menu' className={ this.props.navigation.menuOpen ? 'menu-open' : '' }>
+              <div className='menu__wrapper'>
+              </div>
+            </div>
+          </AuthWrapper>
           <Alerts alerts={ this.props.systemAlerts } colours={ alertStyles } />
           { this.children() }
         </div>

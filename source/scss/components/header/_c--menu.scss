@@ -1,0 +1,13 @@
+#menu {
+  left: -200px;
+  top: 0;
+  height: 100%;
+  padding-top: 90px;
+  width: 200px;
+  background: $salo-petrol-blue;
+  position: fixed;
+  @include transition__all;
+  &.menu-open {
+    left: 0;
+  }
+}
