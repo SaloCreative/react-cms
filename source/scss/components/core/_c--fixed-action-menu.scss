@@ -1,0 +1,46 @@
+.fixed-action__menu {
+  position: fixed;
+  right: 2.5rem;
+  bottom: 2.5rem;
+  width: 34rem;
+  z-index: 999;
+  .card {
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+  }
+}
+
+.fixed-action__backdrop {
+  background: rgba(0,0,0,0.2);
+  position: fixed;
+  z-index: 998;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.fixed-action__item {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: row;
+  align-items: center;
+  height: 5.6rem;
+  padding: 0 2.5rem;
+  @include transition__all;
+  cursor: pointer;
+  span.fa {
+    margin-right: 1.25rem;
+  }
+  &:hover {
+    background: $lightest-grey;
+  }
+  &.btn {
+    background: $salo-blue;
+    color: #fff;
+    &:hover {
+      background: mix($salo-blue, #000, 80%);
+    }
+  }
+}

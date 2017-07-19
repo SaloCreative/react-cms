@@ -61,7 +61,6 @@ class EditProduct extends Component {
         <Helmet>
           <title>Edit Product</title>
         </Helmet>
-        <ProductsHeader />
 
         <ProductsSecondaryHeader { ...this.props }
           saveEdits={ () => this.saveProduct() } />

@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+
 import FontAwesome from 'react-fontawesome';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import * as productCategoriesActions from 'actions/products/categories';
 import * as productTagActions from 'actions/products/tags';
+
+import { routeCodes } from 'routes';
+import { Card } from 'components/core/grid';
+import FixedMenu from 'components/core/fixed-menu';
 
 class ProductWrapper extends Component {
 
@@ -22,7 +28,20 @@ class ProductWrapper extends Component {
     return (
       <div className='product-load-wrapper' id={ this.props.id }>
         { this.props.children }
-        <button className='action-button fixed'><FontAwesome name='plus' /></button>
+        <FixedMenu>
+          <a className='fixed-action__item'>
+            <FontAwesome name='sitemap' /> Categories
+          </a>
+          <a className='fixed-action__item'>
+            <FontAwesome name='tag' /> Tags
+          </a>
+          <a className='fixed-action__item'>
+            <FontAwesome name='arrows-h' /> Dimensions
+          </a>
+          <Link to={ routeCodes.PRODUCT.ADD } className='fixed-action__item btn'>
+            <FontAwesome name='plus' /> Add Product
+          </Link>
+        </FixedMenu>
       </div>
     );
   }

@@ -67,8 +67,4 @@ button:focus {
     height: 56px;
     right: 25px;
     bottom: 25px;
-    @include transition__all;
-    &:hover {
-        transform: rotate(45deg);
-    }
 }

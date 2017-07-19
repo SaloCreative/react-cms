@@ -36,7 +36,7 @@ export default class ProductsSecondaryHeader extends Component {
   render() {
     const { product } = this.props;
     return (
-      <SecondaryHeader headerClass='pull-up'>
+      <SecondaryHeader>
         <Column classes='editing-header__left'>
           <ul className='editing-header__tabs-nav'>
             <li className='active'>General</li>
