@@ -30,13 +30,13 @@ class ProductWrapper extends Component {
         { this.props.children }
         <FixedMenu icon='plus'>
           <a className='fixed-action__item'>
-            <FontAwesome name='sitemap' /> Categories
+            <FontAwesome name='sitemap' /> Add Category
           </a>
           <a className='fixed-action__item'>
-            <FontAwesome name='tag' /> Tags
+            <FontAwesome name='tag' /> Add Tag
           </a>
           <a className='fixed-action__item'>
-            <FontAwesome name='arrows-h' /> Dimensions
+            <FontAwesome name='arrows-h' /> Add Dimension
           </a>
           <Link to={ routeCodes.PRODUCT.ADD } className='fixed-action__item btn'>
             <FontAwesome name='plus' /> Add Product

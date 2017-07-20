@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router';
+import FontAwesome from 'react-fontawesome';
 
 import { Alerts } from '@salocreative/react-redux-alerts';
 
@@ -38,6 +40,21 @@ export default class App extends Component {
           <AuthWrapper { ...this.props } >
             <div id='menu' className={ this.props.navigation.menuOpen ? 'menu-open' : '' }>
               <div className='menu__wrapper'>
+                <ul className='main-menu'>
+                  <li className='divider'>Main</li>
+                  <li><Link><FontAwesome name='desktop' /> Dashboard</Link></li>
+                  <li><Link><FontAwesome name='pencil' /> Pages</Link></li>
+                  <li><Link><FontAwesome name='commenting-o' /> Blog</Link></li>
+                  <li><Link><FontAwesome name='shopping-cart' /> Products</Link></li>
+                  <li><Link><FontAwesome name='image' /> Asset Library</Link></li>
+                  <li className='divider'>CRM</li>
+                  <li><Link><FontAwesome name='paper-plane' /> Forms</Link></li>
+                  <li><Link><FontAwesome name='bar-chart-o' /> Leads</Link></li>
+                  <li><Link><FontAwesome name='users' /> Contacts</Link></li>
+                  <li><Link><FontAwesome name='tasks' /> Tasks</Link></li>
+                  <li className='divider'>System</li>
+                  <li><Link><FontAwesome name='cogs' /> Settings</Link></li>
+                </ul>
               </div>
             </div>
           </AuthWrapper>
