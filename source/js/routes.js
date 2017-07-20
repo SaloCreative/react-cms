@@ -11,18 +11,19 @@ import NotFound from 'routes/notFound';
 
 // Products
 import ProductIndex from 'routes/products';
-import ProductDashboard from 'routes/products/dashboard';
 import AddProduct from 'routes/products/add';
 import EditProduct from 'routes/products/edit';
 
 const publicPath = '/';
 
 export const routeCodes = {
-  DASHBOARD: '/',
-  LOGIN: '/login',
+  DASHBOARD: '/dashboard',
+  LOGIN: '/',
+  PAGE: {
+    INDEX: '/pages'
+  },
   PRODUCT: {
-    DASHBOARD: '/products',
-    INDEX: '/products/list',
+    INDEX: '/products',
     ADD: '/products/add',
     EDIT_BASE: '/products/edit',
     EDIT: '/products/edit/:id'
@@ -54,16 +55,17 @@ export default class Routes extends Component {
         <Route path={ publicPath } component={ AppContainer } >
 
           {/* Dashboard route */}
-          <IndexRoute name='Dashboard' component={ Dashboard } onEnter={ requireAuth } />
+          <Route name='Dashboard' path={ routeCodes.DASHBOARD } component={ Dashboard } onEnter={ requireAuth } />
 
           {/* Product routes */}
-          <Route name='Products' path={ routeCodes.PRODUCT.DASHBOARD } component={ ProductDashboard } onEnter={ requireAuth } />
-          <Route name='Products' path={ routeCodes.PRODUCT.INDEX } component={ ProductIndex } onEnter={ requireAuth } />
-          <Route name='Add Product' path={ routeCodes.PRODUCT.ADD } component={ AddProduct } onEnter={ requireAuth } />
-          <Route name='Edit Product' path={ routeCodes.PRODUCT.EDIT } component={ EditProduct } onEnter={ requireAuth } />
+          <Route path={ routeCodes.PRODUCT.INDEX }>
+            <IndexRoute name='Products' component={ ProductIndex } onEnter={ requireAuth } />
+            <Route name='Add Product' path={ routeCodes.PRODUCT.ADD } component={ AddProduct } onEnter={ requireAuth } />
+            <Route name='Edit Product' path={ routeCodes.PRODUCT.EDIT } component={ EditProduct } onEnter={ requireAuth } />
+          </Route>
 
           {/* Misc routes */}
-          <Route name='Login' path={ routeCodes.LOGIN } component={ Login } onEnter={ requireNotAuth } />
+          <IndexRoute name='Login' component={ Login } onEnter={ requireNotAuth } />
           <Route name='404 Error' path='*' component={ NotFound } onEnter={ requireAuth } />
 
         </Route>

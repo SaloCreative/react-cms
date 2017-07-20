@@ -9,7 +9,7 @@ body {
   min-height: calc(100vh - 90px);
   margin-top: 90px;
   padding-left: 0;
-  @include transition__all;
+  transition: padding 0.3s linear;
   &.menu-open {
     padding-left: 200px;
   }

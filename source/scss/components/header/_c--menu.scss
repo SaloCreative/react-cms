@@ -18,6 +18,7 @@
   padding: 0;
   font-size: 1.3rem;
   li {
+    position: relative;
     &.divider {
       margin: 25px 0 5px 20px;
     }
@@ -30,11 +31,50 @@
       align-items: center;
       outline: none;
       transition: all 0.3s ease;
-      height: 50px;
+      height: 45px;
       .fa {
         font-size: 1.5rem;
         padding-right: 1.25rem;
       }
+      &.active {
+        background: mix($salo-petrol-blue, #fff, 95%);
+        border-left: 0.3rem solid $salo-blue;
+        padding: 0 0 0 2.2rem;
+      }
+      &:hover {
+        background: mix($salo-petrol-blue, #fff, 95%);
+      }
+    }
+    &:hover > a:not(.active) + .main-menu__dropdown {
+      display: block;
+      position: absolute;
+      left: 200px;
+      top: 0;
+      width: 200px;
     }
   }
+}
+
+.main-menu__dropdown {
+  display: none;
+  margin: 0;
+  padding: 0;
+  background: $salo-primary;
+  li {
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    a {
+      width: 100%;
+      &:hover,
+      &.active {
+        background: none;
+        color: $salo-blue;
+      }
+    }
+  }
+}
+
+.active + .main-menu__dropdown {
+  display: block
 }

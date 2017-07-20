@@ -11,7 +11,7 @@ export default class Navigation extends Component {
         if (this.props.navigation.menuOpen) {
             return this.props.setNavigationState({ menuOpen: false, icon: 'bars' });
         }
-        return this.props.setNavigationState({ menuOpen: true, icon: 'times' });
+        return this.props.setNavigationState({ menuOpen: true, icon: 'bars' });
     }
 
     clicked(label) {
