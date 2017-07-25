@@ -78,7 +78,7 @@ class EditProduct extends Component {
             categories={ this.props.productCategories.data }
             showErrors={ true }/>
 
-          <ProductTagsPicker />
+          <ProductTagsPicker tags={ this.props.productTags.data } productTags={ this.props.product.data.tags } />
 
           <Gallery />
 

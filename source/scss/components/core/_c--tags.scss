@@ -1,0 +1,34 @@
+.tags-picker__tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-item {
+  display: flex;
+  border-radius: 10rem;
+  height: 4rem;
+  align-items: center;
+  padding: 0 5rem 0 1.5rem;
+  background: $lightest-grey;
+  position: relative;
+  margin: 0.675rem 1.25rem 0.675rem 0;
+}
+
+.tag-item--delete {
+  height: 4rem;
+  width: 4rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: $light-grey;
+  color: $grey;
+  border-radius: 10rem;
+  @include transition__background;
+  &:hover {
+    color: #fff;
+    background: $salo-red;
+  }
+}
