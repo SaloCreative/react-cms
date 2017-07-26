@@ -19,6 +19,14 @@ export default class ProductTagsPicker extends Component {
     }
   }
 
+  addTag(id) {
+    console.log(id);
+  }
+
+  removeTag(id) {
+    console.log(id);
+  }
+
   render() {
     const { productTags } = this.props;
     return (
@@ -26,12 +34,17 @@ export default class ProductTagsPicker extends Component {
         <Card>
           <h3 className='product-edit__tile-header'>Product Tags</h3>
           <TypeAhead
-            tags={ this.props.tags }
+            items={ this.props.tags }
             placeholder='Assign tags...'
+            selectedItem={ (id) => this.addTag(id) }
           />
           <div className='tags-picker__tags-wrapper'>
             {productTags.map((tag, i) =>
-              <Tag key={ tag.slug } tag={ tag } />
+              <Tag
+                key={ tag.slug }
+                tag={ tag }
+                removeTag={ (id) => this.removeTag(id) }
+              />
             )}
           </div>
         </Card>
