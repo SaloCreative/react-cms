@@ -2,7 +2,7 @@ import {
   GET_PRODUCT_TAGS_FETCHING,
   GET_PRODUCT_TAGS_RECEIVED,
   GET_PRODUCT_TAGS_FAILED
-} from 'actions/products/types';
+} from 'actions/products/tags/types';
 
 const initialState = {
   data: [],

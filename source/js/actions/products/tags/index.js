@@ -7,7 +7,7 @@ import {
   GET_PRODUCT_TAGS_FETCHING,
   GET_PRODUCT_TAGS_RECEIVED,
   GET_PRODUCT_TAGS_FAILED
-} from '../types';
+} from './types';
 
 export const getProductTags = () => ({
   [CALL_API]: {

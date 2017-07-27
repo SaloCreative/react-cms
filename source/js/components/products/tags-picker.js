@@ -1,45 +1,51 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
+import { getObjectByKey } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import TypeAhead from 'components/core/typeahead';
 import Tag from 'components/core/tag';
 
-export default class ProductTagsPicker extends Component {
+import * as tagActionCreators from 'actions/products/tags/associate';
 
-  renderTags() {
-    const { productTags } = this.props;
-    if (productTags && productTags.length > 0) {
-      {productTags.map((tag, i) =>
-       <div>
-         { tag.title }
-       </div>
-      )}
+class ProductTagsPicker extends Component {
+
+  getTagByID(tagID) {
+    return getObjectByKey(this.props.productTags.data, tagID);
+  }
+
+  addTag(tagID) {
+    let productID = null;
+    if (this.props.product.data.id) {
+      productID = this.props.product.data.id;
     }
+    this.props.addTag(this.getTagByID(tagID), productID);
   }
 
-  addTag(id) {
-    console.log(id);
-  }
-
-  removeTag(id) {
-    console.log(id);
+  removeTag(tagID) {
+    let productID = null;
+    if (this.props.product.data.id) {
+      productID = this.props.product.data.id;
+    }
+    this.props.removeTag(this.getTagByID(tagID), productID);
   }
 
   render() {
-    const { productTags } = this.props;
+    const { product, productTags } = this.props;
     return (
       <Column classes='is-4 tag-picker__wrapper'>
         <Card>
           <h3 className='product-edit__tile-header'>Product Tags</h3>
           <TypeAhead
-            items={ this.props.tags }
+            items={ productTags.data }
             placeholder='Assign tags...'
             selectedItem={ (id) => this.addTag(id) }
           />
           <div className='tags-picker__tags-wrapper'>
-            {productTags.map((tag, i) =>
+            {product.data.tags.map((tag, i) =>
               <Tag
                 key={ tag.slug }
                 tag={ tag }
@@ -54,11 +60,19 @@ export default class ProductTagsPicker extends Component {
 }
 
 ProductTagsPicker.propTypes = {
-  tags: PropTypes.array,
-  productTags: PropTypes.array
+  productTags: PropTypes.object,
+  product: PropTypes.object
 };
 
-ProductTagsPicker.defaultProps = {
-  tags: [],
-  productTags: []
-};
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(tagActionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    product: state.product,
+    productTags: state.productTags
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductTagsPicker);
