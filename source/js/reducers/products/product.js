@@ -10,8 +10,17 @@ import {
   UPDATING_PRODUCT_FAILED,
   CREATE_PRODUCT_FETCHING,
   CREATE_PRODUCT_RECEIVED,
-  CREATE_PRODUCT_FAILED
+  CREATE_PRODUCT_FAILED,
 } from 'actions/products/types';
+
+import {
+  ADD_PRODUCT_TAG_SAVING,
+  ADD_PRODUCT_TAG_SAVED,
+  ADD_PRODUCT_TAG_FAILED,
+  REMOVE_PRODUCT_TAG_SAVING,
+  REMOVE_PRODUCT_TAG_SAVED,
+  REMOVE_PRODUCT_TAG_FAILED
+} from 'actions/products/tags/types';
 
 const initialState = {
   data: {
@@ -134,6 +143,17 @@ function product(state = initialState, action) {
           fetching: false,
           created: true,
           last_updated: Date.now()
+        }
+      };
+
+    case ADD_PRODUCT_TAG_SAVED :
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          tags: [
+            ...state.data.tags, action.payload.tag
+          ]
         }
       };
 
