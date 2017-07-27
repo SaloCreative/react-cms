@@ -14,7 +14,9 @@ import {
 } from 'actions/products/types';
 
 const initialState = {
-  data: {},
+  data: {
+    tags: []
+  },
   meta: {
     last_updated: '',
     failed: false,

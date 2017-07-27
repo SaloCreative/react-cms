@@ -18,19 +18,25 @@ class ProductTagsPicker extends Component {
   }
 
   addTag(tagID) {
+    let tagAssigned = getObjectByKey(this.props.product.data.tags, tagID);
     let productID = null;
-    if (this.props.product.data.id) {
-      productID = this.props.product.data.id;
+    if (!tagAssigned) {
+      if (this.props.product.data.id) {
+        productID = this.props.product.data.id;
+      }
+      this.props.addTag(this.getTagByID(tagID), productID);
     }
-    this.props.addTag(this.getTagByID(tagID), productID);
   }
 
   removeTag(tagID) {
+    let tagAssigned = getObjectByKey(this.props.product.data.tags, tagID);
     let productID = null;
-    if (this.props.product.data.id) {
-      productID = this.props.product.data.id;
+    if (tagAssigned) {
+      if (this.props.product.data.id) {
+        productID = this.props.product.data.id;
+      }
+      this.props.removeTag(this.getTagByID(tagID), productID);
     }
-    this.props.removeTag(this.getTagByID(tagID), productID);
   }
 
   render() {
