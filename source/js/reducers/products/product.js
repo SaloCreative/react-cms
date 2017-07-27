@@ -157,6 +157,18 @@ function product(state = initialState, action) {
         }
       };
 
+    case REMOVE_PRODUCT_TAG_SAVED :
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          tags: [
+            ...state.data.tags.slice(0, action.payload.i),
+            ...state.data.tags.slice(action.payload.i + 1)
+          ]
+        }
+      };
+
     default :
       return state;
   }

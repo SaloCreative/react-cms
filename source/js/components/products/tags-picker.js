@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { getObjectByKey } from 'actions/global/utilityFunctions';
+import { getObjectByKey, getIndexByKey } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from 'components/core/grid';
 import TypeAhead from 'components/core/typeahead';
 import Tag from 'components/core/tag';
@@ -32,10 +32,11 @@ class ProductTagsPicker extends Component {
     let tagAssigned = getObjectByKey(this.props.product.data.tags, tagID);
     let productID = null;
     if (tagAssigned) {
+      let i = getIndexByKey(this.props.product.data.tags, tagID);
       if (this.props.product.data.id) {
         productID = this.props.product.data.id;
       }
-      this.props.removeTag(this.getTagByID(tagID), productID);
+      this.props.removeTag(this.getTagByID(tagID), productID, i);
     }
   }
 

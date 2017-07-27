@@ -21,11 +21,11 @@ export function stateAddTag(tag) {
   };
 }
 
-export function stateRemoveTag(tag) {
+export function stateRemoveTag(tag, i) {
   return {
     type: REMOVE_PRODUCT_TAG_SAVED,
     payload: {
-      tag
+      tag, i
     }
   };
 }
@@ -41,13 +41,13 @@ export function addTag(tag, productID) {
   };
 }
 
-export function removeTag(tag, productID) {
+export function removeTag(tag, productID, i) {
   return (dispatch) => {
     if (productID) {
 
     } else {
 
     }
-    return dispatch(stateRemoveTag(tag));
+    return dispatch(stateRemoveTag(tag, i));
   };
 }
