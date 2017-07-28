@@ -9,7 +9,10 @@ import {
   ADD_PRODUCT_TAG_FAILED,
   REMOVE_PRODUCT_TAG_SAVING,
   REMOVE_PRODUCT_TAG_SAVED,
-  REMOVE_PRODUCT_TAG_FAILED
+  REMOVE_PRODUCT_TAG_FAILED,
+  PRODUCT_TAGS_ASSIGN_ASSIGNING,
+  PRODUCT_TAGS_ASSIGN_ASSIGNED,
+  PRODUCT_TAGS_ASSIGN_FAILED
 } from './types';
 
 export function stateAddTag(tag) {
@@ -30,24 +33,40 @@ export function stateRemoveTag(tag, i) {
   };
 }
 
+export const assignTags = (tags, productID) => ({
+  [CALL_API]: {
+    endpoint: `${ ENDPOINT(API.PRODUCTS.TAGS.ASSIGN_MANY) }/${ productID }`,
+    method: 'POST',
+    headers: HEADER(),
+    body: JSON.stringify(tags),
+    types: [
+      {
+        type: PRODUCT_TAGS_ASSIGN_ASSIGNING
+      },
+      {
+        type: PRODUCT_TAGS_ASSIGN_ASSIGNED
+      },
+      {
+        type: PRODUCT_TAGS_ASSIGN_FAILED,
+        payload: (action, state, res) => {
+          return getJSON(res).then((json) => {
+            ApiError(res.status, ErrorMessages.assignTagsFailed, json);
+          });
+        }
+      }
+    ]
+  }
+});
+
+
 export function addTag(tag, productID) {
   return (dispatch) => {
-    if (productID) {
-
-    } else {
-
-    }
     return dispatch(stateAddTag(tag));
   };
 }
 
 export function removeTag(tag, productID, i) {
   return (dispatch) => {
-    if (productID) {
-
-    } else {
-
-    }
     return dispatch(stateRemoveTag(tag, i));
   };
 }

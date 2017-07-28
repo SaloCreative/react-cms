@@ -32,11 +32,10 @@ class ProductTagsPicker extends Component {
     let tagAssigned = getObjectByKey(this.props.product.data.tags, tagID);
     let productID = null;
     if (tagAssigned) {
-      let i = getIndexByKey(this.props.product.data.tags, tagID);
       if (this.props.product.data.id) {
         productID = this.props.product.data.id;
       }
-      this.props.removeTag(this.getTagByID(tagID), productID, i);
+      this.props.removeTag(this.getTagByID(tagID), productID);
     }
   }
 
@@ -45,7 +44,6 @@ class ProductTagsPicker extends Component {
     return (
       <Column classes='is-4 tag-picker__wrapper'>
         <Card>
-          <h3 className='product-edit__tile-header'>Product Tags</h3>
           <TypeAhead
             items={ productTags.data }
             placeholder='Assign tags...'

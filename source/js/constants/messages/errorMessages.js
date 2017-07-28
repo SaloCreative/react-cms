@@ -42,6 +42,10 @@ const ErrorMessages = {
   getProductsCategoriesFailed: {
     type: 'error',
     message: 'Could not fetch the product categories at this time. Please try again.'
+  },
+  assignTagsFailed: {
+    type: 'error',
+    message: 'Could not assign new tags at this time. Please try again.'
   }
 };
 

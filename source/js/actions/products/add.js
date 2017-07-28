@@ -20,7 +20,7 @@ export function addNewProduct() {
 
 export const saveNewProduct = (body) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCT_ADD) }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.ADD) }`,
     method: 'POST',
     headers: HEADER(),
     body: JSON.stringify(body),

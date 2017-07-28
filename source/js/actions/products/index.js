@@ -53,7 +53,7 @@ export function updateProductFilters(type, value) {
 
 export const getProducts = (filter = new ProductFilter) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCTS) }?${ filter.getEndpointParameters() }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.INDEX) }?${ filter.getEndpointParameters() }`,
     method: 'GET',
     headers: HEADER(),
     types: [

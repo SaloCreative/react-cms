@@ -13,7 +13,7 @@ import {
 
 export const getProduct = (id) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCTS) }/${ id }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.INDEX) }/${ id }`,
     method: 'GET',
     headers: HEADER(),
     types: [

@@ -1,3 +1,5 @@
+import { getObjectByKey, getIndexByKey } from 'actions/global/utilityFunctions';
+
 import {
   GET_PRODUCT_FETCHING,
   GET_PRODUCT_RECEIVED,
@@ -158,13 +160,14 @@ function product(state = initialState, action) {
       };
 
     case REMOVE_PRODUCT_TAG_SAVED :
+      const index = getIndexByKey(state.data.tags, action.payload.tag.id);
       return {
         ...state,
         data: {
           ...state.data,
           tags: [
-            ...state.data.tags.slice(0, action.payload.i),
-            ...state.data.tags.slice(action.payload.i + 1)
+            ...state.data.tags.slice(0, index),
+            ...state.data.tags.slice(index + 1)
           ]
         }
       };

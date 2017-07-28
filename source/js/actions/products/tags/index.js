@@ -11,7 +11,7 @@ import {
 
 export const getProductTags = () => ({
   [CALL_API]: {
-    endpoint: ENDPOINT(API.PRODUCTS.TAGS),
+    endpoint: ENDPOINT(API.PRODUCTS.TAGS.INDEX),
     method: 'GET',
     headers: HEADER(),
     types: [

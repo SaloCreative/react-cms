@@ -11,7 +11,7 @@ import {
 
 export const getProductCategories = () => ({
   [CALL_API]: {
-    endpoint: ENDPOINT(API.PRODUCTS.CATEGORIES),
+    endpoint: ENDPOINT(API.PRODUCTS.CATEGORIES.INDEX),
     method: 'GET',
     headers: HEADER(),
     types: [

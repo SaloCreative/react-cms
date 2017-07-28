@@ -15,7 +15,7 @@ import {
 
 export const updateProduct = (id, body, i = null) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.PRODUCT_EDIT) }/${ id }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.EDIT) }/${ id }`,
     method: 'PUT',
     headers: HEADER(),
     body: JSON.stringify(body),

@@ -18,11 +18,19 @@ export const API = {
         grants: {}
     },
     PRODUCTS: {
-        PRODUCTS: 'products',
-        PRODUCT_EDIT: 'products/edit',
-        PRODUCT_ADD: 'products/add',
-        CATEGORIES: 'products/categories',
-        TAGS: 'products/tags'
+        INDEX: 'products',
+        EDIT: 'products/edit',
+        ADD: 'products/add',
+        CATEGORIES: {
+            INDEX: 'products/categories'
+        },
+        TAGS: {
+            INDEX: 'products/tags',
+            ASSIGN: 'products/tags/assign/',
+            ASSIGN_MANY: 'products/tags/assign/multiple/',
+            UNASSIGN: 'products/tags/unassign/',
+            UNASSIGN_MANY: 'products/tags/unassign/multiple/'
+        }
     },
     MEDIA: {
         MEDIA: 'media'
