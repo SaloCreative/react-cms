@@ -71,7 +71,6 @@ export function editProduct(product) {
       }
     });
   };
-
 }
 
 export function toggleProductOnline(product, e, i) {
