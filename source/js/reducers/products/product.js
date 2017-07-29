@@ -16,12 +16,8 @@ import {
 } from 'actions/products/types';
 
 import {
-  ADD_PRODUCT_TAG_SAVING,
-  ADD_PRODUCT_TAG_SAVED,
-  ADD_PRODUCT_TAG_FAILED,
-  REMOVE_PRODUCT_TAG_SAVING,
-  REMOVE_PRODUCT_TAG_SAVED,
-  REMOVE_PRODUCT_TAG_FAILED
+  ADD_PRODUCT_TAG_STATE,
+  REMOVE_PRODUCT_TAG_STATE,
 } from 'actions/products/tags/types';
 
 const initialState = {
@@ -148,9 +144,13 @@ function product(state = initialState, action) {
         }
       };
 
-    case ADD_PRODUCT_TAG_SAVED :
+    case ADD_PRODUCT_TAG_STATE :
       return {
         ...state,
+        meta: {
+          ...state.meta,
+          saved: false
+        },
         data: {
           ...state.data,
           tags: [
@@ -159,10 +159,14 @@ function product(state = initialState, action) {
         }
       };
 
-    case REMOVE_PRODUCT_TAG_SAVED :
+    case REMOVE_PRODUCT_TAG_STATE :
       const index = getIndexByKey(state.data.tags, action.payload.tag.id);
       return {
         ...state,
+        meta: {
+          ...state.meta,
+          saved: false
+        },
         data: {
           ...state.data,
           tags: [

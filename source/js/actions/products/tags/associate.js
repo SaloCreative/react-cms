@@ -3,13 +3,11 @@ import { API, HEADER, ENDPOINT } from 'api';
 import { ApiError } from 'api/errorHandler';
 import ErrorMessages from 'constants/messages/errorMessages';
 
+import store from 'store';
+
 import {
-  ADD_PRODUCT_TAG_SAVING,
-  ADD_PRODUCT_TAG_SAVED,
-  ADD_PRODUCT_TAG_FAILED,
-  REMOVE_PRODUCT_TAG_SAVING,
-  REMOVE_PRODUCT_TAG_SAVED,
-  REMOVE_PRODUCT_TAG_FAILED,
+  ADD_PRODUCT_TAG_STATE,
+  REMOVE_PRODUCT_TAG_STATE,
   PRODUCT_TAGS_ASSIGN_ASSIGNING,
   PRODUCT_TAGS_ASSIGN_ASSIGNED,
   PRODUCT_TAGS_ASSIGN_FAILED
@@ -17,7 +15,7 @@ import {
 
 export function stateAddTag(tag) {
   return {
-    type: ADD_PRODUCT_TAG_SAVED,
+    type: ADD_PRODUCT_TAG_STATE,
     payload: {
       tag
     }
@@ -26,7 +24,7 @@ export function stateAddTag(tag) {
 
 export function stateRemoveTag(tag, i) {
   return {
-    type: REMOVE_PRODUCT_TAG_SAVED,
+    type: REMOVE_PRODUCT_TAG_STATE,
     payload: {
       tag, i
     }
@@ -35,7 +33,7 @@ export function stateRemoveTag(tag, i) {
 
 export const assignTags = (tags, productID) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.TAGS.ASSIGN_MANY) }/${ productID }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.TAGS.MANAGE) }/${ productID }`,
     method: 'POST',
     headers: HEADER(),
     body: JSON.stringify(tags),
