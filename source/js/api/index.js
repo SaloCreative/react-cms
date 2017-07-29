@@ -29,7 +29,7 @@ export const API = {
             ASSIGN: 'products/tags/assign/',
             ASSIGN_MANY: 'products/tags/assign/multiple/',
             UNASSIGN: 'products/tags/unassign/',
-            UNASSIGN_MANY: 'products/tags/unassign/multiple/'
+            UNASSIGN_MANY: 'products/tags/unassign/multiple/',
             MANAGE: 'products/tags/assign/update/'
         }
     },

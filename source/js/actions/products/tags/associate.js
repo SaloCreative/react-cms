@@ -33,7 +33,7 @@ export function stateRemoveTag(tag, i) {
 
 export const assignTags = (tags, productID) => ({
   [CALL_API]: {
-    endpoint: `${ ENDPOINT(API.PRODUCTS.TAGS.MANAGE) }/${ productID }`,
+    endpoint: `${ ENDPOINT(API.PRODUCTS.TAGS.MANAGE) }${ productID }`,
     method: 'POST',
     headers: HEADER(),
     body: JSON.stringify(tags),

@@ -2,6 +2,7 @@ import { CALL_API, getJSON } from 'redux-api-middleware';
 import { API, HEADER, ENDPOINT } from 'api';
 import { ApiError } from 'api/errorHandler';
 import ErrorMessages from 'constants/messages/errorMessages';
+import { assignTags } from './tags/associate';
 
 import { ProductFilter } from './filter';
 
@@ -13,7 +14,15 @@ import {
   PRODUCT_SECTION_VALIDATION
 } from './types';
 
-export const updateProduct = (id, body, i = null) => ({
+function prepareData(json, tags) {
+  let product = json;
+  if (tags && tags !== null) {
+    product.tags = tags;
+  }
+  return product;
+}
+
+export const updateProduct = (id, body, tags, i = null) => ({
   [CALL_API]: {
     endpoint: `${ ENDPOINT(API.PRODUCTS.EDIT) }/${ id }`,
     method: 'PUT',
@@ -32,7 +41,7 @@ export const updateProduct = (id, body, i = null) => ({
         payload: (action, state, res) => {
           return getJSON(res).then((json) => {
             return {
-              product: json,
+              product: prepareData(json, tags),
               i
             }
           });
@@ -54,9 +63,15 @@ export const updateProduct = (id, body, i = null) => ({
 });
 
 export function editProduct(product) {
-  return function (dispatch) {
-    dispatch(updateProduct(product.id, product));
+  return (dispatch) => {
+    const tags = product.tags.slice();
+    return dispatch(updateProduct(product.id, product, tags)).then((response) => {
+      if (!response.error) {
+        return dispatch(assignTags(tags, product.id));
+      }
+    });
   };
+
 }
 
 export function toggleProductOnline(product, e, i) {
@@ -67,7 +82,7 @@ export function toggleProductOnline(product, e, i) {
       title: product.title,
       online: e
     };
-    dispatch(updateProduct(product.id, fields, i));
+    dispatch(updateProduct(product.id, fields, null, i));
   };
 }
 
@@ -79,7 +94,7 @@ export function toggleProductStock(product, e, i) {
       title: product.title,
       inStock: e
     };
-    dispatch(updateProduct(product.id, fields, i));
+    dispatch(updateProduct(product.id, fields, null, i));
   };
 }
 
