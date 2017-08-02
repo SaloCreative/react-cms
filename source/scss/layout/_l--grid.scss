@@ -28,6 +28,7 @@ body {
   margin-bottom: 25px;
   display: flex;
   height: 100%;
+  flex-wrap: wrap;
   @include box-shadow;
 }
 
