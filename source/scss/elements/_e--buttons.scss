@@ -17,7 +17,9 @@ button {
     line-height: 20px;
     padding: 1.5rem 3rem;
     @include transition__background;
-    @include box-shadow;
+    &:not(.fr-btn) {
+        @include box-shadow;
+    }
     &:hover {
         background: mix($salo-blue, #000, 80%);
         color: #fff;

@@ -2,15 +2,14 @@
   .card {
     position: relative;
     background-size: cover !important;
+    padding: 0;
   }
 }
 
 .featured-image__link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+  padding: calc(50% - 35px) 0;
   width: 100%;
+  position: relative;
   background: none;
   display: flex;
   align-items: center;
@@ -29,4 +28,13 @@
       opacity: 1;
     }
   }
+}
+
+.featured-image__overlay {
+  height: 70px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }

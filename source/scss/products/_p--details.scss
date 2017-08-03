@@ -1,6 +1,6 @@
 .product-details__card {
   flex-direction: column;
-  padding-bottom: 0.5rem;
+  padding-bottom: 2rem;
 }
 
 .tag-picker__wrapper {
@@ -13,4 +13,29 @@
   color: $grey;
   width: 100%;
   font-size: 2rem;
+}
+
+.froala-card {
+  padding: 0;
+}
+
+.froala-wrapper {
+  width: 100%;
+}
+
+.fr-wrapper {
+  box-shadow: none !important;
+  p, li, a {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.fr-placeholder {
+  font-size: 1.4rem !important;
+  margin-top: 0!important;
+}
+
+.fr-quick-insert {
+  display: none !important;
 }
