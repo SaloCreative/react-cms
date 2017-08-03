@@ -60,6 +60,7 @@ class AddProduct extends Component {
   }
 
   render() {
+    const { productCategories, product } = this.props;
     return (
       <ProductWrapper { ...this.props } id='product-add'>
         <Helmet>
@@ -70,10 +71,15 @@ class AddProduct extends Component {
           saveEdits={ () => this.saveProduct() } />
 
         <Row>
-          <FeaturedImage image={ this.props.product.data.main_image } { ...this.props } />
+          <FeaturedImage
+            { ...this.props }
+            image={ product.data.main_image }
+          />
 
-          <ProductDetails { ...this.props }
-            categories={ this.props.productCategories.data } />
+          <ProductDetails
+            product={ product }
+            categories={ productCategories.data }
+          />
 
           <ProductTagsPicker />
 
@@ -81,7 +87,7 @@ class AddProduct extends Component {
 
           <ProductDescription />
 
-          <ProductDimensionsPicker />
+          { /* <ProductDimensionsPicker /> */ }
         </Row>
       </ProductWrapper>
     );

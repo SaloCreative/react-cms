@@ -44,6 +44,10 @@ const plugins = [
       ],
       context: sourcePath
     }
+  }),
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery"
   })
 ];
 
@@ -55,11 +59,13 @@ const rules = [
     use: [
       'babel-loader'
     ]
-  },
-  {
+  }, {
     test: /\.(png|gif|jpg|svg)$/,
     include: imgPath,
     use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]'
+  }, {
+    test: /\.css$/,
+    loader: "style-loader!css-loader?root=."
   }
 ];
 

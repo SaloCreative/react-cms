@@ -10,6 +10,12 @@ import store from 'store';
 
 // Load SCSS
 import '../scss/app.scss';
+// Require Editor JS files.
+import 'froala-editor/js/froala_editor.pkgd.min.js';
+
+// Require Editor CSS files.
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
 
 
 const router = (
