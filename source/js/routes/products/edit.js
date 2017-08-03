@@ -72,11 +72,16 @@ class EditProduct extends Component {
           errorMessage={ ErrorMessages.getProductFailed.message }
           retryAction={ () => this.attemptProductFetch() } >
 
-          <FeaturedImage image={ product.data.main_image } { ...this.props }/>
+          <FeaturedImage
+            { ...this.props }
+            image={ product.data.main_image }
+          />
 
-          <ProductDetails { ...this.props }
+          <ProductDetails
+            product={ product }
             categories={ productCategories.data }
-            showErrors={ true } />
+            showErrors={ true }
+          />
 
           <ProductTagsPicker />
 
@@ -84,7 +89,7 @@ class EditProduct extends Component {
 
           <ProductDescription content={ product.data.content }/>
 
-          <ProductDimensionsPicker />
+          { /* <ProductDimensionsPicker /> */ }
 
         </LoadingWrapper>
       </ProductWrapper>

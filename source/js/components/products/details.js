@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import { Column, Row, Card } from 'components/core/grid';
 import SaloFormInput from 'components/forms/input';
@@ -9,6 +10,8 @@ import SaloFormSelect from 'components/forms/select';
 import * as Rule from 'actions/forms/validation/rules';
 import { validate, runValidation } from 'actions/forms/validation/validator';
 
+import * as productEditActions from 'actions/products/edit';
+
 const fieldValidations = [
   validate('title', 'Title', Rule.required),
   validate('slug', 'Url', Rule.required),
@@ -16,7 +19,7 @@ const fieldValidations = [
   validate('category_id', 'Category', Rule.required)
 ];
 
-export default class ProductDetails extends Component {
+class ProductDetails extends Component {
 
   constructor(props) {
     super(props);
@@ -117,3 +120,8 @@ ProductDetails.defaultProps = {
   showErrors: false
 };
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(productEditActions, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ProductDetails);

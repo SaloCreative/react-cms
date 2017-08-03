@@ -25,7 +25,6 @@ const config = {
 class ProductDescription extends Component {
 
   handleModelChange(content) {
-    console.log(content);
     this.props.productFieldChanged('content', content);
   }
 
