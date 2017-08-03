@@ -87,7 +87,9 @@ class EditProduct extends Component {
 
           <Gallery />
 
-          <ProductDescription content={ product.data.content }/>
+          <ProductDescription
+            content={ product.data.content }
+          />
 
           { /* <ProductDimensionsPicker /> */ }
 
