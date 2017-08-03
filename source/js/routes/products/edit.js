@@ -51,7 +51,7 @@ class EditProduct extends Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, productCategories } = this.props;
     let displayContent = false;
     if (!product.meta.fetching && product.data.id) {
       displayContent = true;
@@ -72,17 +72,17 @@ class EditProduct extends Component {
           errorMessage={ ErrorMessages.getProductFailed.message }
           retryAction={ () => this.attemptProductFetch() } >
 
-          <FeaturedImage image={ this.props.product.data.main_image } { ...this.props }/>
+          <FeaturedImage image={ product.data.main_image } { ...this.props }/>
 
           <ProductDetails { ...this.props }
-            categories={ this.props.productCategories.data }
-            showErrors={ true }/>
+            categories={ productCategories.data }
+            showErrors={ true } />
 
           <ProductTagsPicker />
 
           <Gallery />
 
-          <ProductDescription />
+          <ProductDescription content={ product.data.content }/>
 
           <ProductDimensionsPicker />
 

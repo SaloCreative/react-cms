@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import FroalaEditor from 'react-froala-wysiwyg'
+
 import { Column, Row, Card } from 'components/core/grid';
+
+import * as productEditActions from 'actions/products/edit';
 
 const config = {
   fullPage: false,
@@ -17,7 +22,12 @@ const config = {
   height:300
 };
 
-export default class ProductDescription extends Component {
+class ProductDescription extends Component {
+
+  handleModelChange(content) {
+    console.log(content);
+    this.props.productFieldChanged('content', content);
+  }
 
   render() {
     return (
@@ -25,7 +35,9 @@ export default class ProductDescription extends Component {
         <Card classes='froala-card'>
           <div className='froala-wrapper'>
             <FroalaEditor
-              config={config}
+              config={ config }
+              model={ this.props.content }
+              onModelChange={ (content) => this.handleModelChange(content) }
               tag='textarea'
             />
           </div>
@@ -35,3 +47,17 @@ export default class ProductDescription extends Component {
   }
 }
 
+ProductDescription.propTypes = {
+  content: PropTypes.string
+};
+
+ProductDescription.defaultProps = {
+  content: ''
+};
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(productEditActions, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ProductDescription);
