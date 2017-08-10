@@ -71,8 +71,8 @@ DataTable.defaultProps = {
 export class DataTableHeader extends Component {
   render() {
     return (
-      <Row classes='content-table__row content-table__header'>
-        <Row classes='inset-margin'>
+      <Row customClasses='content-table__row content-table__header'>
+        <Row customClasses='inset-margin'>
           { this.props.children }
         </Row>
       </Row>
@@ -87,8 +87,8 @@ DataTableHeader.defaultProps = {
 export class DataTableRow extends Component {
   render() {
     return (
-      <Row classes={ `content-table__row ${ this.props.classes }` }>
-        <Row classes='inset-margin'>
+      <Row customClasses={ `content-table__row ${ this.props.classes }` }>
+        <Row customClasses='inset-margin'>
           { this.props.children }
         </Row>
       </Row>

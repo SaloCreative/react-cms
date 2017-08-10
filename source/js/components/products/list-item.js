@@ -39,32 +39,32 @@ export default class ProductListItem extends Component {
   render() {
     const { product, i, productCategories } = this.props;
     return (
-      <DataTableRow classes='product-list__item'>
+      <DataTableRow customClasses='product-list__item'>
         { this.renderLoader() }
-        <Column classes='product-list__image'>
+        <Column customClasses='product-list__image'>
           <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` }>
             <Image image={ product.main_image } size='_thumb' placeholder='https://placeholdit.imgix.net/~text?txtsize=12&txt=100%C3%97100&w=100&h=100' />
           </Link>
         </Column>
-        <Column classes='product-list__title'>
+        <Column customClasses='product-list__title'>
           <div className='product-list__title-wrapper'>
             <h3>{ product.title }</h3>
             <p><Category category={ product.category_id } categories={ productCategories } /></p>
           </div>
         </Column>
-        <Column classes='product-list__sku'>
+        <Column customClasses='product-list__sku'>
           { product.sku }
         </Column>
-        <Column classes='product-list__price'>
+        <Column customClasses='product-list__price'>
           <Price price={ product.price } />
         </Column>
-        <Column classes='product-list__stock'>
+        <Column customClasses='product-list__stock'>
           <Switch label='Available' labelOff='Sold' state={ product.inStock } switch={ (e) => this.toggleStock(e, product, i) } />
         </Column>
-        <Column classes='product-list__active'>
+        <Column customClasses='product-list__active'>
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </Column>
-        <Column classes='product-list__actions'>
+        <Column customClasses='product-list__actions'>
           <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` } className='action-button no-back'><FontAwesome name='pencil' /></Link>
           <button className='action-button product-list__delete no-back'><FontAwesome name='trash-o' /></button>
         </Column>

@@ -35,7 +35,7 @@ export default class MediaPickerItem extends Component {
 
   render() {
     return (
-      <Column classes='image-picker__item'>
+      <Column customClasses='image-picker__item'>
         <a className='card' style={{background: this.renderBackground()}} onClick={ () => this.imagePicked() }>
           { this.renderCheckedItem() }
         </a>

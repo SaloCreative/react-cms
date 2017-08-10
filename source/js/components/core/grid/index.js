@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class Row extends Component {
   render() {
     return (
-      <div className={ `row ${ this.props.classes }` }>
+      <div className={ `row ${ this.props.customClasses }` }>
         { this.props.children }
       </div>
     );
@@ -12,13 +12,13 @@ export class Row extends Component {
 
 Row.defaultProps = {
   children: '',
-  classes: ''
+  customClasses: ''
 };
 
 export class Column extends Component {
   render() {
     return (
-      <div className={ `column ${ this.props.classes }` }>
+      <div className={ `column ${ this.props.customClasses }` }>
         { this.props.children }
       </div>
     );
@@ -27,13 +27,13 @@ export class Column extends Component {
 
 Column.defaultProps = {
   children: '',
-  classes: ''
+  customClasses: ''
 };
 
 export class Card extends Component {
   render() {
     return (
-      <div className={ `card ${ this.props.classes }` }>
+      <div className={ `card ${ this.props.customClasses }` }>
         { this.props.children }
       </div>
     );
@@ -42,5 +42,5 @@ export class Card extends Component {
 
 Card.defaultProps = {
   children: '',
-  classes: ''
+  customClasses: ''
 };

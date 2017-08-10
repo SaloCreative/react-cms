@@ -7,7 +7,7 @@ export default class ProductDimensionsPicker extends Component {
 
   render() {
     return (
-      <Column classes='is-4'>
+      <Column customClasses='is-4'>
         <Card>
           Dimensions
         </Card>

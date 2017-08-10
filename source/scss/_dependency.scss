@@ -1,58 +1,14 @@
 // variables
 @import 'variables';
 
-// resets / normalizest
-@import 'reboot';
+@import '~@salocreative/react-ui/src/scss/styles';
 
-// --------
-// utilities
-// --------
-// functions
-@import 'utilities/functions/uf--strip_unit';
-@import 'utilities/functions/uf--px_to_em';
-@import 'utilities/functions/uf--opacity_sim';
-@import 'utilities/functions/uf--map_read';
-@import 'utilities/functions/uf--colours';
-// mixins
-@import 'utilities/mixins/um--breakpoints';
-@import 'utilities/mixins/um--screen_reader';
-@import 'utilities/mixins/um--break';
-@import 'utilities/mixins/um--box-shadows';
-@import 'utilities/mixins/um--transitions';
-
-// --------
-// helpers / misc
-// --------
-@import 'utilities/u--visual_states';
-
-// --------
-// dependency
-// --------
-
-// --------
-// Polyfills
-// --------
-@import 'polyfills/p--sticky';
-
-// --------
-// layout
-// ---------
-@import 'layout/l--grid';
 
 // --------
 // elements
 // Pure HTML elements
 // --------
-@import 'elements/e--typography';
-@import 'elements/e--buttons';
-@import 'elements/e--lists';
-@import 'elements/e--forms';
-@import 'elements/e--tables';
-@import 'elements/e--blockquotes';
-@import 'elements/e--address';
-@import 'elements/e--code_snippets';
-@import 'elements/e--video';
-@import 'elements/e--figure';
+
 @import 'elements/e--fontawesome';
 
 // --------
@@ -60,7 +16,6 @@
 // --------
 @import 'components/core/c--dropdown';
 @import 'components/core/c--loader';
-@import 'components/forms/c--textarea';
 @import 'components/core/c--modal';
 @import 'components/core/c--table';
 @import 'components/core/c--switch';
@@ -71,6 +26,7 @@
 @import 'components/core/c--fixed-action-menu';
 @import 'components/core/c--tags';
 @import 'components/core/c--froala';
+@import 'components/forms/c--textarea';
 @import 'components/forms/c--input_field';
 @import 'components/forms/c--form__generic';
 @import 'components/forms/c--select_field';

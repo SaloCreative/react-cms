@@ -42,7 +42,7 @@ class ProductTagsPicker extends Component {
   render() {
     const { product, productTags } = this.props;
     return (
-      <Column classes='is-4 tag-picker__wrapper'>
+      <Column customClasses='is-4 tag-picker__wrapper'>
         <Card>
           <TypeAhead
             items={ productTags.data }

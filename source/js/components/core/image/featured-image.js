@@ -69,7 +69,7 @@ export default class FeaturedImage extends Component {
   render() {
     const { image } = this.props;
     return (
-      <Column classes={ `is-4 featured-image__wrapper ${ this.props.classes } ${ image && image.slug ? 'has-image' : '' }` }>
+      <Column customClasses={ `is-4 featured-image__wrapper ${ this.props.classes } ${ image && image.slug ? 'has-image' : '' }` }>
         <div className='card' style={{background: this.renderBackground()}}>
          <a className='featured-image__link' onClick={ () => this.openModal() }>
            <div className='featured-image__overlay'>

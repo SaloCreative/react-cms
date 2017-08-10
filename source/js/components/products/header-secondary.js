@@ -37,14 +37,14 @@ export default class ProductsSecondaryHeader extends Component {
     const { product } = this.props;
     return (
       <SecondaryHeader>
-        <Column classes='editing-header__left'>
+        <Column customClasses='editing-header__left'>
           <ul className='editing-header__tabs-nav'>
             <li className='active'>General</li>
             <li>Inventory &amp; Sales</li>
             <li>SEO</li>
           </ul>
         </Column>
-        <Column classes='editing-header__right'>
+        <Column customClasses='editing-header__right'>
           <Switch label='Featured' state={ product.data.featured } switch={ (e) => this.toggleSwitch('featured', e) } />
           <Switch label='Online' labelOff='Offline' state={ product.data.online } switch={ (e) => this.toggleSwitch('online', e) } />
           <Switch label='Available' labelOff='Sold' state={ product.data.inStock } switch={ (e) => this.toggleSwitch('inStock', e) } />

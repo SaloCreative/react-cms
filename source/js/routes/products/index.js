@@ -58,7 +58,7 @@ class ProductIndex extends Component {
   renderFilterHeader() {
     return (
       <Row>
-        <Column classes='search__text'>
+        <Column customClasses='search__text'>
           <SaloFormInput
             icon='search'
             name='product-search'
@@ -68,7 +68,7 @@ class ProductIndex extends Component {
             onFieldChanged={ this.onChange('search') }/>
         </Column>
 
-        <Column classes='search__category'>
+        <Column customClasses='search__category'>
           <SaloFormSelect
             icon='sitemap'
             name='product-category'
@@ -77,7 +77,7 @@ class ProductIndex extends Component {
             onFieldChanged={ this.onChange('category') }/>
         </Column>
 
-        <Column classes='search__order-by'>
+        <Column customClasses='search__order-by'>
           <SaloFormSelect
             icon='sort'
             name='product-orderby'
@@ -112,23 +112,23 @@ class ProductIndex extends Component {
   renderTableHeader() {
     return (
       <DataTableHeader>
-        <Column classes='product-list__image'>
+        <Column customClasses='product-list__image'>
           <p>Title</p>
         </Column>
-        <Column classes='product-list__title' />
-        <Column classes='product-list__sku'>
+        <Column customClasses='product-list__title' />
+        <Column customClasses='product-list__sku'>
           <p>SKU</p>
         </Column>
-        <Column classes='product-list__price'>
+        <Column customClasses='product-list__price'>
           <p>Price</p>
         </Column>
-        <Column classes='product-list__stock'>
+        <Column customClasses='product-list__stock'>
           <p>Stock</p>
         </Column>
-        <Column classes='product-list__active'>
+        <Column customClasses='product-list__active'>
           <p>Active</p>
         </Column>
-        <Column classes='product-list__actions' />
+        <Column customClasses='product-list__actions' />
       </DataTableHeader>
     );
   }
@@ -152,7 +152,7 @@ class ProductIndex extends Component {
           errorMessage={ ErrorMessages.getProductsFailed.message }
           retryAction={ () => this.attemptProductsFetch() } >
 
-          <Column classes='product__wrapper'>
+          <Column customClasses='product__wrapper'>
             <DataTable
               tableClass='product-index'
               tableHeader={ this.renderTableHeader() }
@@ -178,8 +178,7 @@ class ProductIndex extends Component {
 ProductIndex.propTypes = {
   products: PropTypes.object,
   getProducts: PropTypes.func,
-  updateProductFilters: PropTypes.func,
-  getCategories: PropTypes.func
+  updateProductFilters: PropTypes.func
 };
 
 ProductIndex.propDefaults = {
