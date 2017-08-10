@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import FroalaEditor from 'react-froala-wysiwyg'
 
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 
 import * as productEditActions from 'actions/products/edit';
 

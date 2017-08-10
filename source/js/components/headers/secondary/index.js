@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Row } from 'components/core/grid';
+import { Row } from '@salocreative/react-ui';
 
 export default class SecondaryHeader extends Component {
   render() {

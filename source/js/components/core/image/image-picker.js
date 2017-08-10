@@ -6,7 +6,7 @@ import { config } from 'constants/config';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import ErrorMessages from 'constants/messages/errorMessages';
 
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 import Modal from 'components/core/modal';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 

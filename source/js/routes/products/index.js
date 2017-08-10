@@ -15,7 +15,7 @@ import LoadingWrapper from 'components/core/loader/loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/data-table';
-import { Column, Row, Container, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 import SecondaryHeader from 'components/headers/secondary';
 import SaloFormInput from 'components/forms/input';
 import SaloFormSelect from 'components/forms/select';

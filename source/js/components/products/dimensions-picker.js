@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 
 export default class ProductDimensionsPicker extends Component {
 

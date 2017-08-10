@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
 import { config } from 'constants/config';
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 
 export default class MediaPickerItem extends Component {
 

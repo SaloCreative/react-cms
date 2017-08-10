@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import FontAwesome from 'react-fontawesome';
-import { Card } from 'components/core/grid';
+import { Card } from '@salocreative/react-ui';
 
 export default class FixedMenu extends Component {
 

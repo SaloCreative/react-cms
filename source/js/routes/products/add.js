@@ -11,7 +11,7 @@ import * as productEditActions from 'actions/products/edit';
 
 // General components
 import { shouldUpdate } from 'actions/global/utilityFunctions';
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 import FeaturedImage from 'components/core/image/featured-image';
 
 // Containers

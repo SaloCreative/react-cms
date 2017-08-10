@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Column } from 'components/core/grid';
+import { Column } from '@salocreative/react-ui';
 import FontAwesome from 'react-fontawesome';
 import ErrorMessages from 'constants/messages/errorMessages';
 

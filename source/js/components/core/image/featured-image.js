@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import FontAwesome from 'react-fontawesome'
 
 import { config } from 'constants/config';
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 import ImagePicker from 'components/core/image/image-picker';
 
 export default class FeaturedImage extends Component {

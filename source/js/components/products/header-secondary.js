@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router';
 
-import { Row, Column } from 'components/core/grid';
+import { Row, Column } from '@salocreative/react-ui';
 import SecondaryHeader from 'components/headers/secondary';
 import Switch from 'components/core/switch';
 

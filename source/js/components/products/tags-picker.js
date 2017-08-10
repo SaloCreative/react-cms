@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { getObjectByKey, getIndexByKey } from 'actions/global/utilityFunctions';
-import { Column, Row, Card } from 'components/core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 import TypeAhead from 'components/core/typeahead';
 import Tag from 'components/core/tag';
 

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import Loader from 'components/core/loader';
 import FetchFail from 'components/core/loader/fetch-fail';
-import { Row } from 'components/core/grid';
+import { Row } from '@salocreative/react-ui';
 
 export default class LoadingWrapper extends Component {
   render() {

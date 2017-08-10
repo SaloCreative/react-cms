@@ -7,7 +7,7 @@ import { routeCodes } from 'routes';
 
 import Switch from 'components/core/switch';
 import Loader from 'components/core/loader';
-import { Column, Row } from 'components/core/grid';
+import { Column, Row } from '@salocreative/react-ui';
 import { DataTableRow } from 'components/tables/data-table';
 import Image from 'components/core/image';
 import Price from 'components/core/price';
