@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Column, Row, Card } from '../core/grid';
+import { Column, Row, Card } from '@salocreative/react-ui';
 import * as tagActionCreators from '../../actions/products/tags/associate';
 
 class Gallery extends Component {

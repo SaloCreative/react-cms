@@ -31,7 +31,7 @@ class ProductDescription extends Component {
   render() {
     return (
       <Column customClasses='is-8'>
-        <Card classes='froala-card'>
+        <Card customClasses='froala-card'>
           <div className='froala-wrapper'>
             <FroalaEditor
               config={ config }

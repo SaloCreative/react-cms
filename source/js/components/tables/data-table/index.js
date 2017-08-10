@@ -45,7 +45,7 @@ export class DataTable extends Component {
 
   render() {
     return (
-      <Card classes='content_table_card'>
+      <Card customClasses='content_table_card'>
         <div className='content-table__wrapper'>
           <div className={ `content_table ${ this.props.tableClass }` }>
             { this.renderTopBar() }

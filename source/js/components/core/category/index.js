@@ -20,6 +20,10 @@ export default class Category extends Component {
 
 Category.defaultProps = {
   category: '',
-  categories: '',
-  categoryClass: ''
+  categories: ''
+};
+
+Category.propTypes = {
+  categories: PropTypes.object,
+  category: PropTypes.number
 };

@@ -54,7 +54,7 @@ class ProductDetails extends Component {
     const { product, categories } = this.props;
     return (
       <Column customClasses='is-4'>
-        <Card classes='product-details__card'>
+        <Card customClasses='product-details__card'>
           <SaloFormInput
             name='title'
             label='Product title'
