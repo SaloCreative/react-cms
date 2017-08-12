@@ -28,12 +28,14 @@
     react-redux "^5.0.5"
     redux "^3.7.1"
 
-"@salocreative/react-ui@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@salocreative/react-ui/-/react-ui-1.0.1.tgz#5f7afba49d55024a85b5ea4dc00b9f42451dc665"
+"@salocreative/react-ui@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@salocreative/react-ui/-/react-ui-1.1.2.tgz#37ac03b5edded71d63bdde587138c357ccf933c5"
   dependencies:
     prop-types "^15.5.10"
     react "^0.14.2"
+    react-fontawesome "^1.6.1"
+    react-router "3"
 
 abbrev@1:
   version "1.1.0"
@@ -5038,7 +5040,7 @@ react-router-redux@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
 
-react-router@3.0.5:
+react-router@3, react-router@3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-3.0.5.tgz#c3b7873758045a8bbc9562aef4ff4bc8cce7c136"
   dependencies:

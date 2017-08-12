@@ -7,7 +7,7 @@ import { routeCodes } from 'routes';
 
 import Switch from 'components/core/switch';
 import Loader from 'components/core/loader';
-import { Column, Row } from '@salocreative/react-ui';
+import { Column, Row, ActionButton } from '@salocreative/react-ui';
 import { DataTableRow } from 'components/tables/data-table';
 import Image from 'components/core/image';
 import Price from 'components/core/price';
@@ -65,8 +65,16 @@ export default class ProductListItem extends Component {
           <Switch label='Online' labelOff='Offline' state={ product.online } switch={ (e) => this.toggleOnline(e, product, i) } />
         </Column>
         <Column customClasses='product-list__actions'>
-          <Link to={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` } className='action-button no-back'><FontAwesome name='pencil' /></Link>
-          <button className='action-button product-list__delete no-back'><FontAwesome name='trash-o' /></button>
+          <ActionButton
+            link={ `${ routeCodes.PRODUCT.EDIT_BASE }/${ product.id }` }
+            customClasses='no-back'
+            icon='pencil'
+          />
+          <ActionButton
+            type='button'
+            customClasses='product-list__delete no-back'
+            icon='trash-o'
+          />
         </Column>
       </DataTableRow>
     );
