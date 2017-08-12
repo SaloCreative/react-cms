@@ -1,5 +1,8 @@
 # React API Driven CMS
 
+**PLEASE NOTE**:
+I am undertaking this for my own learning so cannot gurantee support or even that it will get finished! This is being developed to be used with a custom API service. Without access to this API or without replacing the service in the project you will be unable to run the CMS. A dummy API will be available in due course as well as the full source to adapt your own. 
+
 ## Table of contents
 * [Setup](#user-content-setup)
 * [Running in dev mode](#user-content-running-in-dev-mode)
