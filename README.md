@@ -17,7 +17,7 @@
 Tested with node 6.x and 7.x
 
 ```
-$ npm install
+$ yarn install
 ```
 
 ## Running in dev mode
