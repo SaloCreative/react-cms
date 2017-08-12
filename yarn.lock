@@ -28,9 +28,9 @@
     react-redux "^5.0.5"
     redux "^3.7.1"
 
-"@salocreative/react-ui@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@salocreative/react-ui/-/react-ui-1.3.0.tgz#9dbfcb1cd49dfd5b9b2357c2ac505a8330be5888"
+"@salocreative/react-ui@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@salocreative/react-ui/-/react-ui-1.5.0.tgz#ebfff5bbd52f0248b34e09ca64d09b94af6bfcbd"
   dependencies:
     prop-types "^15.5.10"
     react "^0.14.2"

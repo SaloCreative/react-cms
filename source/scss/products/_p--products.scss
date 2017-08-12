@@ -1,3 +1,8 @@
 .product-load-wrapper {
   position: relative;
 }
+
+.tags-picker__tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

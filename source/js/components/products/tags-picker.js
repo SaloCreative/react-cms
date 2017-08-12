@@ -5,9 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { getObjectByKey, getIndexByKey } from 'actions/global/utilityFunctions';
-import { Column, Row, Card } from '@salocreative/react-ui';
-import TypeAhead from 'components/core/typeahead';
-import Tag from 'components/core/tag';
+import { Column, Row, Card, TypeAhead, Tag } from '@salocreative/react-ui';
 
 import * as tagActionCreators from 'actions/products/tags/associate';
 
@@ -53,7 +51,8 @@ class ProductTagsPicker extends Component {
             {product.data.tags.map((tag, i) =>
               <Tag
                 key={ tag.slug }
-                tag={ tag }
+                title={ tag.title }
+                id={ tag.id }
                 removeTag={ (id) => this.removeTag(id) }
               />
             )}
