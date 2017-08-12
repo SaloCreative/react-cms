@@ -10,8 +10,7 @@ import * as productCategoriesActions from 'actions/products/categories';
 import * as productTagActions from 'actions/products/tags';
 
 import { routeCodes } from 'routes';
-import { Card } from '@salocreative/react-ui';
-import FixedMenu from 'components/core/fixed-menu';
+import { Card, FixedMenu } from '@salocreative/react-ui';
 
 class ProductWrapper extends Component {
 

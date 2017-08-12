@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import FontAwesome from 'react-fontawesome';
+import { Column, Row, ActionButton, Switch } from '@salocreative/react-ui';
 
 import { routeCodes } from 'routes';
 
-import Switch from 'components/core/switch';
 import Loader from 'components/core/loader';
-import { Column, Row, ActionButton } from '@salocreative/react-ui';
 import { DataTableRow } from 'components/tables/data-table';
 import Image from 'components/core/image';
 import Price from 'components/core/price';
