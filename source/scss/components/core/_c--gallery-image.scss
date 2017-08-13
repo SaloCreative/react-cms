@@ -1,0 +1,40 @@
+.gallery-image__add-wrapper {
+  .card {
+    position: relative;
+    background-size: cover !important;
+    padding: 0;
+  }
+}
+
+.gallery-image__link {
+  padding: calc(50% - 35px) 0;
+  width: 100%;
+  position: relative;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  @include transition__all;
+  &:hover {
+    background: rgba(0,0,0,0.1);
+    color: #fff;
+  }
+  .has-image & {
+    opacity: 0;
+    color: #fff;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.gallery-image__overlay {
+  height: 70px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

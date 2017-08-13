@@ -5,7 +5,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { Column, Row, Card } from '@salocreative/react-ui';
+
 import * as tagActionCreators from '../../actions/products/tags/associate';
+import AddGalleryImage from '../../components/core/image/add-gallery-image';
 
 class Gallery extends Component {
 
@@ -25,10 +27,16 @@ class Gallery extends Component {
     }
   }
 
+  addGalleryImage(img, asset) {
+    console.log(img);
+    console.log(asset);
+  }
+
   render() {
     return (
       <Column customClasses='is-4'>
         { this.renderGallery() }
+        <AddGalleryImage addGalleryImage={ (img, asset) => this.addGalleryImage(img, asset) }/>
       </Column>
     );
   }

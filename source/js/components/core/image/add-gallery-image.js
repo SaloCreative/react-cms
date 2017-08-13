@@ -24,23 +24,18 @@ export default class AddGalleryImage extends Component {
     this.setState({ isImagePickerOpen: true });
   }
 
-  addGalleryImage(img, asset) {
-    console.log(img);
-    console.log(asset);
+  setGalleryImage(img, asset) {
+    if (this.props.addGalleryImage) {
+      this.props.addGalleryImage(img, asset);
+    }
   }
 
   renderImagePicker() {
-    const { image } = this.props;
-    let selectedImage;
-    if (image && image.id) {
-      selectedImage = image.id;
-    }
     if (this.state.isImagePickerOpen) {
-      return <ImagePicker { ...this.props }
+      return <ImagePicker
         open={ this.state.isImagePickerOpen }
         onClose={ () => this.closeModal() }
-        selectedImage={ selectedImage }
-        onChangeImage={ (img, asset) => this.addGalleryImage(img, asset) } />;
+        onChangeImage={ (img, asset) => this.setGalleryImage(img, asset) } />;
     }
     return null;
   }
