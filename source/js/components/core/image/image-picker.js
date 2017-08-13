@@ -6,8 +6,7 @@ import { config } from 'constants/config';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import ErrorMessages from 'constants/messages/errorMessages';
 
-import { Column, Row, Card } from '@salocreative/react-ui';
-import Modal from 'components/core/modal';
+import { Column, Row, Card, Modal } from '@salocreative/react-ui';
 import LoadingWrapper from 'components/core/loader/loading-wrapper';
 
 import MediaPickerItem from 'components/core/image/image-picker-item';
@@ -83,7 +82,7 @@ export default class ImagePicker extends Component {
         <Modal
           isOpen={ this.props.open }
           onClose={ () => this.closeModal() }
-          classes='large'
+          customClasses='large'
           title='Choose an image'
           footer={ this.modalFooter() } >
 
