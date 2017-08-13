@@ -7,7 +7,7 @@ import { shouldUpdate } from 'actions/global/utilityFunctions';
 import ErrorMessages from 'constants/messages/errorMessages';
 
 import { Column, Row, Card, Modal } from '@salocreative/react-ui';
-import LoadingWrapper from 'components/core/loader/loading-wrapper';
+import LoadingWrapper from '@salocreative/react-loading-wrapper';
 
 import MediaPickerItem from 'components/core/image/image-picker-item';
 import { MediaFilter } from 'actions/media/filter';

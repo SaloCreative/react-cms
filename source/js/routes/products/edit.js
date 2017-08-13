@@ -11,7 +11,7 @@ import * as productEditActions from 'actions/products/edit';
 // General components
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from '@salocreative/react-ui';
-import LoadingWrapper from 'components/core/loader/loading-wrapper';
+import LoadingWrapper from '@salocreative/react-loading-wrapper';
 import FeaturedImage from 'components/core/image/featured-image';
 import ErrorMessages from 'constants/messages/errorMessages';
 

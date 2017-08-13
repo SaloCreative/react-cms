@@ -11,7 +11,7 @@ import * as productEditActions from 'actions/products/edit';
 
 // General components
 import { paginationStyles } from 'constants/config';
-import LoadingWrapper from 'components/core/loader/loading-wrapper';
+import LoadingWrapper from '@salocreative/react-loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { DataTable, DataTableHeader, DataTableRow } from 'components/tables/data-table';

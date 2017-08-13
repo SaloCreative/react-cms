@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@aftonbladet/redux-api-middleware": "^1.1.1",
+    "@salocreative/react-loading-wrapper": "^1.0.0",
     "@salocreative/react-pagination": "^1.0.1",
     "@salocreative/react-redux-alerts": "^1.4.1",
     "@salocreative/react-ui": "^1.7.0",
