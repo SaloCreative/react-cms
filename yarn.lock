@@ -19,9 +19,9 @@
     react "^0.14.2"
     react-fontawesome "^1.6.1"
 
-"@salocreative/react-pagination@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@salocreative/react-pagination/-/react-pagination-1.0.1.tgz#b3f6c6fd988320d80493330549c6ff603a73fbb2"
+"@salocreative/react-pagination@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@salocreative/react-pagination/-/react-pagination-1.0.2.tgz#2ff0e99810d957b2ca60c0248c80ac99e5edbdb7"
   dependencies:
     react "^0.14.2"
     react-jss "^6.1.1"
