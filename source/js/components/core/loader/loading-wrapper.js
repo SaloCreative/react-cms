@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import Loader from 'components/core/loader';
 import FetchFail from 'components/core/loader/fetch-fail';
-import { Row } from '@salocreative/react-ui';
+import { Row, Loader } from '@salocreative/react-ui';
 
 export default class LoadingWrapper extends Component {
   render() {

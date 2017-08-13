@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Loader from 'components/core/loader';
+import { Loader } from '@salocreative/react-ui';
 
 export default class SaloFormSubmit extends Component {
 

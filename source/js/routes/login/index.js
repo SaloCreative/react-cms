@@ -6,8 +6,8 @@ import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 import { Alerts } from '@salocreative/react-redux-alerts';
+import { Loader } from '@salocreative/react-ui';
 import { alertStyles } from 'constants/config';
-import Loader from 'components/core/loader';
 
 import * as Rule from 'actions/forms/validation/rules';
 import { validate, runValidation } from 'actions/forms/validation/validator';

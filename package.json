@@ -54,7 +54,7 @@
     "@aftonbladet/redux-api-middleware": "^1.1.1",
     "@salocreative/react-pagination": "^1.0.1",
     "@salocreative/react-redux-alerts": "^1.4.1",
-    "@salocreative/react-ui": "^1.6.0",
+    "@salocreative/react-ui": "^1.7.0",
     "babel-polyfill": "^6.23.0",
     "es6-promise": "^4.1.0",
     "history": "3.0.0",
