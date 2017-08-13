@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import FontAwesome from 'react-fontawesome'
 
 import { config } from 'constants/config';
@@ -10,11 +12,12 @@ import { Column, Row, Card, Modal } from '@salocreative/react-ui';
 import LoadingWrapper from '@salocreative/react-loading-wrapper';
 
 import MediaPickerItem from 'components/core/image/image-picker-item';
-import { MediaFilter } from 'actions/media/filter';
+import * as mediaActions from '../../../actions/media';
+import { MediaFilter } from '../../../actions/media/filter';
 
 let filter = new MediaFilter;
 
-export default class ImagePicker extends Component {
+class ImagePicker extends Component {
 
   constructor(props) {
     super(props);
@@ -122,3 +125,19 @@ ImagePicker.defaultProps = {
   classes: '',
   open: false
 };
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    Object.assign({},
+      mediaActions
+    ), dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    media: state.media
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImagePicker);

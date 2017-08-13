@@ -12,19 +12,19 @@ import * as productEditActions from 'actions/products/edit';
 // General components
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from '@salocreative/react-ui';
-import FeaturedImage from 'components/core/image/featured-image';
 
 // Containers
 import ProductWrapper from 'containers/products';
 
 // Product components
-import ProductsHeader from 'components/products/header';
-import ProductsSecondaryHeader from 'components/products/header-secondary';
-import ProductDetails from 'components/products/details';
-import ProductTagsPicker from 'components/products/tags-picker';
-import Gallery from 'components/products/gallery';
-import ProductDescription from 'components/products/description';
-import ProductDimensionsPicker from 'components/products/dimensions-picker';
+import ProductsHeader from '../../components/products/header';
+import ProductsSecondaryHeader from '../../components/products/header-secondary';
+import ProductDetails from '../../components/products/details';
+import ProductTagsPicker from '../../components/products/tags-picker';
+import Gallery from '../../components/products/gallery';
+import ProductDescription from '../../components/products/description';
+import ProductDimensionsPicker from '../../components/products/dimensions-picker';
+import ProductFeaturedImage from '../../components/products/featured-image';
 
 class AddProduct extends Component {
 
@@ -71,8 +71,7 @@ class AddProduct extends Component {
           saveEdits={ () => this.saveProduct() } />
 
         <Row>
-          <FeaturedImage
-            { ...this.props }
+          <ProductFeaturedImage
             image={ product.data.main_image }
           />
 

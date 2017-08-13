@@ -12,20 +12,20 @@ import * as productEditActions from 'actions/products/edit';
 import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from '@salocreative/react-ui';
 import LoadingWrapper from '@salocreative/react-loading-wrapper';
-import FeaturedImage from 'components/core/image/featured-image';
 import ErrorMessages from 'constants/messages/errorMessages';
 
 // Containers
 import ProductWrapper from 'containers/products';
 
 // Product components
-import ProductsHeader from 'components/products/header';
-import ProductsSecondaryHeader from 'components/products/header-secondary';
-import ProductDetails from 'components/products/details';
-import ProductTagsPicker from 'components/products/tags-picker';
-import Gallery from 'components/products/gallery';
-import ProductDescription from 'components/products/description';
-import ProductDimensionsPicker from 'components/products/dimensions-picker';
+import ProductsHeader from '../../components/products/header';
+import ProductsSecondaryHeader from '../../components/products/header-secondary';
+import ProductDetails from '../../components/products/details';
+import ProductTagsPicker from '../../components/products/tags-picker';
+import Gallery from '../../components/products/gallery';
+import ProductDescription from '../../components/products/description';
+import ProductDimensionsPicker from '../../components/products/dimensions-picker';
+import ProductFeaturedImage from '../../components/products/featured-image';
 
 class EditProduct extends Component {
 
@@ -72,8 +72,7 @@ class EditProduct extends Component {
           errorMessage={ ErrorMessages.getProductFailed.message }
           retryAction={ () => this.attemptProductFetch() } >
 
-          <FeaturedImage
-            { ...this.props }
+          <ProductFeaturedImage
             image={ product.data.main_image }
           />
 

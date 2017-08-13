@@ -9,15 +9,26 @@ import * as tagActionCreators from '../../actions/products/tags/associate';
 
 class Gallery extends Component {
 
+  renderGallery() {
+    if (this.props.product.data.gallery) {
+      return ( <Row customClasses='inset-margin'>
+        {
+          this.props.product.data.gallery.map((item, i) =>
+            <Column customClasses='is-4' key={ i }>
+              <Card>
+                Image
+              </Card>
+            </Column>
+          )
+        }
+      </Row>);
+    }
+  }
+
   render() {
     return (
       <Column customClasses='is-4'>
-        <Row customClasses='inset-margin'>
-          <Column customClasses='is-4'>
-            <Card>
-            </Card>
-          </Column>
-        </Row>
+        { this.renderGallery() }
       </Column>
     );
   }
