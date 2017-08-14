@@ -19,8 +19,13 @@ class Gallery extends Component {
   }
 
   addGalleryImage(img, asset) {
+    let order = 0;
+    if (this.props.product.data.gallery.length > 0) {
+      order = (this.props.product.data.gallery[this.props.product.data.gallery.length - 1].order) + 1;
+    }
     console.log(img);
     console.log(asset);
+    console.log(order);
   }
 
   renderGallery() {
@@ -40,7 +45,9 @@ class Gallery extends Component {
       <Column customClasses='is-4'>
         <Row customClasses='inset-margin'>
           { this.renderGallery() }
-          <AddGalleryImage addGalleryImage={ (img, asset) => this.addGalleryImage(img, asset) }/>
+          <AddGalleryImage
+            addGalleryImage={ (img, asset) => this.addGalleryImage(img, asset) }
+          />
         </Row>
       </Column>
     );

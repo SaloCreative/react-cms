@@ -65,12 +65,9 @@ export const updateProduct = (id, body, tags, i = null) => ({
 export function editProduct(product) {
   return (dispatch) => {
     const tags = product.tags.slice();
-    return dispatch(updateProduct(product.id, product, tags)).then((response) => {
-      if (!response.error) {
-        return dispatch(assignTags(tags, product.id));
-      }
-    });
-  };
+    dispatch(updateProduct(product.id, product, tags));
+    dispatch(assignTags(tags, product.id));
+  }
 }
 
 export function toggleProductOnline(product, e, i) {
