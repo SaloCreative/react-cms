@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { Column, Row } from '@salocreative/react-ui';
 
-import * as tagActionCreators from '../../actions/products/tags/associate';
+import { getIndexByKey } from '../../actions/global/utilityFunctions';
+import * as productGalleryActionCreators from '../../actions/products/gallery';
 import AddGalleryImage from '../../components/core/image/add-gallery-image';
 import GalleryImage from '../../components/core/image/gallery-image';
 
@@ -19,13 +19,18 @@ class Gallery extends Component {
   }
 
   addGalleryImage(img, asset) {
+    const gallery = this.props.product.data.gallery;
     let order = 0;
-    if (this.props.product.data.gallery.length > 0) {
-      order = (this.props.product.data.gallery[this.props.product.data.gallery.length - 1].order) + 1;
+    //Check what order value new item needs
+    if (gallery.length > 0) {
+      order = (gallery[gallery.length - 1].order) + 1;
     }
-    console.log(img);
-    console.log(asset);
-    console.log(order);
+    // Check image isn't already assigned
+    const index = getIndexByKey(gallery, img);
+    if (index < 0) {
+      asset.order = order;
+      this.props.addImage(asset);
+    }
   }
 
   renderGallery() {
@@ -54,8 +59,12 @@ class Gallery extends Component {
   }
 }
 
+Gallery.propTypes = {
+  addImage: PropTypes.func
+};
+
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(tagActionCreators, dispatch);
+  return bindActionCreators(productGalleryActionCreators, dispatch);
 }
 
 function mapStateToProps(state) {

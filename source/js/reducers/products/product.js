@@ -20,6 +20,11 @@ import {
   REMOVE_PRODUCT_TAG_STATE,
 } from 'actions/products/tags/types';
 
+import {
+  PRODUCT_GALLERY_IMAGE_STATE_ADD,
+  PRODUCT_GALLERY_IMAGE_STATE_REMOVE
+} from '../../actions/products/gallery/types';
+
 const initialState = {
   data: {
     tags: []
@@ -172,6 +177,38 @@ function product(state = initialState, action) {
           tags: [
             ...state.data.tags.slice(0, index),
             ...state.data.tags.slice(index + 1)
+          ]
+        }
+      };
+
+    case PRODUCT_GALLERY_IMAGE_STATE_ADD :
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          saved: false
+        },
+        data: {
+          ...state.data,
+          gallery: [
+            ...state.data.gallery, action.payload.img
+          ]
+        }
+      };
+
+    case PRODUCT_GALLERY_IMAGE_STATE_REMOVE :
+      const j = getIndexByKey(state.data.tags, action.payload.tag.id);
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          saved: false
+        },
+        data: {
+          ...state.data,
+          tags: [
+            ...state.data.tags.slice(0, j),
+            ...state.data.tags.slice(j + 1)
           ]
         }
       };
