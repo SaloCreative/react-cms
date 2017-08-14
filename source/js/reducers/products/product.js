@@ -197,7 +197,7 @@ function product(state = initialState, action) {
       };
 
     case PRODUCT_GALLERY_IMAGE_STATE_REMOVE :
-      const j = getIndexByKey(state.data.tags, action.payload.tag.id);
+      const j = getIndexByKey(state.data.gallery, action.payload.img.id);
       return {
         ...state,
         meta: {
@@ -206,9 +206,9 @@ function product(state = initialState, action) {
         },
         data: {
           ...state.data,
-          tags: [
-            ...state.data.tags.slice(0, j),
-            ...state.data.tags.slice(j + 1)
+          gallery: [
+            ...state.data.gallery.slice(0, j),
+            ...state.data.gallery.slice(j + 1)
           ]
         }
       };

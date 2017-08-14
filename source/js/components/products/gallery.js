@@ -12,10 +12,13 @@ import GalleryImage from '../../components/core/image/gallery-image';
 
 class Gallery extends Component {
 
-  removeGalleryImage(img, asset, i) {
-    console.log(img);
-    console.log(i);
-    console.log(asset);
+  removeGalleryImage(img, asset) {
+    const gallery = this.props.product.data.gallery;
+    const index = getIndexByKey(gallery, img);
+    // Check image is already assigned
+    if (index >= 0) {
+      this.props.removeImage(asset);
+    }
   }
 
   addGalleryImage(img, asset) {
@@ -60,7 +63,8 @@ class Gallery extends Component {
 }
 
 Gallery.propTypes = {
-  addImage: PropTypes.func
+  addImage: PropTypes.func,
+  removeImage: PropTypes.func
 };
 
 function mapDispatchToProps(dispatch) {

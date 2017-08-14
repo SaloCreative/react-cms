@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 import { Column } from '@salocreative/react-ui';
 
@@ -30,7 +31,11 @@ export default class GalleryImage extends Component {
     if (image) {
       return (
         <Column customClasses='is-4'>
-          <div className='card gallery-image__image' style={{background: this.renderBackground()}}></div>
+          <div className='card gallery-image__image' style={{background: this.renderBackground()}}>
+            <a className='gallery-image__delete' onClick={ () => this.removeImage(image.id, image) }>
+              <FontAwesome name='times' />
+            </a>
+          </div>
         </Column>
       )
     }

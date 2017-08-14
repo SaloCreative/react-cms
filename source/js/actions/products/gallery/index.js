@@ -30,8 +30,8 @@ export function addImage(img) {
   };
 }
 
-export function removeImage(img, i) {
+export function removeImage(img) {
   return (dispatch) => {
-    return dispatch(stateRemoveImage(img, i));
+    return dispatch(stateRemoveImage(img));
   };
 }
