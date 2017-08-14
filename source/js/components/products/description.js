@@ -19,7 +19,7 @@ const config = {
   toolbarButtons: [
     'bold', 'italic', 'underline', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', 'insertLink', 'insertImage', 'insertVideo', 'insertTable', 'clearFormatting', 'html'
   ],
-  height:300
+  height:245
 };
 
 class ProductDescription extends Component {

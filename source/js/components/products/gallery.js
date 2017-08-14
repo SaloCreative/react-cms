@@ -4,27 +4,18 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Column, Row, Card } from '@salocreative/react-ui';
+import { Column, Row } from '@salocreative/react-ui';
 
 import * as tagActionCreators from '../../actions/products/tags/associate';
 import AddGalleryImage from '../../components/core/image/add-gallery-image';
+import GalleryImage from '../../components/core/image/gallery-image';
 
 class Gallery extends Component {
 
-  renderGallery() {
-    if (this.props.product.data.gallery) {
-      return ( <Row customClasses='inset-margin'>
-        {
-          this.props.product.data.gallery.map((item, i) =>
-            <Column customClasses='is-4' key={ i }>
-              <Card>
-                Image
-              </Card>
-            </Column>
-          )
-        }
-      </Row>);
-    }
+  removeGalleryImage(img, asset, i) {
+    console.log(img);
+    console.log(i);
+    console.log(asset);
   }
 
   addGalleryImage(img, asset) {
@@ -32,11 +23,25 @@ class Gallery extends Component {
     console.log(asset);
   }
 
+  renderGallery() {
+    if (this.props.product.data.gallery) {
+      return this.props.product.data.gallery.map((item, i) =>
+        <GalleryImage
+          key={ i }
+          image={ item }
+          onRemove={ (img, asset) => this.removeGalleryImage(img, asset, i) }
+        />
+      )
+    }
+  }
+
   render() {
     return (
       <Column customClasses='is-4'>
-        { this.renderGallery() }
-        <AddGalleryImage addGalleryImage={ (img, asset) => this.addGalleryImage(img, asset) }/>
+        <Row customClasses='inset-margin'>
+          { this.renderGallery() }
+          <AddGalleryImage addGalleryImage={ (img, asset) => this.addGalleryImage(img, asset) }/>
+        </Row>
       </Column>
     );
   }
