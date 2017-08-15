@@ -3,6 +3,7 @@ import { API, HEADER, ENDPOINT } from 'api';
 import { ApiError } from 'api/errorHandler';
 import ErrorMessages from 'constants/messages/errorMessages';
 import { assignTags } from './tags/associate';
+import { assignImages } from './gallery/index';
 
 import { ProductFilter } from './filter';
 
@@ -14,15 +15,18 @@ import {
   PRODUCT_SECTION_VALIDATION
 } from './types';
 
-function prepareData(json, tags) {
+function prepareData(json, tags, gallery) {
   let product = json;
   if (tags && tags !== null) {
     product.tags = tags;
   }
+  if (gallery && gallery !== null) {
+    product.gallery = gallery;
+  }
   return product;
 }
 
-export const updateProduct = (id, body, tags, i = null) => ({
+export const updateProduct = (id, body, tags, gallery, i = null) => ({
   [CALL_API]: {
     endpoint: `${ ENDPOINT(API.PRODUCTS.EDIT) }/${ id }`,
     method: 'PUT',
@@ -41,7 +45,7 @@ export const updateProduct = (id, body, tags, i = null) => ({
         payload: (action, state, res) => {
           return getJSON(res).then((json) => {
             return {
-              product: prepareData(json, tags),
+              product: prepareData(json, tags, gallery),
               i
             }
           });
@@ -65,8 +69,10 @@ export const updateProduct = (id, body, tags, i = null) => ({
 export function editProduct(product) {
   return (dispatch) => {
     const tags = product.tags.slice();
-    dispatch(updateProduct(product.id, product, tags));
+    const gallery = product.gallery.slice();
+    dispatch(updateProduct(product.id, product, tags, gallery));
     dispatch(assignTags(tags, product.id));
+    dispatch(assignImages(gallery, product.id));
   }
 }
 
@@ -78,7 +84,7 @@ export function toggleProductOnline(product, e, i) {
       title: product.title,
       online: e
     };
-    dispatch(updateProduct(product.id, fields, null, i));
+    dispatch(updateProduct(product.id, fields, null, null, i));
   };
 }
 
@@ -90,7 +96,7 @@ export function toggleProductStock(product, e, i) {
       title: product.title,
       inStock: e
     };
-    dispatch(updateProduct(product.id, fields, null, i));
+    dispatch(updateProduct(product.id, fields, null, null, i));
   };
 }
 

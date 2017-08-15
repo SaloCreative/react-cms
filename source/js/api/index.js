@@ -31,6 +31,9 @@ export const API = {
             UNASSIGN: 'products/tags/unassign/',
             UNASSIGN_MANY: 'products/tags/unassign/multiple/',
             MANAGE: 'products/tags/assign/update/'
+        },
+        GALLERY : {
+            MANAGE: 'products/gallery/manage/'
         }
     },
     MEDIA: {
