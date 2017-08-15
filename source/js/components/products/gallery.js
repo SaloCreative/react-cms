@@ -23,6 +23,7 @@ class Gallery extends Component {
 
   addGalleryImage(img, asset) {
     const gallery = this.props.product.data.gallery;
+    console.log(gallery);
     let order = 0;
     //Check what order value new item needs
     if (gallery.length > 0) {

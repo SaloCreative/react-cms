@@ -27,7 +27,8 @@ import {
 
 const initialState = {
   data: {
-    tags: []
+    tags: [],
+    gallery: []
   },
   meta: {
     last_updated: '',

@@ -3,6 +3,7 @@ import { API, HEADER, ENDPOINT } from 'api';
 import { ApiError } from 'api/errorHandler';
 import ErrorMessages from 'constants/messages/errorMessages';
 import { assignTags } from './tags/associate';
+import { assignImages } from './gallery/index';
 
 import { ProductFilter } from './filter';
 
@@ -13,10 +14,13 @@ import {
   CREATE_PRODUCT_FAILED
 } from './types';
 
-function prepareData(json, tags) {
+function prepareData(json, tags, gallery) {
   let product = json;
   if (tags && tags !== null) {
     product.tags = tags;
+  }
+  if (gallery && gallery !== null) {
+    product.gallery = gallery;
   }
   return product;
 }
@@ -28,7 +32,7 @@ export function addNewProduct() {
   };
 }
 
-export const saveNewProduct = (body, tags) => ({
+export const saveNewProduct = (body, tags, gallery) => ({
   [CALL_API]: {
     endpoint: `${ ENDPOINT(API.PRODUCTS.ADD) }`,
     method: 'POST',
@@ -43,7 +47,7 @@ export const saveNewProduct = (body, tags) => ({
         payload: (action, state, res) => {
           return getJSON(res).then((json) => {
             return {
-              product: prepareData(json, tags)
+              product: prepareData(json, tags, gallery)
             }
           });
         }
@@ -63,9 +67,11 @@ export const saveNewProduct = (body, tags) => ({
 export function createProduct(product) {
   return (dispatch) => {
     const tags = product.tags.slice();
-    return dispatch(saveNewProduct(product, tags)).then((response) => {
+    const gallery = product.gallery.slice();
+    return dispatch(saveNewProduct(product, tags, gallery)).then((response) => {
       if (!response.error && response.payload.product) {
-        return dispatch(assignTags(tags, response.payload.product.id));
+        dispatch(assignTags(tags, response.payload.product.id));
+        dispatch(assignImages(gallery, response.payload.product.id));
       }
     });
   };
