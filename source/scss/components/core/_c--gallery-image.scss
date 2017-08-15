@@ -42,4 +42,28 @@
 .gallery-image__image {
   padding: 50% 0;
   background-size: cover !important;
+  position: relative;
+}
+
+.gallery-image__delete {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff !important;
+  background: $salo-red;
+  opacity: 0;
+  cursor: pointer;
+  @include transition__opacity;
+}
+
+.gallery-image__image:hover {
+  .gallery-image__delete {
+    opacity: 1;
+  }
 }
