@@ -8,6 +8,13 @@ import SecondaryHeader from 'components/headers/secondary';
 
 import { routeCodes } from 'routes';
 
+const tabs = [
+  { title: 'General', key: 'general' },
+  { title: 'Inventory', key: 'inventory' },
+  { title: 'Sales & Leads', key: 'sales' },
+  { title: 'SEO', key: 'seo' }
+];
+
 export default class ProductsSecondaryHeader extends Component {
 
   checkAllValid() {
@@ -17,6 +24,12 @@ export default class ProductsSecondaryHeader extends Component {
 
   toggleSwitch(field, e) {
     this.props.productFieldChanged(field, e);
+  }
+
+  switchTab(tab) {
+    if (this.props.changeTab) {
+      this.props.changeTab(tab)
+    }
   }
 
   renderSaveButton() {
@@ -32,16 +45,19 @@ export default class ProductsSecondaryHeader extends Component {
     return <a className='editing-header__save disables' onClick={ () => this.props.saveEdits() }>{ label }</a>;
   }
 
+  renderTabs() {
+    return tabs.map((item, i) =>
+      <li key={ i }><a className={ this.props.activeTab === item.key ? 'active' : '' } onClick={ () => this.switchTab(item.key) }>{ item.title }</a></li>
+    );
+  }
+
   render() {
     const { product } = this.props;
     return (
       <SecondaryHeader>
         <Column customClasses='editing-header__left'>
           <ul className='editing-header__tabs-nav'>
-            <li className='active'>General</li>
-            <li>Inventory</li>
-            <li>Sales &amp; Leads</li>
-            <li>SEO</li>
+            { this.renderTabs() }
           </ul>
         </Column>
         <Column customClasses='editing-header__right'>
@@ -63,5 +79,7 @@ ProductsSecondaryHeader.defaultProps = {
 
 ProductsSecondaryHeader.propTypes = {
   product: PropTypes.object,
-  saveEdits: PropTypes.func
+  saveEdits: PropTypes.func,
+  changeTab: PropTypes.func,
+  activeTab: PropTypes.string
 };

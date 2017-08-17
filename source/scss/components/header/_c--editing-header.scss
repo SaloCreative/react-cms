@@ -45,8 +45,13 @@
     margin-right: 2.5rem;
     align-items: center;
     display: flex;
-    color: $grey;
     position: relative;
+  }
+  a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    color: $grey;
     @include transition__all;
     &.active {
       color: $dark-grey;

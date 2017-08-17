@@ -13,6 +13,7 @@ import { shouldUpdate } from 'actions/global/utilityFunctions';
 import { Column, Row, Card } from '@salocreative/react-ui';
 import LoadingWrapper from '@salocreative/react-loading-wrapper';
 import ErrorMessages from 'constants/messages/errorMessages';
+import Tab from '../../components/core/tab';
 
 // Containers
 import ProductWrapper from 'containers/products';
@@ -28,6 +29,13 @@ import ProductDimensionsPicker from '../../components/products/dimensions-picker
 import ProductFeaturedImage from '../../components/products/featured-image';
 
 class EditProduct extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      activeTab: 'general'
+    }
+  }
 
   componentWillMount() {
     this.props.getProduct(this.props.params.id);
@@ -50,6 +58,10 @@ class EditProduct extends Component {
    }
   }
 
+  changeTab(tab) {
+    this.setState({ activeTab: tab })
+  }
+
   render() {
     const { product, productCategories } = this.props;
     let displayContent = false;
@@ -62,8 +74,12 @@ class EditProduct extends Component {
           <title>Edit Product</title>
         </Helmet>
 
-        <ProductsSecondaryHeader { ...this.props }
-          saveEdits={ () => this.saveProduct() } />
+        <ProductsSecondaryHeader
+          { ...this.props }
+          saveEdits={ () => this.saveProduct() }
+          changeTab={ (tab) => this.changeTab(tab) }
+          activeTab={ this.state.activeTab }
+        />
 
         <LoadingWrapper
           display={ displayContent }
@@ -72,25 +88,45 @@ class EditProduct extends Component {
           errorMessage={ ErrorMessages.getProductFailed.message }
           retryAction={ () => this.attemptProductFetch() } >
 
-          <ProductFeaturedImage
-            image={ product.data.main_image }
-          />
+          <Tab item='general' currentItem={ this.state.activeTab }>
 
-          <ProductDetails
-            product={ product }
-            categories={ productCategories.data }
-            showErrors={ true }
-          />
+            <ProductFeaturedImage
+              image={ product.data.main_image }
+            />
 
-          <ProductTagsPicker />
+            <ProductDetails
+              product={ product }
+              categories={ productCategories.data }
+              showErrors={ true }
+            />
 
-          <Gallery />
+            <ProductTagsPicker />
 
-          <ProductDescription
-            content={ product.data.content }
-          />
+            <Gallery />
 
-          { /* <ProductDimensionsPicker /> */ }
+            <ProductDescription
+              content={ product.data.content }
+            />
+
+          </Tab>
+
+          <Tab item='inventory' currentItem={ this.state.activeTab }>
+            
+            <ProductDimensionsPicker />
+            
+          </Tab>
+
+          <Tab item='sales' currentItem={ this.state.activeTab }>
+            
+            Sale coming soon ...
+            
+          </Tab>
+
+          <Tab item='seo' currentItem={ this.state.activeTab }>
+            
+            Seo coming soon ...
+            
+          </Tab>
 
         </LoadingWrapper>
       </ProductWrapper>
