@@ -1,5 +1,5 @@
 .pagination {
-  padding: 25px 0 0!important;
+  padding: 0 0 2.5rem!important;
   a {
     color: $dark-grey;
   }
@@ -16,7 +16,8 @@
   .pagination__item,
   .pagination__previous,
   .pagination__next {
-    width: 50px !important;
-    height: 50px !important;
+    width: 4rem !important;
+    height: 4rem !important;
+    font-size: 1.4rem;
   }
 }

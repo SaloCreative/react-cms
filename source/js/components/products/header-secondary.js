@@ -39,7 +39,8 @@ export default class ProductsSecondaryHeader extends Component {
         <Column customClasses='editing-header__left'>
           <ul className='editing-header__tabs-nav'>
             <li className='active'>General</li>
-            <li>Inventory &amp; Sales</li>
+            <li>Inventory</li>
+            <li>Sales &amp; Leads</li>
             <li>SEO</li>
           </ul>
         </Column>

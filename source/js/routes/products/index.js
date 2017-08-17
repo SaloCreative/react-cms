@@ -48,9 +48,9 @@ class ProductIndex extends Component {
     };
   }
 
-  changePage() {
-    return (e) => {
-      filter.page = parseInt(e.target.getAttribute('data-page'));
+  changePage(page) {
+    return () => {
+      filter.page = parseInt(page);
       this.props.getProducts(filter);
     };
   }
@@ -102,8 +102,10 @@ class ProductIndex extends Component {
           total={ products.meta.total }
           page={ products.meta.current_page }
           perPage={ parseInt(products.meta.per_page) }
-          changePage={ (e) => this.changePage(e) }
-          styles={ paginationStyles } />
+          changePage={ (page) => this.changePage(page) }
+          styles={ paginationStyles }
+          pagesToShow={ 8 }
+        />
       );
     }
     return null;
@@ -164,9 +166,10 @@ class ProductIndex extends Component {
                 <ProductListItem { ...this.props } key={ i } i={ i } product={ product }/>
               )}
 
-              { this.renderPagination() }
-
             </DataTable>
+
+            { this.renderPagination() }
+
           </Column>
 
         </LoadingWrapper>
