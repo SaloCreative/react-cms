@@ -8,4 +8,8 @@ export const minLength = length => {
   return (fieldName) => `${fieldName} must be at least ${length} characters`;
 };
 
+export const maxLength = length => {
+  return (fieldName) => `${fieldName} must be no more than ${length} characters`;
+};
+
 export const isEmail = fieldName => `Must be a valid email address`;

@@ -27,6 +27,7 @@ import Gallery from '../../components/products/gallery';
 import ProductDescription from '../../components/products/description';
 import ProductDimensionsPicker from '../../components/products/dimensions-picker';
 import ProductFeaturedImage from '../../components/products/featured-image';
+import ProductSeoMeta from '../../components/products/seo/meta';
 
 class EditProduct extends Component {
 
@@ -124,7 +125,12 @@ class EditProduct extends Component {
 
           <Tab item='seo' currentItem={ this.state.activeTab }>
             
-            Seo coming soon ...
+          <ProductSeoMeta
+            productValidationChange={ this.props.productValidationChange }
+            productFieldChanged={ this.props.productFieldChanged }
+            product={ product }
+            showErrors={ true }
+          />
             
           </Tab>
 
