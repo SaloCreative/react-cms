@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class TextArea extends Component {
+export default class SaloTextArea extends Component {
 
   shouldDisplayError = () => {
     return this.props.validation;
+  };
+
+  renderRequired() {
+    if(!this.props.requiredAsterisk) { return null; }
+    return (
+      <sup>*</sup>
+    );
+  }
+
+  renderIcon() {
+    if(!this.props.icon) { return null; }
+    return (
+      <FontAwesome name={ this.props.icon } size='2x' />
+    );
+  };
+
+  auto_grow(element) {
+    console.log(element);
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight + 1)+"px";
   }
 
   render() {
     if (this.props.name) {
       return (
-        <div className={ `form__input-wrapper${ this.shouldDisplayError() ? ' invalid' : '' }` }>
-          <label htmlFor={ this.props.name } className={ (this.props.showLabel === true ? '' : 'sr-only') }>{this.props.placeholder}</label>
+        <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' }` } >
+          { this.renderIcon() }
           <textarea
-            className='form__textarea'
+            className={ `form__field ${ this.props.value || this.props.value === 0 ? 'has-value' : '' }` }
             ref={ this.props.name }
             placeholder={ this.props.placeholder }
             value={ this.props.value }
             onChange={ this.props.onFieldChanged }
+            onKeyUp={ (e) => this.auto_grow(e.target) }
           />
-          <span className='form__error'>{this.props.validation}</span>
+          <span className='bar' />
+          <label>{ this.props.label } { this.renderRequired() }</label>
+          <span className='form__error'>{ this.props.validation }</span>
         </div>
       );
     }
@@ -27,17 +50,19 @@ export default class TextArea extends Component {
   }
 }
 
-TextArea.defaultProps = {
-  type: 'text',
+SaloTextArea.defaultProps = {
   value: '',
-  showLabel: true
+  name: 'textarea',
+  icon: '',
+  requiredAsterisk: false
 };
 
-TextArea.propTypes = {
-  validation: PropTypes.string.isRequired,
+SaloTextArea.propTypes = {
+  validation: PropTypes.string,
+  requiredAsterisk: PropTypes.bool,
   onFieldChanged: PropTypes.func,
-  placeholder: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  label: PropTypes.string,
   value: PropTypes.any,
-  showLabel: PropTypes.bool
+  icon: PropTypes.string
 };

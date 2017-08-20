@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Column, Card } from '@salocreative/react-ui';
 import SaloFormInput from '../../forms/input';
+import SaloTextArea from '../../forms/textArea';
 
 import * as Rule from '../../../actions/forms/validation/rules';
 import { validate, runValidation } from '../../../actions/forms/validation/validator';
@@ -10,7 +11,8 @@ import { validate, runValidation } from '../../../actions/forms/validation/valid
 import * as productEditActions from 'actions/products/edit';
 
 const fieldValidations = [
-  validate('seo_title', 'SEO Title', Rule.maxLength(60))
+  validate('seo_title', 'SEO Title', Rule.maxLength(60)),
+  validate('seo_description', 'SEO Description', Rule.maxLength(160))
 ];
 
 
@@ -58,6 +60,13 @@ export default class ProductSeoMeta extends Component {
               value={ product.data.seo_title }
               onFieldChanged={ this.onChange('seo_title') }
               validation={ this.errorFor('seo_title') }
+            />
+            <SaloTextArea
+              name='seo_description'
+              label='SEO description'
+              value={ product.data.seo_description }
+              onFieldChanged={ this.onChange('seo_description') }
+              validation={ this.errorFor('seo_description') }
             />
           </div>
         </Card>

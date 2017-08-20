@@ -1,25 +1,24 @@
-.form__textarea-wrapper {
-  position: relative;
-  margin-bottom: 30px;
+textarea {
+  height: 35px;
+  min-height: 35px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $dark-grey;
+  background-color: transparent;
+  resize: none;
+  outline: none;
 }
 
-.form__textarea {
-  margin: 0 !important;
-  .invalid & {
-    border-bottom: 2px solid $salo-red;
-  }
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-  }
-  &::-webkit-input-placeholder {
-    color: $light-grey;
-  }
-  &::-moz-placeholder {
-    color: $light-grey;
-  }
-  &:-ms-input-placeholder {
-    color: $light-grey;
-  }
+textarea:focus {
+  outline: none;
+}
+
+/* active state */
+textarea:focus ~ label, textarea.has-value ~ label {
+  top: 0;
+  font-size: 14px;
 }
