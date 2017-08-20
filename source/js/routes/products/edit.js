@@ -48,7 +48,7 @@ class EditProduct extends Component {
 
   checkAllValid() {
     const { product } = this.props;
-    return product.meta.validations.details;
+    return product.meta.validations.details && product.meta.validations.tags;
   }
 
   saveProduct() {
@@ -95,13 +95,9 @@ class EditProduct extends Component {
               image={ product.data.main_image }
             />
 
-            <ProductDetails
-              product={ product }
-              categories={ productCategories.data }
-              showErrors={ true }
-            />
+            <ProductDetails showErrors={ true } />
 
-            <ProductTagsPicker />
+            <ProductTagsPicker showErrors={ true } />
 
             <Gallery />
 

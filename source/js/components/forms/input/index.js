@@ -24,7 +24,7 @@ export default class SaloFormInput extends Component {
 
   render() {
     return (
-      <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' }` } >
+      <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' } ${ this.props.customClasses }` } >
         { this.renderIcon() }
         <input className={ `form-field ${ this.props.value || this.props.value === 0 ? 'has-value' : '' }` }
                type={ this.props.type }
@@ -44,11 +44,13 @@ SaloFormInput.defaultProps = {
   value: '',
   name: 'form-field',
   icon: '',
-  requiredAsterisk: false
+  requiredAsterisk: false,
+  customClasses: ''
 };
 
 SaloFormInput.propTypes = {
   validation: PropTypes.string,
+  customClasses: PropTypes.string,
   requiredAsterisk: PropTypes.bool,
   onFieldChanged: PropTypes.func,
   name: PropTypes.string,

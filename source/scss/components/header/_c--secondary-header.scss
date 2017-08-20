@@ -6,11 +6,11 @@
   align-items: center;
   &:not(.simplified) {
     background: $white;
-    margin-bottom: 25px;
+    margin-bottom: 5rem;
     @include box-shadow;
   }
   &.pull-up {
-    margin-top: -25px;
+    margin-top: -5rem;
     border-top: 1px solid $grey;
     height: 81px;
   }

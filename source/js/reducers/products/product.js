@@ -35,7 +35,8 @@ const initialState = {
     failed: false,
     saved: true,
     validations: {
-      details: false
+      details: false,
+      tags: false
     }
   }
 };

@@ -46,9 +46,9 @@
     react-fontawesome "^1.6.1"
     react-router "3"
 
-"@salocreative/react-ui@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@salocreative/react-ui/-/react-ui-1.7.2.tgz#0fd1030c671bef05e6e5c162f79096dc9d859fdc"
+"@salocreative/react-ui@^1.7.3":
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/@salocreative/react-ui/-/react-ui-1.7.3.tgz#facd0d5b2aaa4cc097aa0dd589ce08759e5efbab"
   dependencies:
     prop-types "^15.5.10"
     react "^0.14.2"

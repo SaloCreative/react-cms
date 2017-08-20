@@ -1,6 +1,6 @@
 .form-group {
   position: relative;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
   padding-top: 2rem;
   width: 100%;
   &.has-icon {
@@ -18,6 +18,9 @@
     input, select {
       padding-left: 40px;
     }
+  }
+  &.tag-picker {
+    margin-bottom: 1rem;
   }
 }
 

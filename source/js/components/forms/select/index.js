@@ -16,9 +16,9 @@ export default class SaloFormSelect extends Component {
   }
 
   renderPlaceholder() {
-    if (!this.props.value) {
+    if (!this.props.value && this.props.placeholder) {
       return (
-        <option value=''></option>
+        <option value=''>{ this.props.placeholder }</option>
       );
     }
   };
@@ -32,9 +32,9 @@ export default class SaloFormSelect extends Component {
 
   render() {
     return (
-      <div className={ `form-group select-wrapper ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' }` }>
+      <div className={ `form-group select-wrapper ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' } ${ this.props.customClasses }` }>
         { this.renderIcon() }
-        <select className={ `form-field ${ this.props.value ? 'has-value' : '' }` }
+        <select className={ `form-field ${ this.props.value || this.props.placeholder ? 'has-value' : '' }` }
                 ref={ this.props.name }
                 value={ this.props.value }
                 onChange={ this.props.onFieldChanged }
@@ -56,16 +56,20 @@ SaloFormSelect.defaultProps = {
   label: 'Enter a label',
   name: 'a-select',
   icon: '',
-  requiredAsterisk: false
+  requiredAsterisk: false,
+  placeholder: 'Choose an option…',
+  customClasses: ''
 };
 
 SaloFormSelect.propTypes = {
   validation: PropTypes.string,
+  customClasses: PropTypes.string,
   requiredAsterisk: PropTypes.bool,
   onFieldChanged: PropTypes.func,
   name: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.any,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  placeholder: PropTypes.string
 };

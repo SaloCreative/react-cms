@@ -19,7 +19,7 @@ export default class ProductsSecondaryHeader extends Component {
 
   checkAllValid() {
     const { product } = this.props;
-    return product.meta.validations.details;
+    return product.meta.validations.details && product.meta.validations.tags;
   }
 
   toggleSwitch(field, e) {

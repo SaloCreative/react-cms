@@ -30,7 +30,7 @@ export default class SaloTextArea extends Component {
   render() {
     if (this.props.name) {
       return (
-        <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' }` } >
+        <div className={ `form-group ${ this.shouldDisplayError() ? 'invalid' : '' } ${ this.props.icon ? 'has-icon' : '' } ${ this.props.customClasses }` } >
           { this.renderIcon() }
           <textarea
             className={ `form__field ${ this.props.value || this.props.value === 0 ? 'has-value' : '' }` }
@@ -54,11 +54,13 @@ SaloTextArea.defaultProps = {
   value: '',
   name: 'textarea',
   icon: '',
-  requiredAsterisk: false
+  requiredAsterisk: false,
+  customClasses: ''
 };
 
 SaloTextArea.propTypes = {
   validation: PropTypes.string,
+  customClasses: PropTypes.string,
   requiredAsterisk: PropTypes.bool,
   onFieldChanged: PropTypes.func,
   name: PropTypes.string,

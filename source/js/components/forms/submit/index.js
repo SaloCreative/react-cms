@@ -19,9 +19,11 @@ export default class SaloFormSubmit extends Component {
 
 SaloFormSubmit.defaultProps = {
   value: 'Submit',
-  processing: false
+  processing: false,
+  customClasses: ''
 };
 
 SaloFormSubmit.propTypes = {
+  customClasses: PropTypes.string,
   value: PropTypes.any
 };
