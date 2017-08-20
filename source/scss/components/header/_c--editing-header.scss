@@ -1,7 +1,7 @@
 .editing-header__right {
   flex-direction: row;
   margin-left: auto;
-  height: 90px;
+  height: 80px;
   .switch__wrapper {
     margin-right: 2.5rem;
   }
@@ -11,7 +11,7 @@
   @include transition__all;
   display: flex;
   align-items: center;
-  width: 90px;
+  width: 80px;
   border-left: 1px solid $grey;
   border-right: 1px solid $grey;
   color: #fff;
@@ -36,13 +36,13 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  height: 90px;
+  height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
   li {
     text-transform: uppercase;
-    height: 90px;
+    height: 80px;
     margin-right: 2.5rem;
     align-items: center;
     display: flex;
