@@ -22,6 +22,9 @@ export const minLength = (length) => {
 
 export const maxLength = (length) => {
   return (text) => {
+    if (!text) {
+      return null;
+    }
     return text.length <= length ? null : ErrorMessages.maxLength(length);
   };
 };

@@ -34,7 +34,7 @@ class EditProduct extends Component {
   constructor() {
     super();
     this.state = {
-      activeTab: 'seo'
+      activeTab: 'general'
     }
   }
 

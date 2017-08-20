@@ -10,8 +10,9 @@ import * as productAddActions from 'actions/products/add';
 import * as productEditActions from 'actions/products/edit';
 
 // General components
-import { shouldUpdate } from 'actions/global/utilityFunctions';
+import { shouldUpdate } from '../../actions/global/utilityFunctions';
 import { Column, Row, Card } from '@salocreative/react-ui';
+import Tab from '../../components/core/tab';
 
 // Containers
 import ProductWrapper from 'containers/products';
@@ -25,6 +26,7 @@ import Gallery from '../../components/products/gallery';
 import ProductDescription from '../../components/products/description';
 import ProductDimensionsPicker from '../../components/products/dimensions-picker';
 import ProductFeaturedImage from '../../components/products/featured-image';
+import ProductSeoMeta from '../../components/products/seo/meta';
 
 class AddProduct extends Component {
 
@@ -34,7 +36,8 @@ class AddProduct extends Component {
       sections: {
         details: false
       },
-      valid: false
+      valid: false,
+      activeTab: 'general'
     }
   }
 
@@ -59,6 +62,10 @@ class AddProduct extends Component {
     }
   }
 
+  changeTab(tab) {
+    this.setState({ activeTab: tab })
+  }
+
   render() {
     const { productCategories, product } = this.props;
     return (
@@ -67,26 +74,55 @@ class AddProduct extends Component {
             <title>Add Product</title>
         </Helmet>
 
-        <ProductsSecondaryHeader { ...this.props }
-          saveEdits={ () => this.saveProduct() } />
+        <ProductsSecondaryHeader
+          { ...this.props }
+          saveEdits={ () => this.saveProduct() }
+          changeTab={ (tab) => this.changeTab(tab) }
+          activeTab={ this.state.activeTab }
+        />
 
         <Row>
-          <ProductFeaturedImage
-            image={ product.data.main_image }
-          />
+          <Tab item='general' currentItem={ this.state.activeTab }>
+            <ProductFeaturedImage
+              image={ product.data.main_image }
+            />
 
-          <ProductDetails
-            product={ product }
-            categories={ productCategories.data }
-          />
+            <ProductDetails
+              product={ product }
+              categories={ productCategories.data }
+            />
 
-          <ProductTagsPicker />
+            <ProductTagsPicker />
 
-          <Gallery />
+            <Gallery />
 
-          <ProductDescription />
+            <ProductDescription />
 
-          { /* <ProductDimensionsPicker /> */ }
+          </Tab>
+
+          <Tab item='inventory' currentItem={ this.state.activeTab }>
+
+            <ProductDimensionsPicker />
+
+          </Tab>
+
+          <Tab item='sales' currentItem={ this.state.activeTab }>
+
+            Sale coming soon ...
+
+          </Tab>
+
+          <Tab item='seo' currentItem={ this.state.activeTab }>
+
+            <ProductSeoMeta
+              productValidationChange={ this.props.productValidationChange }
+              productFieldChanged={ this.props.productFieldChanged }
+              product={ product }
+              showErrors={ true }
+            />
+
+          </Tab>
+
         </Row>
       </ProductWrapper>
     );
